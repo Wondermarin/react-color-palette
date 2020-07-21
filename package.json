@@ -1,0 +1,40 @@
+{
+  "name": "react-color-palette",
+  "version": "1.0.2",
+  "private": false,
+  "description": "Color picker for React",
+  "author": "Wondermarin",
+  "main": "dist/index",
+  "types": "types/index.d.ts",
+  "homepage": "https://github.com/Wondermarin/react-color-palette",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wondermarin/react-color-palette"
+  },
+  "bugs": {
+    "url": "https://github.com/Wondermarin/react-color-palette/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "react-component",
+    "color-palette",
+    "color palette",
+    "color-picker",
+    "color picker"
+  ],
+  "files": [
+    "dist/",
+    "types/"
+  ],
+  "peerDependencies": {
+    "styled-components": "^5.1.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.43",
+    "@types/styled-components": "^5.1.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "^3.4.1"
+  }
+}
