@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 
-import { moveAt, getColor, changeHue, getColorCoordinates } from "./utils";
+import { moveAt, getColor, getColorCoordinates } from "./utils";
 
 import { ColorPickerProps } from "./types";
 
@@ -77,15 +77,6 @@ export const ColorPicker = ({
   }, [palette, width, hue]);
 
   useEffect(() => {
-    if (!color.inputted) {
-      const newColor = changeHue(hue, color.hsb, false);
-
-      setColor(newColor);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hue]);
-
-  useEffect(() => {
     if (palette.current && color.inputted) {
       const [hue, x, y] = getColorCoordinates(color, palette.current);
 
@@ -123,7 +114,7 @@ export const ColorPicker = ({
 
   const mouseDown = (e: React.MouseEvent) => {
     if (palette.current) {
-      if (e.button === 2) return;
+      if (e.button !== 0) return;
 
       document.getSelection()?.empty();
 
@@ -142,8 +133,6 @@ export const ColorPicker = ({
 
       document.addEventListener("mousemove", mouseMove);
       document.addEventListener("mouseup", mouseUp);
-    } else {
-      return;
     }
   };
 

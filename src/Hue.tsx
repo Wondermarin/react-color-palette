@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 
-import { moveAt, getHue, getHueCoordinates } from "./utils";
+import { moveAt, getHue, changeHue, getHueCoordinates } from "./utils";
 
 import { HueBarStyleProps, HueProps } from "./types";
 
@@ -36,7 +36,7 @@ const HueBarCursor = styled.div`
   box-sizing: content-box;
 `;
 
-export const Hue = ({ width, color, hue, setHue }: HueProps) => {
+export const Hue = ({ width, color, setColor, hue, setHue }: HueProps) => {
   const hueBar = useRef<HTMLDivElement>(null);
   const hueBarCursor = useRef<HTMLDivElement>(null);
 
@@ -72,13 +72,14 @@ export const Hue = ({ width, color, hue, setHue }: HueProps) => {
         hueBar.current.offsetWidth - hueBarCursor.current.offsetWidth
       );
 
+      setColor(changeHue(hue, color.hsb, false));
       setHue(hue);
     }
   };
 
   const mouseDown = (e: React.MouseEvent) => {
     if (hueBar.current) {
-      if (e.button === 2) return;
+      if (e.button !== 0) return;
 
       document.getSelection()?.empty();
 

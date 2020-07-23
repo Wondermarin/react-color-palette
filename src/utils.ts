@@ -147,6 +147,9 @@ export const color2colorObject = (
     case "RGB":
       if (typeof color !== "string") newColor = rgb2hex(...color);
       break;
+    case "HSB":
+      if (typeof color !== "string") newColor = rgb2hex(...hsb2rgb(...color));
+      break;
     default:
       break;
   }

@@ -46,6 +46,7 @@ export interface HueBarStyleProps {
 export interface HueProps {
   width: number;
   color: ColorObject;
+  setColor: Dispatch<ColorObject>;
   hue: number;
   setHue: Dispatch<number>;
 }

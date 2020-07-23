@@ -91,6 +91,9 @@ export const ColorModelDropdown = ({
         <DropDownMenuElement onClick={menuElementClick}>
           RGB
         </DropDownMenuElement>
+        <DropDownMenuElement onClick={menuElementClick}>
+          HSB
+        </DropDownMenuElement>
       </DropDownMenu>
     </DropDownRoot>
   );

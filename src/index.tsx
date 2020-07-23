@@ -49,7 +49,13 @@ const ColorPalette = ({ width, color, onChange }: ColorPaletteProps) => {
           setHue={setHue}
         />
         <PaletteBody width={width}>
-          <Hue width={width} color={currentColor} hue={hue} setHue={setHue} />
+          <Hue
+            width={width}
+            color={currentColor}
+            setColor={setCurrentColor}
+            hue={hue}
+            setHue={setHue}
+          />
           <ColorInput color={currentColor} setColor={setCurrentColor} />
         </PaletteBody>
       </Palette>

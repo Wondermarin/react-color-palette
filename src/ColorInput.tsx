@@ -50,7 +50,7 @@ export const ColorInput = ({ color, setColor }: ColorInputProps) => {
       }
 
       setValue(newColorObject);
-    } else {
+    } else if (colorModel === "RGB") {
       if (
         (/\d/.test(e.target.value) && e.target.valueAsNumber <= 255) ||
         e.target.value === ""
@@ -70,6 +70,53 @@ export const ColorInput = ({ color, setColor }: ColorInputProps) => {
 
         setColor(color2colorObject(newColor, true, colorModel));
         setValue(newColorObject);
+      }
+    } else {
+      if (e.target.id === "hue") {
+        if (
+          (/\d/.test(e.target.value) && e.target.valueAsNumber <= 360) ||
+          e.target.value === ""
+        ) {
+          const newColor: [number, number, number] = [
+            e.target.valueAsNumber,
+            color.hsb[1],
+            color.hsb[2],
+          ];
+          const newColorObject = {
+            ...color,
+            hsb: newColor,
+          };
+
+          setColor(color2colorObject(newColor, true, colorModel));
+          setValue(newColorObject);
+        }
+      } else {
+        if (
+          (/\d/.test(e.target.value) && e.target.valueAsNumber <= 100) ||
+          e.target.value === ""
+        ) {
+          const saturation =
+            e.target.id === "saturation"
+              ? e.target.valueAsNumber
+              : color.hsb[1];
+          const brightness =
+            e.target.id === "brightness"
+              ? e.target.valueAsNumber
+              : color.hsb[2];
+
+          const newColor: [number, number, number] = [
+            color.hsb[0],
+            saturation,
+            brightness,
+          ];
+          const newColorObject = {
+            ...color,
+            hsb: newColor,
+          };
+
+          setColor(color2colorObject(newColor, true, colorModel));
+          setValue(newColorObject);
+        }
       }
     }
   };
@@ -93,38 +140,38 @@ export const ColorInput = ({ color, setColor }: ColorInputProps) => {
       ) : (
         <>
           <Input
-            id="red"
+            id={colorModel === "RGB" ? "red" : "hue"}
             style={{
               backgroundColor: `rgba(${color.rgb[0]}, ${color.rgb[1]}, ${color.rgb[2]}, 0.2)`,
             }}
             type="number"
             min={0}
-            max={255}
-            value={value.rgb[0]}
+            max={colorModel === "RGB" ? 255 : 360}
+            value={colorModel === "RGB" ? value.rgb[0] : value.hsb[0].toFixed()}
             onChange={change}
             onBlur={blur}
           />
           <Input
-            id="green"
+            id={colorModel === "RGB" ? "green" : "saturation"}
             style={{
               backgroundColor: `rgba(${color.rgb[0]}, ${color.rgb[1]}, ${color.rgb[2]}, 0.2)`,
             }}
             type="number"
             min={0}
-            max={255}
-            value={value.rgb[1]}
+            max={colorModel === "RGB" ? 255 : 100}
+            value={colorModel === "RGB" ? value.rgb[1] : value.hsb[1].toFixed()}
             onChange={change}
             onBlur={blur}
           />
           <Input
-            id="blue"
+            id={colorModel === "RGB" ? "blue" : "brightness"}
             style={{
               backgroundColor: `rgba(${color.rgb[0]}, ${color.rgb[1]}, ${color.rgb[2]}, 0.2)`,
             }}
             type="number"
             min={0}
-            max={255}
-            value={value.rgb[2]}
+            max={colorModel === "RGB" ? 255 : 100}
+            value={colorModel === "RGB" ? value.rgb[2] : value.hsb[2].toFixed()}
             lastInput={true}
             onChange={change}
             onBlur={blur}
