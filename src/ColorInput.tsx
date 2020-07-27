@@ -1,32 +1,48 @@
-import React, { useState, useEffect } from "react";
+import React, { Dispatch, useState, useEffect } from "react";
 import styled from "styled-components";
 
 import { ColorModelDropdown } from "./ColorModelDropdown";
 
 import { isValidHex, color2colorObject, changeColorType } from "./utils";
 
-import { StyleProps, ColorInputStyleProps, ColorInputProps } from "./types";
+import { ColorObject, StyleProps } from ".";
+
+export interface InputProps {
+  lastInput?: boolean;
+}
+
+export interface ColorInputProps {
+  color: ColorObject;
+  setColor: Dispatch<ColorObject>;
+}
 
 const SelectedField = styled.div`
   display: flex;
+
   margin: 10px 0 0;
 `;
 
-const Input = styled.input<ColorInputStyleProps>`
+const Input = styled.input<InputProps>`
   width: 100%;
+
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 700;
+
   color: ${({ theme }: StyleProps) => theme.text};
+
   border: 2px solid ${({ theme }: StyleProps) => theme.dropDownBg};
   border-radius: ${props => (props.lastInput ? "0 5px 5px 0" : 0)};
-  outline: none;
+
   padding: 0 5px;
+
+  outline: none;
 
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
     margin: 0;
+
+    -webkit-appearance: none;
   }
 `;
 

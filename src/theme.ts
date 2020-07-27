@@ -1,4 +1,12 @@
-import { Theme } from "./types";
+export interface Theme {
+  text: string;
+  background: string;
+  dropDownText: string;
+  dropDownBg: string;
+  dropDownBgHover: string;
+  dropDownMenuBg: string;
+  dropDownMenuElementBgHover: string;
+}
 
 export const lightTheme: Theme = {
   text: "#000000",

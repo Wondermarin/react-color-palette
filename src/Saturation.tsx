@@ -1,13 +1,23 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { Dispatch, useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 
 import { moveAt, getColor, getColorCoordinates } from "./utils";
 
-import { ColorPickerProps } from "./types";
+import { ColorObject } from ".";
 
-const Palette = styled.div`
+interface SaturationProps {
+  paletteWidth: number;
+  color: ColorObject;
+  setColor: Dispatch<ColorObject>;
+  hue: number;
+  setHue: Dispatch<number>;
+}
+
+const Body = styled.div`
   display: flex;
+
   position: relative;
+
   user-select: none;
 `;
 
@@ -15,24 +25,27 @@ const Cursor = styled.div`
   position: absolute;
   left: 0;
   top: 0;
+
   width: 10px;
   height: 10px;
+
   background-color: white;
   border: 2px solid white;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 0.5px;
+
   transform: translate(-7px, -7px);
-  pointer-events: none;
+
   box-sizing: content-box;
 `;
 
-export const ColorPicker = ({
-  width,
+export const Saturation = ({
+  paletteWidth,
   color,
   setColor,
   hue,
   setHue,
-}: ColorPickerProps) => {
+}: SaturationProps) => {
   const palette = useRef<HTMLCanvasElement>(null);
 
   const [x, setX] = useState(0);
@@ -46,35 +59,35 @@ export const ColorPicker = ({
         if (ctx) {
           const saturation = ctx.createLinearGradient(
             0,
-            width / 2,
-            width,
-            width / 2
+            paletteWidth / 2,
+            paletteWidth,
+            paletteWidth / 2
           );
 
           saturation.addColorStop(0, "white");
           saturation.addColorStop(1, `hsl(${hue}, 100%, 50%)`);
 
           ctx.fillStyle = saturation;
-          ctx.fillRect(0, 0, width, width);
+          ctx.fillRect(0, 0, paletteWidth, paletteWidth);
 
           const brightness = ctx.createLinearGradient(
-            width / 2,
+            paletteWidth / 2,
             0,
-            width / 2,
-            width
+            paletteWidth / 2,
+            paletteWidth
           );
 
           brightness.addColorStop(0, "transparent");
           brightness.addColorStop(1, "black");
 
           ctx.fillStyle = brightness;
-          ctx.fillRect(0, 0, width, width);
+          ctx.fillRect(0, 0, paletteWidth, paletteWidth);
         }
       }
     };
 
     if (palette.current) drawPalette();
-  }, [palette, width, hue]);
+  }, [palette, paletteWidth, hue]);
 
   useEffect(() => {
     if (palette.current && color.inputted) {
@@ -137,14 +150,14 @@ export const ColorPicker = ({
   };
 
   return (
-    <Palette>
+    <Body>
       <canvas
         ref={palette}
-        width={width}
-        height={width}
+        width={paletteWidth}
+        height={paletteWidth}
         onMouseDown={mouseDown}
       />
       <Cursor style={{ left: x, top: y, backgroundColor: color.hex }} />
-    </Palette>
+    </Body>
   );
 };

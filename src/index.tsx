@@ -1,36 +1,59 @@
 import React, { useState, useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
 
-import { ColorPicker } from "./ColorPicker";
+import { Saturation } from "./Saturation";
 import { Hue } from "./Hue";
 import { ColorInput } from "./ColorInput";
 
 import { color2colorObject } from "./utils";
-import { lightTheme } from "./theme";
+import { lightTheme, Theme } from "./theme";
 
-import { StyleProps, PaletteBodyStyleProps, ColorPaletteProps } from "./types";
+export interface StyleProps {
+  theme: Theme;
+}
 
-const Palette = styled.div`
+export interface ColorObject {
+  hsb: number[];
+  rgb: number[];
+  hex: string;
+  inputted: boolean;
+}
+
+interface ColorPickerOptionsProps {
+  paletteWidth: number;
+}
+
+interface ColorPickerProps {
+  width: number;
+  color: string;
+  onChange: (color: ColorObject) => void;
+}
+
+const ColorPickerBody = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
   width: max-content;
+
   background-color: ${({ theme }: StyleProps) => theme.background};
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 0.5px;
 `;
 
-const PaletteBody = styled.div<PaletteBodyStyleProps>`
+const ColorPickerOptions = styled.div<ColorPickerOptionsProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: ${props => props.width - 20}px;
+
+  width: ${props => props.paletteWidth - 20}px;
+
   padding: 10px 0;
 `;
 
-const ColorPalette = ({ width, color, onChange }: ColorPaletteProps) => {
+const ColorPicker = ({ width, color, onChange }: ColorPickerProps) => {
   const [currentColor, setCurrentColor] = useState(
-    typeof color === "string" ? color2colorObject(color, true, "HEX") : color
+    color2colorObject(color, true, "HEX")
   );
   const [hue, setHue] = useState(0);
 
@@ -40,27 +63,27 @@ const ColorPalette = ({ width, color, onChange }: ColorPaletteProps) => {
 
   return (
     <ThemeProvider theme={lightTheme}>
-      <Palette>
-        <ColorPicker
-          width={width}
+      <ColorPickerBody>
+        <Saturation
+          paletteWidth={width}
           color={currentColor}
           setColor={setCurrentColor}
           hue={hue}
           setHue={setHue}
         />
-        <PaletteBody width={width}>
+        <ColorPickerOptions paletteWidth={width}>
           <Hue
-            width={width}
+            paletteWidth={width}
             color={currentColor}
             setColor={setCurrentColor}
             hue={hue}
             setHue={setHue}
           />
           <ColorInput color={currentColor} setColor={setCurrentColor} />
-        </PaletteBody>
-      </Palette>
+        </ColorPickerOptions>
+      </ColorPickerBody>
     </ThemeProvider>
   );
 };
 
-export default ColorPalette;
+export default ColorPicker;

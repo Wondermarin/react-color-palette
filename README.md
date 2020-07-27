@@ -5,9 +5,13 @@ Color picker for React
 
 # Installation
 
+### npm
 ```sh
 npm install react-color-palette styled-components
+```
 
+### yarn
+```sh
 yarn add react-color-palette styled-components
 ```
 
@@ -15,13 +19,13 @@ yarn add react-color-palette styled-components
 
 ```js
 import React, { useState } from "react";
-import ColorPalette from "react-color-palette";
+import ColorPicker from "react-color-palette";
 
 export const App = () => {
   const [color, setColor] = useState("#121212");
 
   return (
-    <ColorPalette
+    <ColorPicker
       width={225}
       color={color}
       onChange={color => setColor(color.hex)}
@@ -32,13 +36,13 @@ export const App = () => {
 
 # Props
 
-## width
+### width
 The width of the palette (since the palette is square, the same value will be used for the height).
 
-## color
+### color
 Initial color (HEX or HTML Color Name).
 
-## onChange
+### onChange
 A function that accepts an object of the updated color as a single argument. The object contains 3 color models: hex, rgb and hsb.
 
 # License

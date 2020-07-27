@@ -1,6 +1,6 @@
 import { Dispatch } from "react";
 
-import { ColorObject } from "./types";
+import { ColorObject } from ".";
 
 export const hsb2rgb = (
   hue: number,

@@ -1,14 +1,28 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { Dispatch, useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 
 import { moveAt, getHue, changeHue, getHueCoordinates } from "./utils";
 
-import { HueBarStyleProps, HueProps } from "./types";
+import { ColorObject } from ".";
 
-const HueBar = styled.div<HueBarStyleProps>`
+export interface HueBarProps {
+  paletteWidth: number;
+}
+
+export interface HueProps {
+  paletteWidth: number;
+  color: ColorObject;
+  setColor: Dispatch<ColorObject>;
+  hue: number;
+  setHue: Dispatch<number>;
+}
+
+const HueBar = styled.div<HueBarProps>`
   position: relative;
-  width: ${props => props.width - 20}px;
+
+  width: ${props => props.paletteWidth - 20}px;
   height: 12px;
+
   background-image: linear-gradient(
     to right,
     rgb(255, 0, 0),
@@ -20,6 +34,7 @@ const HueBar = styled.div<HueBarStyleProps>`
     rgb(255, 0, 0)
   );
   border-radius: 10px;
+
   user-select: none;
 `;
 
@@ -27,16 +42,26 @@ const HueBarCursor = styled.div`
   position: absolute;
   left: 8px;
   top: 0;
+
   width: 12px;
   height: 12px;
+
   border: 2px solid white;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 0.5px;
+
   transform: translate(-8px, -2px);
+
   box-sizing: content-box;
 `;
 
-export const Hue = ({ width, color, setColor, hue, setHue }: HueProps) => {
+export const Hue = ({
+  paletteWidth,
+  color,
+  setColor,
+  hue,
+  setHue,
+}: HueProps) => {
   const hueBar = useRef<HTMLDivElement>(null);
   const hueBarCursor = useRef<HTMLDivElement>(null);
 
@@ -83,7 +108,7 @@ export const Hue = ({ width, color, setColor, hue, setHue }: HueProps) => {
 
       document.getSelection()?.empty();
 
-      const shiftX = hueBar.current.offsetLeft;
+      const { left: shiftX } = hueBar.current.getBoundingClientRect();
 
       moveCursor(e, shiftX);
 
@@ -99,8 +124,11 @@ export const Hue = ({ width, color, setColor, hue, setHue }: HueProps) => {
   };
 
   return (
-    <HueBar ref={hueBar} width={width} onMouseDown={mouseDown}>
-      <HueBarCursor ref={hueBarCursor} style={{ left: x }} />
+    <HueBar ref={hueBar} paletteWidth={paletteWidth} onMouseDown={mouseDown}>
+      <HueBarCursor
+        ref={hueBarCursor}
+        style={{ left: x, backgroundColor: `hsl(${color.hsb[0]}, 100%, 50%)` }}
+      />
     </HueBar>
   );
 };
