@@ -35,6 +35,7 @@ const Cursor = styled.div`
   transform: translate(-7px, -7px);
 
   box-sizing: content-box;
+  pointer-events: none;
 `;
 
 export const Saturation = ({
