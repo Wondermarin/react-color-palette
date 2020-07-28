@@ -1,7 +1,7 @@
 import React, { Dispatch, useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 
-import { moveAt, getColor, getColorCoordinates } from "./utils";
+import { getColor, getColorCoordinates, moveAt } from "./utils";
 
 import { ColorObject } from ".";
 
@@ -9,8 +9,6 @@ interface SaturationProps {
   paletteWidth: number;
   color: ColorObject;
   setColor: Dispatch<ColorObject>;
-  hue: number;
-  setHue: Dispatch<number>;
 }
 
 const Body = styled.div`
@@ -43,8 +41,6 @@ export const Saturation = ({
   paletteWidth,
   color,
   setColor,
-  hue,
-  setHue,
 }: SaturationProps) => {
   const palette = useRef<HTMLCanvasElement>(null);
 
@@ -65,7 +61,7 @@ export const Saturation = ({
           );
 
           saturation.addColorStop(0, "white");
-          saturation.addColorStop(1, `hsl(${hue}, 100%, 50%)`);
+          saturation.addColorStop(1, `hsl(${color.hsb[0]}, 100%, 50%)`);
 
           ctx.fillStyle = saturation;
           ctx.fillRect(0, 0, paletteWidth, paletteWidth);
@@ -87,13 +83,13 @@ export const Saturation = ({
     };
 
     if (palette.current) drawPalette();
-  }, [palette, paletteWidth, hue]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [palette, paletteWidth, color.hsb[0]]);
 
   useEffect(() => {
     if (palette.current && color.inputted) {
-      const [hue, x, y] = getColorCoordinates(color, palette.current);
+      const [x, y] = getColorCoordinates(color, palette.current);
 
-      setHue(hue);
       setX(x);
       setY(y);
     }
@@ -119,9 +115,9 @@ export const Saturation = ({
         palette.current.offsetHeight,
         setY
       );
-      const color = getColor(hue, x, y, palette.current, false);
+      const newColor = getColor(color.hsb[0], x, y, palette.current, false);
 
-      setColor(color);
+      setColor(newColor);
     }
   };
 

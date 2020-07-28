@@ -13,8 +13,6 @@ export interface HueProps {
   paletteWidth: number;
   color: ColorObject;
   setColor: Dispatch<ColorObject>;
-  hue: number;
-  setHue: Dispatch<number>;
 }
 
 const HueBar = styled.div<HueBarProps>`
@@ -55,13 +53,7 @@ const HueBarCursor = styled.div`
   box-sizing: content-box;
 `;
 
-export const Hue = ({
-  paletteWidth,
-  color,
-  setColor,
-  hue,
-  setHue,
-}: HueProps) => {
+export const Hue = ({ paletteWidth, color, setColor }: HueProps) => {
   const hueBar = useRef<HTMLDivElement>(null);
   const hueBarCursor = useRef<HTMLDivElement>(null);
 
@@ -70,7 +62,7 @@ export const Hue = ({
   useEffect(() => {
     if (hueBar.current && hueBarCursor.current && color.inputted) {
       const x = getHueCoordinates(
-        hue,
+        color.hsb[0],
         0 + hueBarCursor.current.offsetWidth / 2,
         hueBar.current.offsetWidth - hueBarCursor.current.offsetWidth / 2,
         hueBar.current.offsetWidth - hueBarCursor.current.offsetWidth,
@@ -80,7 +72,7 @@ export const Hue = ({
       setX(x);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hue]);
+  }, [color.hsb[0]]);
 
   const moveCursor = (e: React.MouseEvent | MouseEvent, shiftX: number) => {
     if (hueBar.current && hueBarCursor.current) {
@@ -97,8 +89,7 @@ export const Hue = ({
         hueBar.current.offsetWidth - hueBarCursor.current.offsetWidth
       );
 
-      setColor(changeHue(hue, color.hsb, false));
-      setHue(hue);
+      setColor(changeHue(color, hue));
     }
   };
 

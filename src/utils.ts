@@ -211,15 +211,11 @@ export const moveAt = (
 };
 
 export const changeHue = (
+  color: ColorObject,
   newHue: number,
-  currentHSB: number[],
-  inputted: boolean
+  inputted: boolean = false
 ): ColorObject => {
-  const newHSB: [number, number, number] = [
-    newHue,
-    currentHSB[1],
-    currentHSB[2],
-  ];
+  const newHSB: [number, number, number] = [newHue, color.hsb[1], color.hsb[2]];
 
   return {
     hsb: newHSB,
@@ -256,14 +252,14 @@ export const getColorCoordinates = (
   color: ColorObject,
   palette: HTMLCanvasElement
 ) => {
-  const [h, s, b] = color.hsb;
+  const [, s, b] = color.hsb;
 
   const X = palette.clientWidth / 100;
   const Y = palette.clientHeight / 100;
   const x = s * X;
   const y = (100 - b) * Y;
 
-  return [h, x, y];
+  return [x, y];
 };
 
 export const getHue = (x: number, width: number): number => {

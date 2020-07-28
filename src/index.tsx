@@ -13,8 +13,8 @@ export interface StyleProps {
 }
 
 export interface ColorObject {
-  hsb: number[];
-  rgb: number[];
+  hsb: [number, number, number];
+  rgb: [number, number, number];
   hex: string;
   inputted: boolean;
 }
@@ -55,7 +55,6 @@ const ColorPicker = ({ width, color, onChange }: ColorPickerProps) => {
   const [currentColor, setCurrentColor] = useState(
     color2colorObject(color, true, "HEX")
   );
-  const [hue, setHue] = useState(0);
 
   useEffect(() => {
     onChange(currentColor);
@@ -68,16 +67,12 @@ const ColorPicker = ({ width, color, onChange }: ColorPickerProps) => {
           paletteWidth={width}
           color={currentColor}
           setColor={setCurrentColor}
-          hue={hue}
-          setHue={setHue}
         />
         <ColorPickerOptions paletteWidth={width}>
           <Hue
             paletteWidth={width}
             color={currentColor}
             setColor={setCurrentColor}
-            hue={hue}
-            setHue={setHue}
           />
           <ColorInput color={currentColor} setColor={setCurrentColor} />
         </ColorPickerOptions>
