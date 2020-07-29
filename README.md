@@ -7,12 +7,12 @@ Color picker for React
 
 ### npm
 ```sh
-npm install react-color-palette styled-components
+npm install react-color-palette
 ```
 
 ### yarn
 ```sh
-yarn add react-color-palette styled-components
+yarn add react-color-palette
 ```
 
 # Usage
@@ -27,7 +27,7 @@ export const App = () => {
   return (
     <ColorPicker
       width={225}
-      color={color}
+      defaultColor={color}
       onChange={color => setColor(color.hex)}
     />
   );
@@ -37,9 +37,12 @@ export const App = () => {
 # Props
 
 ### width
-The width of the palette (since the palette is square, the same value will be used for the height).
+The width of the color picker.
 
-### color
+### height (optional)
+The height of the color picker.
+
+### defaultColor
 Initial color (HEX or HTML Color Name).
 
 ### onChange
