@@ -1,14 +1,18 @@
-export interface Theme {
-  text: string;
-  background: string;
-  dropDownText: string;
-  dropDownBg: string;
-  dropDownBgHover: string;
-  dropDownMenuBg: string;
-  dropDownMenuElementBgHover: string;
+import { DefaultTheme } from "styled-components";
+
+declare module "styled-components" {
+  export interface DefaultTheme {
+    text: string;
+    background: string;
+    dropDownText: string;
+    dropDownBg: string;
+    dropDownBgHover: string;
+    dropDownMenuBg: string;
+    dropDownMenuElementBgHover: string;
+  }
 }
 
-export const lightTheme: Theme = {
+export const lightTheme: DefaultTheme = {
   text: "#000000",
   dropDownText: "#ffffff",
   background: "#ffffff",
@@ -16,14 +20,4 @@ export const lightTheme: Theme = {
   dropDownBgHover: "#121212",
   dropDownMenuBg: "#ffffff",
   dropDownMenuElementBgHover: "#f3f3f3",
-};
-
-export const darkTheme: Theme = {
-  text: "#ffffff",
-  dropDownText: "#121212",
-  background: "#242424",
-  dropDownBg: "#f3f3f3",
-  dropDownBgHover: "#ffffff",
-  dropDownMenuBg: "#121212",
-  dropDownMenuElementBgHover: "#242424",
 };

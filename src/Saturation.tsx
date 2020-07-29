@@ -7,6 +7,7 @@ import { ColorObject } from ".";
 
 interface SaturationProps {
   paletteWidth: number;
+  paletteHeight: number;
   color: ColorObject;
   setColor: Dispatch<ColorObject>;
 }
@@ -40,6 +41,7 @@ const Cursor = styled.div`
 
 export const Saturation = ({
   paletteWidth,
+  paletteHeight,
   color,
   setColor,
 }: SaturationProps) => {
@@ -57,7 +59,7 @@ export const Saturation = ({
           const saturation = ctx.createLinearGradient(
             0,
             paletteWidth / 2,
-            paletteWidth,
+            paletteHeight,
             paletteWidth / 2
           );
 
@@ -65,20 +67,20 @@ export const Saturation = ({
           saturation.addColorStop(1, `hsl(${color.hsb[0]}, 100%, 50%)`);
 
           ctx.fillStyle = saturation;
-          ctx.fillRect(0, 0, paletteWidth, paletteWidth);
+          ctx.fillRect(0, 0, paletteWidth, paletteHeight);
 
           const brightness = ctx.createLinearGradient(
             paletteWidth / 2,
             0,
             paletteWidth / 2,
-            paletteWidth
+            paletteHeight
           );
 
           brightness.addColorStop(0, "transparent");
           brightness.addColorStop(1, "black");
 
           ctx.fillStyle = brightness;
-          ctx.fillRect(0, 0, paletteWidth, paletteWidth);
+          ctx.fillRect(0, 0, paletteWidth, paletteHeight);
         }
       }
     };
@@ -151,7 +153,7 @@ export const Saturation = ({
       <canvas
         ref={palette}
         width={paletteWidth}
-        height={paletteWidth}
+        height={paletteHeight}
         onMouseDown={mouseDown}
       />
       <Cursor style={{ left: x, top: y, backgroundColor: color.hex }} />

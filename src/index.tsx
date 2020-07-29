@@ -6,11 +6,7 @@ import { Hue } from "./Hue";
 import { ColorInput } from "./ColorInput";
 
 import { color2colorObject } from "./utils";
-import { lightTheme, Theme } from "./theme";
-
-export interface StyleProps {
-  theme: Theme;
-}
+import { lightTheme } from "./theme";
 
 export interface ColorObject {
   hsb: [number, number, number];
@@ -25,7 +21,8 @@ interface ColorPickerOptionsProps {
 
 interface ColorPickerProps {
   width: number;
-  color: string;
+  height?: number;
+  defaultColor: string;
   onChange: (color: ColorObject) => void;
 }
 
@@ -36,7 +33,7 @@ const ColorPickerBody = styled.div`
 
   width: max-content;
 
-  background-color: ${({ theme }: StyleProps) => theme.background};
+  background-color: ${props => props.theme.background};
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 0.5px;
 `;
 
@@ -51,9 +48,14 @@ const ColorPickerOptions = styled.div<ColorPickerOptionsProps>`
   padding: 10px 0;
 `;
 
-const ColorPicker = ({ width, color, onChange }: ColorPickerProps) => {
+const ColorPicker = ({
+  width,
+  height = width,
+  defaultColor,
+  onChange,
+}: ColorPickerProps) => {
   const [currentColor, setCurrentColor] = useState(
-    color2colorObject(color, true, "HEX")
+    color2colorObject(defaultColor, true, "HEX")
   );
 
   useEffect(() => {
@@ -65,6 +67,7 @@ const ColorPicker = ({ width, color, onChange }: ColorPickerProps) => {
       <ColorPickerBody>
         <Saturation
           paletteWidth={width}
+          paletteHeight={height}
           color={currentColor}
           setColor={setCurrentColor}
         />

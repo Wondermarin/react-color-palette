@@ -1,8 +1,6 @@
 import React, { Dispatch, useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 
-import { StyleProps } from ".";
-
 export interface ColorModelDropDownProps {
   model: string;
   setModel: Dispatch<string>;
@@ -20,9 +18,9 @@ const DropDownHeader = styled.div`
   font-size: 14px;
   font-weight: 700;
 
-  color: ${({ theme }: StyleProps) => theme.dropDownText};
+  color: ${props => props.theme.dropDownText};
 
-  background-color: ${({ theme }: StyleProps) => theme.dropDownBg};
+  background-color: ${props => props.theme.dropDownBg};
   border-radius: 5px 0 0 5px;
 
   transition: background-color 0.2s;
@@ -31,7 +29,7 @@ const DropDownHeader = styled.div`
 
   user-select: none;
   &:hover {
-    background-color: ${({ theme }: StyleProps) => theme.dropDownBgHover};
+    background-color: ${props => props.theme.dropDownBgHover};
   }
 `;
 
@@ -43,7 +41,7 @@ const DropDownMenu = styled.div`
 
   width: fill-available;
 
-  background-color: ${({ theme }: StyleProps) => theme.dropDownMenuBg};
+  background-color: ${props => props.theme.dropDownMenuBg};
   border-radius: 10px;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
 
@@ -74,7 +72,7 @@ const DropDownMenuElement = styled.div`
   font-size: 14px;
   font-weight: 700;
 
-  color: ${({ theme }: StyleProps) => theme.text};
+  color: ${props => props.theme.text};
 
   transition: background-color 0.2s;
 
@@ -82,8 +80,7 @@ const DropDownMenuElement = styled.div`
 
   user-select: none;
   &:hover {
-    background-color: ${({ theme }: StyleProps) =>
-      theme.dropDownMenuElementBgHover};
+    background-color: ${props => props.theme.dropDownMenuElementBgHover};
   }
 `;
 

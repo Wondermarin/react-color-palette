@@ -5,7 +5,7 @@ import { ColorModelDropdown } from "./ColorModelDropdown";
 
 import { isValidHex, color2colorObject, changeColorType } from "./utils";
 
-import { ColorObject, StyleProps } from ".";
+import { ColorObject } from ".";
 
 export interface InputProps {
   lastInput?: boolean;
@@ -29,9 +29,9 @@ const Input = styled.input<InputProps>`
   font-size: 14px;
   font-weight: 700;
 
-  color: ${({ theme }: StyleProps) => theme.text};
+  color: ${props => props.theme.text};
 
-  border: 2px solid ${({ theme }: StyleProps) => theme.dropDownBg};
+  border: 2px solid ${props => props.theme.dropDownBg};
   border-radius: ${props => (props.lastInput ? "0 5px 5px 0" : 0)};
 
   padding: 0 5px;
@@ -149,7 +149,7 @@ export const ColorInput = ({ color, setColor }: ColorInputProps) => {
           }}
           type="text"
           value={value.hex}
-          lastInput={true}
+          lastInput
           onChange={change}
           onBlur={blur}
         />
@@ -188,7 +188,7 @@ export const ColorInput = ({ color, setColor }: ColorInputProps) => {
             min={0}
             max={colorModel === "RGB" ? 255 : 100}
             value={colorModel === "RGB" ? value.rgb[2] : value.hsb[2].toFixed()}
-            lastInput={true}
+            lastInput
             onChange={change}
             onBlur={blur}
           />
