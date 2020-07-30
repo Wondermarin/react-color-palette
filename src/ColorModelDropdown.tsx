@@ -18,9 +18,9 @@ const DropDownHeader = styled.div`
   font-size: 14px;
   font-weight: 700;
 
-  color: ${props => props.theme.dropDownText};
+  color: #ffffff;
 
-  background-color: ${props => props.theme.dropDownBg};
+  background-color: #121212;
   border-radius: 5px 0 0 5px;
 
   transition: background-color 0.2s;
@@ -29,7 +29,7 @@ const DropDownHeader = styled.div`
 
   user-select: none;
   &:hover {
-    background-color: ${props => props.theme.dropDownBgHover};
+    background-color: #242424;
   }
 `;
 
@@ -41,7 +41,7 @@ const DropDownMenu = styled.div`
 
   width: fill-available;
 
-  background-color: ${props => props.theme.dropDownMenuBg};
+  background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
 
@@ -72,7 +72,7 @@ const DropDownMenuElement = styled.div`
   font-size: 14px;
   font-weight: 700;
 
-  color: ${props => props.theme.text};
+  color: #000000;
 
   transition: background-color 0.2s;
 
@@ -80,7 +80,7 @@ const DropDownMenuElement = styled.div`
 
   user-select: none;
   &:hover {
-    background-color: ${props => props.theme.dropDownMenuElementBgHover};
+    background-color: #f3f3f3;
   }
 `;
 

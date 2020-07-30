@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 
 import { Saturation } from "./Saturation";
 import { Hue } from "./Hue";
 import { ColorInput } from "./ColorInput";
 
 import { color2colorObject } from "./utils";
-import { lightTheme } from "./theme";
 
 export interface ColorObject {
   hsb: [number, number, number];
@@ -33,7 +32,7 @@ const ColorPickerBody = styled.div`
 
   width: max-content;
 
-  background-color: ${props => props.theme.background};
+  background-color: #ffffff;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 0.5px;
 `;
 
@@ -63,24 +62,22 @@ const ColorPicker = ({
   }, [currentColor, onChange]);
 
   return (
-    <ThemeProvider theme={lightTheme}>
-      <ColorPickerBody>
-        <Saturation
+    <ColorPickerBody>
+      <Saturation
+        paletteWidth={width}
+        paletteHeight={height}
+        color={currentColor}
+        setColor={setCurrentColor}
+      />
+      <ColorPickerOptions paletteWidth={width}>
+        <Hue
           paletteWidth={width}
-          paletteHeight={height}
           color={currentColor}
           setColor={setCurrentColor}
         />
-        <ColorPickerOptions paletteWidth={width}>
-          <Hue
-            paletteWidth={width}
-            color={currentColor}
-            setColor={setCurrentColor}
-          />
-          <ColorInput color={currentColor} setColor={setCurrentColor} />
-        </ColorPickerOptions>
-      </ColorPickerBody>
-    </ThemeProvider>
+        <ColorInput color={currentColor} setColor={setCurrentColor} />
+      </ColorPickerOptions>
+    </ColorPickerBody>
   );
 };
 

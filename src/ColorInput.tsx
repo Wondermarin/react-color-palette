@@ -29,9 +29,9 @@ const Input = styled.input<InputProps>`
   font-size: 14px;
   font-weight: 700;
 
-  color: ${props => props.theme.text};
+  color: #000000;
 
-  border: 2px solid ${props => props.theme.dropDownBg};
+  border: 2px solid #121212;
   border-radius: ${props => (props.lastInput ? "0 5px 5px 0" : 0)};
 
   padding: 0 5px;
