@@ -59,7 +59,8 @@ const ColorPicker = ({
 
   useEffect(() => {
     onChange(currentColor);
-  }, [currentColor, onChange]);
+    // eslint-disable-next-line
+  }, [currentColor]);
 
   return (
     <ColorPickerBody>
