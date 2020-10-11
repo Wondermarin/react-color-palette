@@ -8,7 +8,7 @@
     ],
     "module": "ESNext",
     "moduleResolution": "Node",
-    "outDir": "dist",
+    "outDir": "lib",
     "jsx": "react",
     "allowJs": true,
     "skipLibCheck": true,

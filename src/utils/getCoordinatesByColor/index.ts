@@ -1,0 +1,1 @@
+export { getCoordinatesByColor } from "./getCoordinatesByColor";

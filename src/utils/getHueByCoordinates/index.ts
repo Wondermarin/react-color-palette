@@ -1,0 +1,1 @@
+export { getHueByCoordinates } from "./getHueByCoordinates";

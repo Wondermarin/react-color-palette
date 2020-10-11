@@ -1,0 +1,1 @@
+export { isValidRgb } from "./isValidRgb";
