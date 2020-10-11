@@ -6,7 +6,7 @@ Color picker for React
 ![size](https://img.shields.io/bundlephobia/min/react-color-palette)
 
 # Demo
-![demo](https://github.com/Wondermarin/react-color-palette/blob/master/public/demo.apng)
+![demo](https://github.com/Wondermarin/react-color-palette/raw/master/public/demo.apng)
 
 # Installation
 
