@@ -1,6 +1,6 @@
 {
   "name": "react-color-palette",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "private": false,
   "description": "Color picker for React",
   "author": "Wondermarin",
@@ -31,9 +31,6 @@
     "build": "tsc",
     "test": "jest"
   },
-  "dependencies": {
-    "canvas": "^2.6.1"
-  },
   "peerDependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -60,12 +57,14 @@
     "eslint-plugin-react": "^7.21.4",
     "eslint-plugin-react-hooks": "^4.1.2",
     "jest": "^26.5.2",
+    "jest-canvas-mock": "^2.3.0",
     "jest-styled-components": "^7.0.3",
     "prettier": "^2.1.2",
     "react-test-renderer": "^16.13.1",
     "typescript": "3.9.7"
   },
   "jest": {
-    "rootDir": "lib"
+    "rootDir": "lib",
+    "setupFiles": ["jest-canvas-mock"]
   }
 }
