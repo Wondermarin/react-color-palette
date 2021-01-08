@@ -11,11 +11,6 @@ export function moveAt(x: MoveAtCoordinate): [number];
  * @param y Y-coordinate.
  */
 export function moveAt(x: MoveAtCoordinate, y: MoveAtCoordinate): [number, number];
-/**
- * Moves the x and y coordinates based on the shift.
- * @param x X-coordinate.
- * @param y Y-coordinate.
- */
 export function moveAt(x: MoveAtCoordinate, y?: MoveAtCoordinate): [number] | [number, number] {
   const X = x.value - x.shift;
   const newX = X < x.min ? x.min : X > x.max ? x.max : X;

@@ -1,4 +1,4 @@
-import { ColorObject } from "../toColorObject";
+import { Color } from "../toColor";
 
 /**
  * Converts RGB to HSB.
@@ -6,7 +6,7 @@ import { ColorObject } from "../toColorObject";
  * @param g Green.
  * @param b Blue.
  */
-export function rgb2hsb(r: number, g: number, b: number): ColorObject["hsb"] {
+export function rgb2hsb(r: number, g: number, b: number): Color["hsb"] {
   r /= 255;
   g /= 255;
   b /= 255;

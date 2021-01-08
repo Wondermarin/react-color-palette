@@ -1,15 +1,14 @@
-import { ColorObject } from "../toColorObject";
+import { Color } from "../toColor";
 
 /**
  * Converts HSB to RGB.
- * @param hue Hue.
- * @param saturation Saturation.
- * @param brightness Brightness.
+ * @param h Hue.
+ * @param s Saturation.
+ * @param b Brightness.
  */
-export function hsb2rgb(hue: number, saturation: number, brightness: number): ColorObject["rgb"] {
-  const h = hue;
-  const s = saturation / 100;
-  const b = brightness / 100;
+export function hsb2rgb(h: number, s: number, b: number): Color["rgb"] {
+  s /= 100;
+  b /= 100;
 
   const i = ~~(h / 60);
   const f = h / 60 - i;

@@ -1,0 +1,8 @@
+{
+  "types": [
+    { "type": "new", "section": "Whats new?" },
+    { "type": "change", "section": "Changes" },
+    { "type": "fix", "section": "Bug Fixes" }
+  ],
+  "releaseCommitMessageFormat": "v{{currentTag}}"
+}

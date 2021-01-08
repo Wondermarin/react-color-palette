@@ -1,0 +1,1 @@
+export { useColor } from "./useColor";

@@ -1,10 +1,6 @@
-import { ColorObject } from "../../utils";
+import { Color } from "../../utils/toColor";
 
 export interface FieldsProps {
-  color: ColorObject;
-  setColor: (color: ColorObject) => void;
-}
-
-export interface SInputProps {
-  last?: boolean;
+  readonly color: Color;
+  readonly onChange: (color: Color) => void;
 }

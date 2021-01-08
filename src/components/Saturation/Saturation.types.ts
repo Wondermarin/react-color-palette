@@ -1,8 +1,8 @@
-import { ColorObject } from "../../utils";
+import { Color } from "../../utils/toColor";
 
 export interface SaturationProps {
-  width: number;
-  height: number;
-  color: ColorObject;
-  setColor: (color: ColorObject) => void;
+  readonly width: number;
+  readonly height: number;
+  readonly color: Color;
+  readonly onChange: (color: Color) => void;
 }

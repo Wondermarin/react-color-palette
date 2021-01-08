@@ -1,8 +1,8 @@
 /**
- * Checking the color in HEX for validity.
- * @param value The value in the HEX format or HTML Color Names.
+ * Checks the color in HEX format for correctness.
+ * @param value Color in HEX format or HTML Color Names.
  */
-export function isValidHex(value: string): boolean {
+export function isValidHEX(value: string): boolean {
   if (value.startsWith("#")) {
     value = value.slice(1);
 

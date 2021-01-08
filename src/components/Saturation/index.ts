@@ -1,1 +1,1 @@
-export { Saturation } from "./Saturation";
+export { Saturation } from "./Saturation.component";

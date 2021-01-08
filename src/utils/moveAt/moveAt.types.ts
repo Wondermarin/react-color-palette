@@ -1,6 +1,6 @@
 export interface MoveAtCoordinate {
-  value: number;
-  shift: number;
-  min: number;
-  max: number;
+  readonly value: number;
+  readonly shift: number;
+  readonly min: number;
+  readonly max: number;
 }

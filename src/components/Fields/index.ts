@@ -1,1 +1,1 @@
-export { Fields } from "./Fields";
+export { Fields } from "./Fields.component";

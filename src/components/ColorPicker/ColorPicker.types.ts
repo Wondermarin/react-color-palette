@@ -1,24 +1,26 @@
-import { ColorObject } from "../../utils";
+import { Color } from "../../utils/toColor";
 
 export interface ColorPickerProps {
   /**
    * The width of the color picker.
    */
-  width: number;
+  readonly width: number;
   /**
    * The height of the color picker.
    */
-  height?: number;
+  readonly height?: number;
   /**
-   * Color in the `ColorObject`.
+   * `Color`.
+   * @see [WHAT IS "COLOR"?](https://github.com/Wondermarin/react-color-palette#color)
    */
-  color: ColorObject;
+  readonly color: Color;
   /**
-   * The function that accepts the updated `ColorObject` as a single argument.
+   * The function that accepts the updated `Color` as a single argument.
+   * @see [WHAT IS "COLOR"?](https://github.com/Wondermarin/react-color-palette#color)
    */
-  onChange: (color: ColorObject) => void;
-}
-
-export interface ColorPickerBodyProps {
-  width: number;
+  readonly onChange: (color: Color) => void;
+  /**
+   * Color theme.
+   */
+  readonly dark?: boolean;
 }

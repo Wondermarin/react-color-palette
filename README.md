@@ -12,44 +12,57 @@ Color picker for React
 
 ### npm
 ```sh
-npm install react-color-palette styled-components
+npm install react-color-palette
 ```
 
 ### yarn
 ```sh
-yarn add react-color-palette styled-components
+yarn add react-color-palette
 ```
 
 # Usage
 
-```js
-import React from "react";
-import ColorPicker, { useColorObject } from "react-color-palette";
+```tsx
+import ColorPicker, { useColor } from "react-color-palette";
 
 export const App = () => {
-  const [color, setColor] = useColorObject("hex", "#121212");
+  const [color, setColor] = useColor("hex", "#121212");
 
-  return <ColorPicker width={400} color={color} onChange={setColor} />;
+  return <ColorPicker width={456} height={228} color={color} onChange={setColor} dark />;
 };
 ```
 
 # API
 
-## ColorPicker
+## Color
+| Field | Type                                      |
+| ----- | ----------------------------------------- |
+| hex   | `string`                                  |
+| rgb   | { r: `number`, g: `number`, b: `number` } |
+| hsb   | { h: `number`, s: `number`, b: `number` } |
 
-| Prop     | Type                           | Description                                                               |
-| -------- | ------------------------------ | ------------------------------------------------------------------------- |
-| width    | number                         | The width of the color picker.                                            |
-| [height] | number                         | The height of the color picker.                                           |
-| color    | `ColorObject`                  | Color in the `ColorObject`.                                               |
-| onChange | (color: `ColorObject`) => void | The function that accepts the updated `ColorObject` as a single argument. |
+## ColorPicker Props
+| Name     | Type                            | Default | Description                                                              |
+| -------- | ------------------------------- | ------- | ------------------------------------------------------------------------ |
+| width    | `number`                        |         | The width of the color picker.                                           |
+| height   | `number`                        | width   | The height of the color picker.                                          |
+| color    | [`Color`][1]                    |         | The current [`Color`][1].                                                |
+| onChange | (color: [`Color`][1]) => void   |         | The function that accepts the updated [`Color`][1] as a single argument. |
+| dark     | `bool`                          | false   | Color theme.                                                             |
 
-## useColorObject(model, initialColor)
+[1]: https://github.com/Wondermarin/react-color-palette#color
 
-| Param        | Type                 | Description                                    |
-| ------------ | -------------------- | ---------------------------------------------- |
-| model        | `ColorModels`        | Color model.                                   |
-| initialColor | `ColorObject[model]` | The initial color in the selected color model. |
+## useColor Arguments
+| Name         | Type                                 | Default | Description                                     |
+| ------------ | ------------------------------------ | ------- | ----------------------------------------------- |
+| format       | "hex" \| "rgb \| "hsb"               |         | The color format.                               |
+| initialColor | `string` \| `ColorRGB` \| `ColorHSB` |         | The initial color in the selected color format. |
+
+## toColor Arguments
+| Name   | Type                                 | Default | Description                             |
+| ------ | ------------------------------------ | ------- | --------------------------------------- |
+| format | "hex" \| "rgb \| "hsb"               |         | The color format.                       |
+| color  | `string` \| `ColorRGB` \| `ColorHSB` |         | The color in the selected color format. |
 
 # License
 Code released under the MIT license.

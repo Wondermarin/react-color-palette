@@ -1,1 +1,0 @@
-export { useColorObject } from "./useColorObject";

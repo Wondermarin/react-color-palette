@@ -1,19 +1,17 @@
-import { ColorObject } from "../toColorObject";
+import { Color } from "../toColor";
 
 /**
- * Converts `ColorObject` to coordinates.
- * @param color `ColorObject`.
+ * Converts `Color` to coordinates.
+ * @param color `Color`.
  * @param width The width of the canvas.
  * @param height The height of the canvas.
+ * @see [WHAT IS "COLOR"?](https://github.com/Wondermarin/react-color-palette#color)
  */
-export function getCoordinatesByColor(color: ColorObject, width: number, height: number): [number, number] {
+export function getCoordinatesByColor(color: Color, width: number, height: number): [number, number] {
   const { s, b } = color.hsb;
 
-  const X = width / 100;
-  const Y = height / 100;
-
-  const x = s * X;
-  const y = (100 - b) * Y;
+  const x = (s / 100) * width;
+  const y = ((100 - b) / 100) * height;
 
   return [x, y];
 }
