@@ -2,7 +2,7 @@ import { FieldsProps } from "./Fields.types";
 import { useCallback, useState, useEffect } from "react";
 import { toColor, isValidHEX, toValidRGB, toValidHSB } from "../../utils";
 
-export const Fields = ({ color, onChange }: FieldsProps): JSX.Element => {
+export const Fields = ({ color, hideHEX, hideHSB, hideRGB, onChange }: FieldsProps): JSX.Element => {
   const getValueHEX = useCallback(
     () => ({
       value: color.hex,
@@ -82,8 +82,12 @@ export const Fields = ({ color, onChange }: FieldsProps): JSX.Element => {
     setValueHSB({ ...valueHSB, value: e.target.value });
   };
 
-  return (
-    <div className="rcp-fields">
+  const renderHEXField = (): JSX.Element => {
+    if (hideHEX) {
+      return <></>;
+    }
+
+    return (
       <div className="rcp-fields-floor">
         <div className="rcp-fields-element">
           <input
@@ -96,27 +100,53 @@ export const Fields = ({ color, onChange }: FieldsProps): JSX.Element => {
           <label className="rcp-fields-element-label">HEX</label>
         </div>
       </div>
+    );
+  };
+
+  const renderRGBField = (): JSX.Element => {
+    if (hideRGB) {
+      return <></>;
+    }
+
+    return (
+      <div className="rcp-fields-element">
+        <input
+          className="rcp-fields-element-input"
+          value={valueRGB.value}
+          onFocus={(): void => setValueRGB({ ...valueRGB, inputted: true })}
+          onChange={changeRGB}
+          onBlur={(): void => setValueRGB({ ...valueRGB, inputted: false })}
+        />
+        <label className="rcp-fields-element-label">RGB</label>
+      </div>
+    );
+  };
+
+  const renderHSBField = (): JSX.Element => {
+    if (hideHSB) {
+      return <></>;
+    }
+
+    return (
+      <div className="rcp-fields-element">
+        <input
+          className="rcp-fields-element-input"
+          value={valueHSB.value}
+          onFocus={(): void => setValueHSB({ ...valueHSB, inputted: true })}
+          onChange={changeHSB}
+          onBlur={(): void => setValueHSB({ ...valueHSB, inputted: false })}
+        />
+        <label className="rcp-fields-element-label">HSB</label>
+      </div>
+    );
+  };
+
+  return (
+    <div className="rcp-fields">
+      {renderHEXField()}
       <div className="rcp-fields-floor">
-        <div className="rcp-fields-element">
-          <input
-            className="rcp-fields-element-input"
-            value={valueRGB.value}
-            onFocus={(): void => setValueRGB({ ...valueRGB, inputted: true })}
-            onChange={changeRGB}
-            onBlur={(): void => setValueRGB({ ...valueRGB, inputted: false })}
-          />
-          <label className="rcp-fields-element-label">RGB</label>
-        </div>
-        <div className="rcp-fields-element">
-          <input
-            className="rcp-fields-element-input"
-            value={valueHSB.value}
-            onFocus={(): void => setValueHSB({ ...valueHSB, inputted: true })}
-            onChange={changeHSB}
-            onBlur={(): void => setValueHSB({ ...valueHSB, inputted: false })}
-          />
-          <label className="rcp-fields-element-label">HSB</label>
-        </div>
+        {renderRGBField()}
+        {renderHSBField()}
       </div>
     </div>
   );
