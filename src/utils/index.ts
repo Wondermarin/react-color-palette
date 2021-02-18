@@ -5,6 +5,6 @@ export { getColorByCoordinates } from "./getColorByCoordinates";
 export { getCoordinatesByColor } from "./getCoordinatesByColor";
 export { getHueByCoordinates } from "./getHueByCoordinates";
 export { getCoordinatesByHue } from "./getCoordinatesByHue";
-export { isValidHEX } from "./isValidHEX";
+export { isValidHEX } from "./isValidHex";
 export { toValidRGB } from "./toValidRGB";
 export { toValidHSB } from "./toValidHSB";

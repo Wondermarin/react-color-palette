@@ -1,1 +1,1 @@
-export { isValidHEX } from "./isValidHEX";
+export { isValidHEX } from "./isValidHex";
