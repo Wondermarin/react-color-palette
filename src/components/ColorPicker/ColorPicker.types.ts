@@ -20,19 +20,19 @@ export interface ColorPickerProps {
    */
   readonly onChange: (color: Color) => void;
   /**
-   * Color theme.
+   * Hide HEX field
    */
-  readonly dark?: boolean;
+  readonly hideHEX?: boolean;
   /**
    * Hide RGB field
    */
   readonly hideRGB?: boolean;
   /**
-   * Hide HEX field
-   */
-  readonly hideHEX?: boolean;
-  /**
    * Hide HSB field
    */
   readonly hideHSB?: boolean;
+  /**
+   * Color theme.
+   */
+  readonly dark?: boolean;
 }
