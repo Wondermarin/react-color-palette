@@ -16,7 +16,7 @@ const ColorPicker = ({
 }: ColorPickerProps): JSX.Element => (
   <div className={`rcp ${dark ? "rcp-dark" : "rcp-light"}`}>
     <Saturation width={width} height={height} color={color} onChange={onChange} />
-    <div className="rcp-body">
+    <div className="rcp-body" style={{ width: width - 32 }}>
       <Hue width={width - 32} color={color} onChange={onChange} />
       <Fields color={color} hideHEX={hideHEX} hideRGB={hideRGB} hideHSB={hideHSB} onChange={onChange} />
     </div>
