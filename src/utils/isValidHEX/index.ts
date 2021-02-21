@@ -1,0 +1,1 @@
+export { isValidHEX } from "./isValidHEX";
