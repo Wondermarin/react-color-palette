@@ -16,7 +16,7 @@ jobs:
           node-version: 15
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
 
       - name: Run ESLint
         run: npm run test:lint
@@ -34,7 +34,7 @@ jobs:
           node-version: 15
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
 
       - name: Run TypeScript Compiler
         run: npm run test:typescript
