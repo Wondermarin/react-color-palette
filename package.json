@@ -1,6 +1,6 @@
 {
   "name": "react-color-palette",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Color picker for React",
   "main": "lib/index",
   "homepage": "https://github.com/Wondermarin/react-color-palette#readme",
