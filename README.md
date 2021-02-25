@@ -50,6 +50,9 @@ export const App = () => {
 | color    | [`Color`][1]                    |         | The current [`Color`][1].                                                |
 | onChange | (color: [`Color`][1]) => void   |         | The function that accepts the updated [`Color`][1] as a single argument. |
 | dark     | `bool`                          | false   | Color theme.                                                             |
+| hideHEX  | `bool`                          | false   | Hide HEX input                                                           |
+| hideRGB  | `bool`                          | false   | Hide RGB input                                                           |
+| hideHSB  | `bool`                          | false   | Hide HSB input                                                           |
 
 [1]: https://github.com/Wondermarin/react-color-palette#color
 
