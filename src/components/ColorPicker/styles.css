@@ -1,14 +1,14 @@
 .rcp-light {
-  --rcp-background-color: #ffffff;
-  --rcp-input-color: #111111;
-  --rcp-border-color: rgba(0, 0, 0, 0.1);
+  --rcp-background: #ffffff;
+  --rcp-input-text: #111111;
+  --rcp-input-border: rgba(0, 0, 0, 0.1);
   --rcp-input-label: #717171;
 }
 
 .rcp-dark {
-  --rcp-background-color: #181818;
-  --rcp-input-color: #f3f3f3;
-  --rcp-border-color: rgba(255, 255, 255, 0.1);
+  --rcp-background: #181818;
+  --rcp-input-text: #f3f3f3;
+  --rcp-input-border: rgba(255, 255, 255, 0.1);
   --rcp-input-label: #999999;
 }
 
@@ -19,7 +19,7 @@
 
   width: max-content;
 
-  background-color: var(--rcp-background-color);
+  background-color: var(--rcp-background);
   border-radius: 0 0 10px 10px;
 }
 
@@ -79,15 +79,15 @@
 .rcp-hue-cursor {
   position: absolute;
 
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
 
   border: 2px solid #ffffff;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 0.5px;
   box-sizing: border-box;
 
-  transform: translate(-8px, -2px);
+  transform: translate(-10px, -4px);
 }
 
 .rcp-fields {
@@ -95,6 +95,8 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
+
+  width: 100%;
 }
 
 .rcp-fields-floor {
@@ -120,12 +122,12 @@
   font-size: 14px;
   font-weight: 600;
 
-  color: var(--rcp-input-color);
+  color: var(--rcp-input-text);
   text-align: center;
 
   background: none;
   border: 2px solid;
-  border-color: var(--rcp-border-color);
+  border-color: var(--rcp-input-border);
   border-radius: 5px;
   box-sizing: border-box;
   
