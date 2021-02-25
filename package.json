@@ -28,6 +28,9 @@
   ],
   "private": false,
   "scripts": {
+    "test:lint": "eslint src",
+    "test:typescript": "tsc",
+    "test": "yarn test:lint && yarn test:typescript",
     "build:types": "tsc",
     "build:js": "babel src -d lib --extensions .ts,.tsx --copy-files",
     "build": "yarn build:types && yarn build:js",

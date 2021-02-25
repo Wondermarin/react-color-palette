@@ -1,0 +1,6 @@
+{
+  "types": [
+    { "type": "ci", "hidden": true }
+  ],
+  "releaseCommitMessageFormat": "chore: {{currentTag}}"
+}
