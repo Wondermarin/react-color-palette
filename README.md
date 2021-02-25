@@ -1,15 +1,31 @@
-# react-color-palette
-Color picker for React
+<div align="center">
+  <h3><b>react-color-palette</b></h3>
+  <p>2KB color picker component for React.</p>
+</div>
 
-[![npm](https://img.shields.io/npm/v/react-color-palette)](https://www.npmjs.com/package/react-color-palette)
-![downloads](https://img.shields.io/npm/dw/react-color-palette)
-![size](https://img.shields.io/bundlephobia/min/react-color-palette)
+<div align="center">
+  <a href="https://www.npmjs.com/package/react-color-palette">
+    <img alt="npm" src="https://img.shields.io/npm/v/react-color-palette?style=for-the-badge" />
+  </a>
+  <a href="https://www.npmjs.com/package/react-color-palette">
+    <img alt="downloads" src="https://img.shields.io/npm/dw/react-color-palette?style=for-the-badge" />
+  </a>
+  <a href="https://bundlephobia.com/result?p=react-color-palette">
+    <img alt="size" src="https://img.shields.io/bundlephobia/min/react-color-palette?style=for-the-badge" />
+  </a>
+</div>
 
-# Demo
-[![demo](https://github.com/Wondermarin/react-color-palette/raw/master/public/demo.webp)](https://codesandbox.io/s/2zw8q)
-[Demo](https://codesandbox.io/s/2zw8q)
+<div align="center">
+  <a href="https://2zw8q.csb.app/">
+    <img src="https://github.com/Wondermarin/react-color-palette/raw/master/public/demo.webp" />
+  </a>
+</div>
 
-# Installation
+<div align="center">
+  <a href="https://2zw8q.csb.app/">Live Demo →</a>
+</div>
+
+## Installation
 
 ### npm
 ```sh
@@ -21,7 +37,7 @@ npm install react-color-palette
 yarn add react-color-palette
 ```
 
-# Usage
+## Usage
 
 ```tsx
 import ColorPicker, { useColor } from "react-color-palette";
@@ -29,44 +45,99 @@ import ColorPicker, { useColor } from "react-color-palette";
 export const App = () => {
   const [color, setColor] = useColor("hex", "#121212");
 
-  return <ColorPicker width={456} height={228} color={color} onChange={setColor} dark />;
+  return <ColorPicker width={456} height={228} color={color} onChange={setColor} hideHSB dark />;
 };
 ```
 
-# API
+## Overriding styles
 
-## Color
-| Field | Type                                      |
-| ----- | ----------------------------------------- |
-| hex   | `string`                                  |
-| rgb   | { r: `number`, g: `number`, b: `number` } |
-| hsb   | { h: `number`, s: `number`, b: `number` } |
+If the default colors don't fit your project, you can always change them.
 
-## ColorPicker Props
-| Name     | Type                            | Default | Description                                                              |
-| -------- | ------------------------------- | ------- | ------------------------------------------------------------------------ |
-| width    | `number`                        |         | The width of the color picker.                                           |
-| height   | `number`                        | width   | The height of the color picker.                                          |
-| color    | [`Color`][1]                    |         | The current [`Color`][1].                                                |
-| onChange | (color: [`Color`][1]) => void   |         | The function that accepts the updated [`Color`][1] as a single argument. |
-| dark     | `bool`                          | false   | Color theme.                                                             |
-| hideHEX  | `bool`                          | false   | Hide HEX input                                                           |
-| hideRGB  | `bool`                          | false   | Hide RGB input                                                           |
-| hideHSB  | `bool`                          | false   | Hide HSB input                                                           |
+<details>
+  <summary>Example for the Light theme</summary>
+
+  ```css
+  .rcp-light {
+    --rcp-background: #ffffff;
+    --rcp-input-text: #111111;
+    --rcp-input-border: rgba(0, 0, 0, 0.1);
+    --rcp-input-label: #717171;
+  }
+  ```
+</details>
+
+<details>
+  <summary>Example for the Dark theme</summary>
+
+  ```css
+  .rcp-dark {
+    --rcp-background: #181818;
+    --rcp-input-text: #f3f3f3;
+    --rcp-input-border: rgba(255, 255, 255, 0.1);
+    --rcp-input-label: #999999;
+  }
+  ```
+</details>
+
+## API
+
+<details>
+  <summary>'Color' type</summary>
+
+  ### `Color`
+
+  | Field | Type       |
+  | ----- | ---------- |
+  | hex   | `string`   |
+  | rgb   | `ColorRGB` |
+  | hsb   | `ColorHSB` |
+
+  ### `ColorRGB`
+
+  | Field | Type     |
+  | ----- | -------- |
+  | r     | `number` |
+  | g     | `number` |
+  | b     | `number` |
+
+  ### `ColorHSB`
+
+  | Field | Type     |
+  | ----- | -------- |
+  | h     | `number` |
+  | s     | `number` |
+  | b     | `number` |
+</details>
+
+### ColorPicker Props
+
+| Name     | Type         | Default | Description                                                              |
+| -------- | ------------ | ------- | ------------------------------------------------------------------------ |
+| width    | `number`     |         | The width of the color picker.                                           |
+| height   | `number`     | width   | The height of the color picker.                                          |
+| color    | [`Color`][1] |         | The current [`Color`][1].                                                |
+| onChange | `Function`   |         | The function that accepts the updated [`Color`][1] as a single argument. |
+| hideHEX  | `bool`       | false   | Hide HEX input.                                                          |
+| hideRGB  | `bool`       | false   | Hide RGB input.                                                          |
+| hideHSB  | `bool`       | false   | Hide HSB input.                                                          |
+| dark     | `bool`       | false   | Color theme.                                                             |
 
 [1]: https://github.com/Wondermarin/react-color-palette#color
 
-## useColor Arguments
+### useColor Arguments
+
 | Name         | Type                                 | Default | Description                                     |
 | ------------ | ------------------------------------ | ------- | ----------------------------------------------- |
-| format       | "hex" \| "rgb \| "hsb"               |         | The color format.                               |
+| format       | `"hex"` \| `"rgb"` \| `"hsb"`        |         | The color format.                               |
 | initialColor | `string` \| `ColorRGB` \| `ColorHSB` |         | The initial color in the selected color format. |
 
-## toColor Arguments
+### toColor Arguments
+
 | Name   | Type                                 | Default | Description                             |
 | ------ | ------------------------------------ | ------- | --------------------------------------- |
-| format | "hex" \| "rgb \| "hsb"               |         | The color format.                       |
+| format | `"hex"` \| `"rgb"` \| `"hsb"`        |         | The color format.                       |
 | color  | `string` \| `ColorRGB` \| `ColorHSB` |         | The color in the selected color format. |
 
-# License
+## License
+
 Code released under the MIT license.
