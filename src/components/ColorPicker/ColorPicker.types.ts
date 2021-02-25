@@ -10,7 +10,7 @@ export interface ColorPickerProps {
    */
   readonly height?: number;
   /**
-   * `Color`.
+   * The current `Color`.
    * @see [WHAT IS "COLOR"?](https://github.com/Wondermarin/react-color-palette#color)
    */
   readonly color: Color;
@@ -20,15 +20,15 @@ export interface ColorPickerProps {
    */
   readonly onChange: (color: Color) => void;
   /**
-   * Hide HEX field
+   * Hide HEX field.
    */
   readonly hideHEX?: boolean;
   /**
-   * Hide RGB field
+   * Hide RGB field.
    */
   readonly hideRGB?: boolean;
   /**
-   * Hide HSB field
+   * Hide HSB field.
    */
   readonly hideHSB?: boolean;
   /**
