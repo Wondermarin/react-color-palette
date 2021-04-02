@@ -41,6 +41,7 @@ yarn add react-color-palette
 
 ```tsx
 import ColorPicker, { useColor } from "react-color-palette";
+import "react-color-palette/lib/css/styles.css";
 
 export const App = () => {
   const [color, setColor] = useColor("hex", "#121212");
