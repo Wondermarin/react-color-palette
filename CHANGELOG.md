@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [4.0.0](https://github.com/Wondermarin/react-color-palette/compare/v3.1.0...v4.0.0) (2021-04-03)
 
+
+### Bug Fixes
+
+* CSS Import ([#7](https://github.com/Wondermarin/react-color-palette/issues/7)) ([30ddf8e](https://github.com/Wondermarin/react-color-palette/commit/30ddf8e30ed4e84dacf2f1728eaae0fdafeecfd5))
+
 ## [3.1.0](https://github.com/Wondermarin/react-color-palette/compare/v3.0.0...v3.1.0) (2021-02-25)
 
 
