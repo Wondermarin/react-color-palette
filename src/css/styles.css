@@ -17,10 +17,8 @@
   flex-direction: column;
   align-items: center;
 
-  width: max-content;
-
   background-color: var(--rcp-background);
-  border-radius: 0 0 10px 10px;
+  border-radius: 10px;
 }
 
 .rcp-body {
@@ -28,16 +26,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 20px;
 
-  padding: 16px 0;
+  padding: 20px;
 }
 
 .rcp-saturation {
-  display: flex;
-
   position: relative;
 
+  width: 100%;
+  background-image: linear-gradient(transparent, black), linear-gradient(to right, white, transparent);
+  border-radius: 10px 10px 0 0;
+  
   user-select: none;
 }
 
