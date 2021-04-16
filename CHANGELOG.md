@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/Wondermarin/react-color-palette/compare/v4.0.0...v4.1.0) (2021-04-16)
+
+
+### Features
+
+* Now `Saturation` is a `div` ([5dd224a](https://github.com/Wondermarin/react-color-palette/commit/5dd224a78373b20c99a799e737824d7063b16991))
+
 ## [4.0.0](https://github.com/Wondermarin/react-color-palette/compare/v3.1.0...v4.0.0) (2021-04-03)
 
 
