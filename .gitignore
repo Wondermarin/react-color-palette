@@ -3,6 +3,7 @@
 
 # Production
 /lib
+/demo/build
 
 # Logs
 logs

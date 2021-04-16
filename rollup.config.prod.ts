@@ -1,4 +1,3 @@
-import replace from "@rollup/plugin-replace";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import babel from "@rollup/plugin-babel";
@@ -13,17 +12,13 @@ const extensions = [".tsx", ".ts", ".js"];
 const config = {
   input: "src/index.ts",
   output: {
-    format: "cjs",
     dir: "lib",
+    format: "cjs",
     exports: "named",
     preserveModules: true,
   },
   external: ["react", "react/jsx-runtime"],
   plugins: [
-    replace({
-      preventAssignment: true,
-      "process.env.NODE_ENV": JSON.stringify(production ? "production" : "development"),
-    }),
     nodeResolve({
       extensions,
     }),
