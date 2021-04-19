@@ -1,6 +1,6 @@
 <div align="center">
   <h3><b>react-color-palette</b></h3>
-  <p>2KB color picker component for React.</p>
+  <p>Lightweight Color Picker component for <a href="https://github.com/facebook/react">React</a>.</p>
 </div>
 
 <div align="center">
@@ -16,14 +16,20 @@
 </div>
 
 <div align="center">
-  <a href="https://2zw8q.csb.app/">
-    <img src="https://github.com/Wondermarin/react-color-palette/raw/master/public/demo.webp" />
+  <a href="https://wondermarin.github.io/react-color-palette/">
+    <img src="https://github.com/Wondermarin/react-color-palette/raw/master/public/demo.apng" />
   </a>
 </div>
 
 <div align="center">
-  <a href="https://2zw8q.csb.app/">Live Demo →</a>
+  <a href="https://wondermarin.github.io/react-color-palette/">Live Demo →</a>
 </div>
+
+## Features
+
+- Lightweight (3.5kb).
+- No dependencies.
+- Strict (written in TypeScript).
 
 ## Installation
 
@@ -82,35 +88,7 @@ If the default colors don't fit your project, you can always change them.
 
 ## API
 
-<details>
-  <summary>'Color' type</summary>
-
-  ### `Color`
-
-  | Field | Type       |
-  | ----- | ---------- |
-  | hex   | `string`   |
-  | rgb   | `ColorRGB` |
-  | hsb   | `ColorHSB` |
-
-  ### `ColorRGB`
-
-  | Field | Type     |
-  | ----- | -------- |
-  | r     | `number` |
-  | g     | `number` |
-  | b     | `number` |
-
-  ### `ColorHSB`
-
-  | Field | Type     |
-  | ----- | -------- |
-  | h     | `number` |
-  | s     | `number` |
-  | b     | `number` |
-</details>
-
-### ColorPicker Props
+### `ColorPicker` Props
 
 | Name     | Type         | Default | Description                                                              |
 | -------- | ------------ | ------- | ------------------------------------------------------------------------ |
@@ -123,22 +101,46 @@ If the default colors don't fit your project, you can always change them.
 | hideHSB  | `bool`       | false   | Hide HSB input.                                                          |
 | dark     | `bool`       | false   | Color theme.                                                             |
 
-[1]: https://github.com/Wondermarin/react-color-palette#color
+[1]: #color
 
-### useColor Arguments
+### `useColor` Arguments
 
 | Name         | Type                                 | Default | Description                                     |
 | ------------ | ------------------------------------ | ------- | ----------------------------------------------- |
 | format       | `"hex"` \| `"rgb"` \| `"hsb"`        |         | The color format.                               |
 | initialColor | `string` \| `ColorRGB` \| `ColorHSB` |         | The initial color in the selected color format. |
 
-### toColor Arguments
+### `toColor` Arguments
 
 | Name   | Type                                 | Default | Description                             |
 | ------ | ------------------------------------ | ------- | --------------------------------------- |
 | format | `"hex"` \| `"rgb"` \| `"hsb"`        |         | The color format.                       |
 | color  | `string` \| `ColorRGB` \| `ColorHSB` |         | The color in the selected color format. |
 
+### `Color`
+
+| Field | Type       |
+| ----- | ---------- |
+| hex   | `string`   |
+| rgb   | `ColorRGB` |
+| hsb   | `ColorHSB` |
+
+### `ColorRGB`
+
+| Field | Type     |
+| ----- | -------- |
+| r     | `number` |
+| g     | `number` |
+| b     | `number` |
+
+### `ColorHSB`
+
+| Field | Type     |
+| ----- | -------- |
+| h     | `number` |
+| s     | `number` |
+| b     | `number` |
+
 ## License
 
-Code released under the MIT license.
+Code released under the [MIT](https://github.com/Wondermarin/react-color-palette/blob/master/LICENSE) license.
