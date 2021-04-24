@@ -107,15 +107,15 @@ If the default colors don't fit your project, you can always change them.
 
 | Name         | Type                                 | Default | Description                                     |
 | ------------ | ------------------------------------ | ------- | ----------------------------------------------- |
-| format       | `"hex"` \| `"rgb"` \| `"hsv"`        |         | The color format.                               |
-| initialColor | `string` \| `ColorRGB` \| `ColorHSV` |         | The initial color in the selected color format. |
+| model        | `"hex"` \| `"rgb"` \| `"hsv"`        |         | The color model.                                |
+| initColor    | `string` \| `ColorRGB` \| `ColorHSV` |         | The initial color in the selected color model.  |
 
 ### `toColor` Arguments
 
 | Name   | Type                                 | Default | Description                             |
 | ------ | ------------------------------------ | ------- | --------------------------------------- |
-| format | `"hex"` \| `"rgb"` \| `"hsv"`        |         | The color format.                       |
-| color  | `string` \| `ColorRGB` \| `ColorHSV` |         | The color in the selected color format. |
+| model  | `"hex"` \| `"rgb"` \| `"hsv"`        |         | The color model.                        |
+| color  | `string` \| `ColorRGB` \| `ColorHSV` |         | The color in the selected color model.  |
 
 ### `Color`
 
