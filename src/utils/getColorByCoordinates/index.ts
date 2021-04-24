@@ -1,1 +1,0 @@
-export { getColorByCoordinates } from "./getColorByCoordinates";

@@ -5,8 +5,7 @@ import babel from "@rollup/plugin-babel";
 import html from "@rollup/plugin-html";
 import postcss from "rollup-plugin-postcss";
 import dev from "rollup-plugin-dev";
-import del from "rollup-plugin-delete";
-import progress from "rollup-plugin-progress";
+import { terser } from "rollup-plugin-terser";
 
 const production = !process.env.ROLLUP_WATCH;
 const mode = production ? "production" : "development";
@@ -22,18 +21,16 @@ const config = {
   plugins: [
     replace({
       preventAssignment: true,
-      "process.env.NODE_ENV": JSON.stringify(mode),
+      values: {
+        "process.env.NODE_ENV": JSON.stringify(mode),
+      },
     }),
-    nodeResolve({
-      extensions,
-    }),
-    commonjs({
-      include: /node_modules/,
-    }),
+    nodeResolve({ extensions }),
+    commonjs({ include: /node_modules/ }),
     babel({
       extensions,
       exclude: /node_modules/,
-      babelHelpers: "inline",
+      babelHelpers: "runtime",
     }),
     html({
       fileName: "index.html",
@@ -54,16 +51,7 @@ const config = {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>${title}</title>
             <style type="text/css">
-              * {
-                box-sizing: border-box;
-                padding: 0;
-                margin: 0;
-              }
-              
-              html,
-              body {
-                font-family: "Montserrat", sans-serif;
-              }
+              *{box-sizing:border-box;padding:0;margin:0}html,body{font-family:"Montserrat",sans-serif}
             </style>
             ${links}
           </head>
@@ -77,16 +65,14 @@ const config = {
     }),
     postcss({
       extensions: [".css"],
+      minimize: true,
     }),
-    dev({
-      dirs: ["demo/build"],
-      port: 3000,
-    }),
-    del({
-      targets: ["demo/build"],
-      verbose: true,
-    }),
-    progress(),
+    production && terser(),
+    !production &&
+      dev({
+        dirs: ["demo/build"],
+        port: 3000,
+      }),
   ],
 };
 

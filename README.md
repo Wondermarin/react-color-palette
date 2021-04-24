@@ -52,7 +52,7 @@ import "react-color-palette/lib/css/styles.css";
 export const App = () => {
   const [color, setColor] = useColor("hex", "#121212");
 
-  return <ColorPicker width={456} height={228} color={color} onChange={setColor} hideHSB dark />;
+  return <ColorPicker width={456} height={228} color={color} onChange={setColor} hideHSV dark />;
 };
 ```
 
@@ -95,10 +95,10 @@ If the default colors don't fit your project, you can always change them.
 | width    | `number`     |         | The width of the color picker.                                           |
 | height   | `number`     | width   | The height of the color picker.                                          |
 | color    | [`Color`][1] |         | The current [`Color`][1].                                                |
-| onChange | `Function`   |         | The function that accepts the updated [`Color`][1] as a single argument. |
+| onChange | `Function`   |         | A function to update [`Color`][1].                                       |
 | hideHEX  | `bool`       | false   | Hide HEX input.                                                          |
 | hideRGB  | `bool`       | false   | Hide RGB input.                                                          |
-| hideHSB  | `bool`       | false   | Hide HSB input.                                                          |
+| hideHSV  | `bool`       | false   | Hide HSV input.                                                          |
 | dark     | `bool`       | false   | Color theme.                                                             |
 
 [1]: #color
@@ -107,15 +107,15 @@ If the default colors don't fit your project, you can always change them.
 
 | Name         | Type                                 | Default | Description                                     |
 | ------------ | ------------------------------------ | ------- | ----------------------------------------------- |
-| format       | `"hex"` \| `"rgb"` \| `"hsb"`        |         | The color format.                               |
-| initialColor | `string` \| `ColorRGB` \| `ColorHSB` |         | The initial color in the selected color format. |
+| format       | `"hex"` \| `"rgb"` \| `"hsv"`        |         | The color format.                               |
+| initialColor | `string` \| `ColorRGB` \| `ColorHSV` |         | The initial color in the selected color format. |
 
 ### `toColor` Arguments
 
 | Name   | Type                                 | Default | Description                             |
 | ------ | ------------------------------------ | ------- | --------------------------------------- |
-| format | `"hex"` \| `"rgb"` \| `"hsb"`        |         | The color format.                       |
-| color  | `string` \| `ColorRGB` \| `ColorHSB` |         | The color in the selected color format. |
+| format | `"hex"` \| `"rgb"` \| `"hsv"`        |         | The color format.                       |
+| color  | `string` \| `ColorRGB` \| `ColorHSV` |         | The color in the selected color format. |
 
 ### `Color`
 
@@ -123,7 +123,7 @@ If the default colors don't fit your project, you can always change them.
 | ----- | ---------- |
 | hex   | `string`   |
 | rgb   | `ColorRGB` |
-| hsb   | `ColorHSB` |
+| hsv   | `ColorHSV` |
 
 ### `ColorRGB`
 
@@ -133,13 +133,13 @@ If the default colors don't fit your project, you can always change them.
 | g     | `number` |
 | b     | `number` |
 
-### `ColorHSB`
+### `ColorHSV`
 
 | Field | Type     |
 | ----- | -------- |
 | h     | `number` |
 | s     | `number` |
-| b     | `number` |
+| v     | `number` |
 
 ## License
 

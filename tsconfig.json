@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES5",
-    "module": "CommonJS",
+    "target": "ESNext",
+    "module": "ESNext",
     "moduleResolution": "Node",
     "outDir": "lib",
     "jsx": "react-jsx",
@@ -13,7 +13,6 @@
     "allowJs": true,
     "strict": true,
     "declaration": true,
-    "removeComments": true,
     "sourceMap": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -22,8 +21,12 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "baseUrl": ".",
+    "paths": {
+      "@interfaces/*": ["src/interfaces/*"],
+      "@utils/*": ["src/utils/*"]
+    }
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules", "lib"]
 }
