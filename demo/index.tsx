@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { render } from "react-dom";
-import ColorPicker, { useColor } from "../src";
+import { ColorPicker, useColor } from "../src";
 import "../src/css/styles.css";
 
 function App(): JSX.Element {

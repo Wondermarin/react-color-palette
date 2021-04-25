@@ -1,4 +1,4 @@
-export { default } from "./components/ColorPicker.component";
+export { ColorPicker } from "./components/ColorPicker.component";
 export { useColor } from "./hooks/useColor.hook";
 export { toColor } from "./utils/toColor.util";
 

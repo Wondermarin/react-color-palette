@@ -3,7 +3,7 @@ import { Saturation } from "./Saturation.component";
 import { Hue } from "./Hue.component";
 import { Fields } from "./Fields.component";
 
-const ColorPicker = ({
+export const ColorPicker = ({
   width,
   height = width,
   color,
@@ -21,5 +21,3 @@ const ColorPicker = ({
     </div>
   </div>
 );
-
-export default ColorPicker;
