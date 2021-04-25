@@ -46,7 +46,7 @@ yarn add react-color-palette
 ## Usage
 
 ```tsx
-import ColorPicker, { useColor } from "react-color-palette";
+import { ColorPicker, useColor } from "react-color-palette";
 import "react-color-palette/lib/css/styles.css";
 
 export const App = () => {
