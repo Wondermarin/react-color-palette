@@ -66,7 +66,7 @@
     "demo:build": "parcel build demo/index.html --dist-dir demo/build --target demo --public-url . --no-source-maps",
     "predemo:start": "del-cli demo/build",
     "demo:start": "parcel serve demo/index.html --dist-dir demo/build --port 3000 --open --log-level verbose --no-source-maps",
-    "predemo:deploy": "demo:build",
+    "predemo:deploy": "yarn demo:build",
     "demo:deploy": "gh-pages -d demo/build",
     "release:patch": "standard-version --release-as patch",
     "release:minor": "standard-version --release-as minor",
