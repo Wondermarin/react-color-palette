@@ -4,12 +4,8 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "outDir": "lib",
-    "jsx": "react-jsx",
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ESNext"
-    ],
+    "jsx": "react",
+    "lib": ["ESNext", "DOM"],
     "allowJs": true,
     "strict": true,
     "declaration": true,

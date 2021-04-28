@@ -23,7 +23,7 @@ const config = {
       format: "es",
     },
   ],
-  external: ["react", "react/jsx-runtime"],
+  external: ["react"],
   plugins: [
     nodeResolve({
       extensions,

@@ -1,3 +1,4 @@
+import React from "react";
 import { ColorPickerProps } from "../interfaces/ColorPicker.interface";
 import { Saturation } from "./Saturation.component";
 import { Hue } from "./Hue.component";
