@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/Wondermarin/react-color-palette/compare/v4.1.0...v5.0.0) (2021-04-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove `ColorPicker` default export
+* Rename `HSB` -> `HSV`
+
+### Features
+
+* Add `ESModule` support. ([e534a6d](https://github.com/Wondermarin/react-color-palette/commit/e534a6dacddb9b71a8a429cb8538d2a83ccb311c))
+* Remove `ColorPicker` default export ([f51c337](https://github.com/Wondermarin/react-color-palette/commit/f51c33767f85165a7dc5506b9571028040bac192))
+* Rename `HSB` -> `HSV` ([bf741e3](https://github.com/Wondermarin/react-color-palette/commit/bf741e3071115cadb738db6e26179d63192e6cd3))
+
+
+### Bug Fixes
+
+* Add `React 16` support ([#9](https://github.com/Wondermarin/react-color-palette/issues/9)) ([cd4c729](https://github.com/Wondermarin/react-color-palette/commit/cd4c72988e4e20e03c2cf2f31436d76385da6305))
+
 ## [4.1.0](https://github.com/Wondermarin/react-color-palette/compare/v4.0.0...v4.1.0) (2021-04-16)
 
 
