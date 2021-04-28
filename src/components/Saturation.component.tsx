@@ -1,7 +1,7 @@
-import { SaturationProps } from "@interfaces/Saturation.interface";
 import { useMemo } from "react";
-import { getColorCoordinates } from "@utils/coordinates.util";
-import { toColor } from "@utils/toColor.util";
+import { SaturationProps } from "../interfaces/Saturation.interface";
+import { getColorCoordinates } from "../utils/coordinates.util";
+import { toColor } from "../utils/toColor.util";
 import { Interactive } from "./Interactive.component";
 
 export const Saturation = ({ width, height, color, onChange }: SaturationProps): JSX.Element => {

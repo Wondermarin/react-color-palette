@@ -1,4 +1,4 @@
-import { Color } from "@interfaces/Color.interface";
+import { Color } from "../interfaces/Color.interface";
 import { clamp } from "./clamp.util";
 
 export function toHex(value: string): Color["hex"] {

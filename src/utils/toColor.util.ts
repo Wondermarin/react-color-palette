@@ -1,4 +1,4 @@
-import { Color } from "@interfaces/Color.interface";
+import { Color } from "../interfaces/Color.interface";
 import { hex2rgb, hsv2rgb, rgb2hex, rgb2hsv, toHex } from "./convert.util";
 
 /**

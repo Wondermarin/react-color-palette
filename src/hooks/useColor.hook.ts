@@ -1,6 +1,6 @@
-import { Color } from "@interfaces/Color.interface";
+import { Color } from "../interfaces/Color.interface";
 import { useCallback, useEffect, useState } from "react";
-import { toColor } from "@utils/toColor.util";
+import { toColor } from "../utils/toColor.util";
 
 /**
  * Returns a stateful [Color](https://github.com/Wondermarin/react-color-palette#color), and a function to update it.

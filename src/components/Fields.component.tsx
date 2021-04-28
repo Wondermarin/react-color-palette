@@ -1,8 +1,8 @@
-import { UpperFloorProps, LowerFloorProps, FieldsProps } from "@interfaces/Fields.interface";
-import React, { useCallback, useState, useEffect } from "react";
-import { toHsv, toRgb } from "@utils/convert.util";
-import { toColor } from "@utils/toColor.util";
-import { validHex } from "@utils/validate.util";
+import { useCallback, useState, useEffect } from "react";
+import { UpperFloorProps, LowerFloorProps, FieldsProps } from "../interfaces/Fields.interface";
+import { toHsv, toRgb } from "../utils/convert.util";
+import { toColor } from "../utils/toColor.util";
+import { validHex } from "../utils/validate.util";
 
 const UpperFloor = ({ color, hideHEX, onChange }: UpperFloorProps): JSX.Element => {
   const getValueHEX = useCallback(() => ({ value: color.hex, inputted: false }), [color.hex]);

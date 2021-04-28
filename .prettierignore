@@ -4,7 +4,3 @@
 # Production
 /lib
 /demo/build
-
-# Configurations
-rollup.config.dev.ts
-rollup.config.prod.ts

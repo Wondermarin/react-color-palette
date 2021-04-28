@@ -1,7 +1,7 @@
-import { HueProps } from "@interfaces/Hue.interface";
 import { useMemo } from "react";
-import { getHueCoordinates } from "@utils/coordinates.util";
-import { toColor } from "@utils/toColor.util";
+import { HueProps } from "../interfaces/Hue.interface";
+import { getHueCoordinates } from "../utils/coordinates.util";
+import { toColor } from "../utils/toColor.util";
 import { Interactive } from "./Interactive.component";
 
 export const Hue = ({ width, color, onChange }: HueProps): JSX.Element => {

@@ -1,4 +1,4 @@
-import { Color } from "@interfaces/Color.interface";
+import { Color } from "../interfaces/Color.interface";
 
 export function getColorCoordinates(color: Color, width: number, height: number): [number, number] {
   const { s, v } = color.hsv;

@@ -2,9 +2,11 @@
   "presets": [
     ["@babel/preset-env", {
       "targets": {
-        "node": "current"
+        "node": "10",
+        "esmodules": true
       },
-      "modules": false
+      "modules": false,
+      "bugfixes": true
     }],
     ["@babel/preset-react", {
       "runtime": "automatic"
@@ -15,15 +17,7 @@
     }]
   ],
   "plugins": [
-    ["module-resolver", {
-      "root": ["."],
-      "alias": {
-        "@interfaces": "./src/interfaces",
-        "@utils": "./src/utils"
-      }
-    }],
-    "@babel/plugin-transform-runtime",
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-object-rest-spread"
+    ["@babel/plugin-proposal-class-properties"],
+    ["@babel/plugin-proposal-object-rest-spread"]
   ]
 }

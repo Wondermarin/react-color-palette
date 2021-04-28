@@ -1,6 +1,6 @@
-import { InteractiveProps } from "@interfaces/Interactive.interface";
 import { useRef } from "react";
-import { clamp } from "@utils/clamp.util";
+import { InteractiveProps } from "../interfaces/Interactive.interface";
+import { clamp } from "../utils/clamp.util";
 
 export const Interactive = ({ className, style, onChange, children }: InteractiveProps): JSX.Element => {
   const divRef = useRef<HTMLDivElement>(null);

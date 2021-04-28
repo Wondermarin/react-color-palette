@@ -10,13 +10,11 @@ export interface ColorPickerProps {
    */
   readonly height?: number;
   /**
-   * The current `Color`.
-   * @see [WHAT IS "COLOR"?](https://github.com/Wondermarin/react-color-palette#color)
+   * The current [Color](https://github.com/Wondermarin/react-color-palette#color).
    */
   readonly color: Color;
   /**
-   * The function that accepts the updated `Color` as a single argument.
-   * @see [WHAT IS "COLOR"?](https://github.com/Wondermarin/react-color-palette#color)
+   * The function that accepts the updated [Color](https://github.com/Wondermarin/react-color-palette#color) as a single argument.
    */
   readonly onChange: React.Dispatch<React.SetStateAction<Color>>;
   /**

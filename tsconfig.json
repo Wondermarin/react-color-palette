@@ -21,11 +21,6 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "baseUrl": ".",
-    "paths": {
-      "@interfaces/*": ["src/interfaces/*"],
-      "@utils/*": ["src/utils/*"]
-    }
   },
   "include": ["src"],
   "exclude": ["node_modules", "lib"]
