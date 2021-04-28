@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { HueProps } from "../interfaces/Hue.interface";
 import { getHueCoordinates } from "../utils/coordinates.util";
 import { toColor } from "../utils/toColor.util";
