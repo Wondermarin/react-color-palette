@@ -1,18 +1,17 @@
 <div align="center">
-  <h3><b>react-color-palette</b></h3>
-  <p>Lightweight Color Picker component for <a href="https://github.com/facebook/react">React</a>.</p>
-</div>
-
-<div align="center">
+  <img alt="react-color-palette" src="https://github.com/Wondermarin/react-color-palette/raw/master/public/logo.png" width="128px" height="128px" />
+  <br />
   <a href="https://www.npmjs.com/package/react-color-palette">
-    <img alt="npm" src="https://img.shields.io/npm/v/react-color-palette?style=for-the-badge" />
+    <img alt="npm" src="https://badgen.net/npm/v/react-color-palette?color=561ecb" />
   </a>
   <a href="https://www.npmjs.com/package/react-color-palette">
-    <img alt="downloads" src="https://img.shields.io/npm/dw/react-color-palette?style=for-the-badge" />
+    <img alt="downloads" src="https://badgen.net/npm/dw/react-color-palette?color=561ecb" />
   </a>
   <a href="https://bundlephobia.com/result?p=react-color-palette">
-    <img alt="size" src="https://img.shields.io/bundlephobia/min/react-color-palette?style=for-the-badge" />
+    <img alt="size" src="https://badgen.net/bundlephobia/minzip/react-color-palette?color=561ecb" />
   </a>
+  <br />
+  <h4>🎨 Lightweight Color Picker component for <a href="https://github.com/facebook/react">React</a>.</h4>
 </div>
 
 <div align="center">
@@ -25,11 +24,15 @@
   <a href="https://wondermarin.github.io/react-color-palette/">Live Demo →</a>
 </div>
 
+<hr />
+
 ## Features
 
-- Lightweight (3.5kb).
-- No dependencies.
-- Strict (written in TypeScript).
+- 🚀 **Lightweight (3.5KB)**.
+- 💨 **No dependencies**.
+- 🛡️ **Strict (written in TypeScript)**.
+
+<hr />
 
 ## Installation
 
@@ -43,6 +46,8 @@ npm install react-color-palette
 yarn add react-color-palette
 ```
 
+<hr />
+
 ## Usage
 
 ```tsx
@@ -55,6 +60,20 @@ export const App = () => {
   return <ColorPicker width={456} height={228} color={color} onChange={setColor} hideHSV dark />;
 };
 ```
+
+<hr />
+
+## Benchmarks
+
+| Library | Minified | Gzipped | Dependencies |
+| ------- | -------- | ------- | ------------ |
+| **react-color-palette** | ![](https://badgen.net/bundlephobia/min/react-color-palette?color=green&label=) | ![](https://badgen.net/bundlephobia/minzip/react-color-palette?color=green&label=) | ![](https://badgen.net/bundlephobia/dependency-count/react-color-palette?color=green&label=) |
+| react-colorful | ![](https://badgen.net/bundlephobia/min/react-colorful?color=green&label=) | ![](https://badgen.net/bundlephobia/minzip/react-colorful?color=green&label=) | ![](https://badgen.net/bundlephobia/dependency-count/react-colorful?color=green&label=) |
+| react-input-color | ![](https://badgen.net/bundlephobia/min/react-input-color?color=red&label=) | ![](https://badgen.net/bundlephobia/minzip/react-input-color?color=orange&label=) | ![](https://badgen.net/bundlephobia/dependency-count/react-input-color?color=red&label=) |
+| rc-color-picker | ![](https://badgen.net/bundlephobia/min/rc-color-picker?color=red&label=) | ![](https://badgen.net/bundlephobia/minzip/rc-color-picker?color=red&label=) | ![](https://badgen.net/bundlephobia/dependency-count/rc-color-picker?color=red&label=) |
+| react-color | ![](https://badgen.net/bundlephobia/min/react-color?color=red&label=) | ![](https://badgen.net/bundlephobia/minzip/react-color?color=red&label=) | ![](https://badgen.net/bundlephobia/dependency-count/react-color?color=red&label=) |
+
+<hr />
 
 ## Overriding styles
 
@@ -85,6 +104,8 @@ If the default colors don't fit your project, you can always change them.
   }
   ```
 </details>
+
+<hr />
 
 ## API
 
@@ -140,6 +161,8 @@ If the default colors don't fit your project, you can always change them.
 | h     | `number` |
 | s     | `number` |
 | v     | `number` |
+
+<hr />
 
 ## License
 
