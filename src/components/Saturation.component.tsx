@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { SaturationProps } from "../interfaces/Saturation.interface";
 import { getColorCoordinates } from "../utils/coordinates.util";
 import { toColor } from "../utils/toColor.util";

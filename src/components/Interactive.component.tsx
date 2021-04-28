@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { InteractiveProps } from "../interfaces/Interactive.interface";
 import { clamp } from "../utils/clamp.util";
 

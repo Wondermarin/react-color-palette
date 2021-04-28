@@ -60,7 +60,7 @@
     "test": "yarn test:lint && yarn test:typescript",
     "build:js": "rollup --config rollup.config.ts",
     "build:types": "tsc --emitDeclarationOnly",
-    "prebuild": "del-cli lib",
+    "prebuild": "yarn test && del-cli lib",
     "build": "yarn build:js && yarn build:types",
     "predemo:build": "del-cli demo/build",
     "demo:build": "parcel build demo/index.html --dist-dir demo/build --target demo --public-url . --no-source-maps",
@@ -72,7 +72,7 @@
     "release": "git push --follow-tags origin master"
   },
   "peerDependencies": {
-    "react": "^17.0.1"
+    "react": ">=16.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.13.16",
