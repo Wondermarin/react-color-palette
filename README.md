@@ -28,7 +28,7 @@
 
 ## Features
 
-- 🚀 **Lightweight (3.5KB)**.
+- 🚀 **Lightweight (2.5 KB)**.
 - 💨 **No dependencies**.
 - 🛡️ **Strict (written in TypeScript)**.
 
