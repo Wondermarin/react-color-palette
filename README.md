@@ -8,7 +8,7 @@
     <img alt="downloads" src="https://badgen.net/npm/dw/react-color-palette?color=561ecb" />
   </a>
   <a href="https://bundlephobia.com/result?p=react-color-palette">
-    <img alt="size" src="https://badgen.net/bundlephobia/minzip/react-color-palette?color=561ecb" />
+    <img alt="size" src="https://badgen.net/bundlephobia/minzip/react-color-palette@latest?color=561ecb" />
   </a>
   <br />
   <h4>🎨 Lightweight Color Picker component for <a href="https://github.com/facebook/react">React</a>.</h4>
@@ -65,13 +65,13 @@ export const App = () => {
 
 ## Benchmarks
 
-| Library | Minified | Gzipped | Dependencies |
-| ------- | -------- | ------- | ------------ |
-| **react-color-palette** | ![](https://badgen.net/bundlephobia/min/react-color-palette?color=green&label=) | ![](https://badgen.net/bundlephobia/minzip/react-color-palette?color=green&label=) | ![](https://badgen.net/bundlephobia/dependency-count/react-color-palette?color=green&label=) |
-| react-colorful | ![](https://badgen.net/bundlephobia/min/react-colorful?color=green&label=) | ![](https://badgen.net/bundlephobia/minzip/react-colorful?color=green&label=) | ![](https://badgen.net/bundlephobia/dependency-count/react-colorful?color=green&label=) |
-| react-input-color | ![](https://badgen.net/bundlephobia/min/react-input-color?color=red&label=) | ![](https://badgen.net/bundlephobia/minzip/react-input-color?color=orange&label=) | ![](https://badgen.net/bundlephobia/dependency-count/react-input-color?color=red&label=) |
-| rc-color-picker | ![](https://badgen.net/bundlephobia/min/rc-color-picker?color=red&label=) | ![](https://badgen.net/bundlephobia/minzip/rc-color-picker?color=red&label=) | ![](https://badgen.net/bundlephobia/dependency-count/rc-color-picker?color=red&label=) |
-| react-color | ![](https://badgen.net/bundlephobia/min/react-color?color=red&label=) | ![](https://badgen.net/bundlephobia/minzip/react-color?color=red&label=) | ![](https://badgen.net/bundlephobia/dependency-count/react-color?color=red&label=) |
+| Library | Minified | Gzipped | Dependencies | Tree Shaking | Type Declarations |
+| :-----: | :------: | :-----: | :----------: | :----------: | :---------------: |
+| **react-color-palette** | ![](https://badgen.net/bundlephobia/min/react-color-palette@latest?color=green&label=) | ![](https://badgen.net/bundlephobia/minzip/react-color-palette@latest?color=green&label=) | ![](https://badgen.net/bundlephobia/dependency-count/react-color-palette@latest?color=green&label=) | ![](https://badgen.net/bundlephobia/tree-shaking/react-color-palette@latest?label=) | ![](https://badgen.net/npm/types/react-color-palette?color=green&label=) |
+| react-colorful | ![](https://badgen.net/bundlephobia/min/react-colorful@latest?color=orange&label=) | ![](https://badgen.net/bundlephobia/minzip/react-colorful@latest?color=green&label=) | ![](https://badgen.net/bundlephobia/dependency-count/react-colorful@latest?color=green&label=) | ![](https://badgen.net/bundlephobia/tree-shaking/react-colorful@latest?label=) | ![](https://badgen.net/npm/types/react-colorful?color=green&label=) |
+| react-input-color | ![](https://badgen.net/bundlephobia/min/react-input-color@latest?color=red&label=) | ![](https://badgen.net/bundlephobia/minzip/react-input-color@latest?color=orange&label=) | ![](https://badgen.net/bundlephobia/dependency-count/react-input-color@latest?color=red&label=) | ![](https://badgen.net/bundlephobia/tree-shaking/react-input-color@latest?label=) | ![](https://badgen.net/npm/types/react-input-color?color=green&label=) |
+| rc-color-picker | ![](https://badgen.net/bundlephobia/min/rc-color-picker@latest?color=red&label=) | ![](https://badgen.net/bundlephobia/minzip/rc-color-picker@latest?color=red&label=) | ![](https://badgen.net/bundlephobia/dependency-count/rc-color-picker@latest?color=red&label=) | ![](https://badgen.net/bundlephobia/tree-shaking/rc-color-picker@latest?label=) | ![](https://badgen.net/npm/types/rc-color-picker?color=red&label=) |
+| react-color | ![](https://badgen.net/bundlephobia/min/react-color@latest?color=red&label=) | ![](https://badgen.net/bundlephobia/minzip/react-color@latest?color=red&label=) | ![](https://badgen.net/bundlephobia/dependency-count/react-color@latest?color=red&label=) | ![](https://badgen.net/bundlephobia/tree-shaking/react-color@latest?label=) | ![](https://badgen.net/npm/types/react-color?color=orange&label=) |
 
 <hr />
 
