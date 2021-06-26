@@ -19,6 +19,7 @@
 
   background-color: var(--rcp-background);
   border-radius: 10px;
+  box-sizing: border-box;
 }
 
 .rcp-body {
@@ -27,6 +28,7 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
+  width: 100%;
 
   padding: 20px;
 }
@@ -91,17 +93,8 @@
 }
 
 .rcp-fields {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-
-  width: 100%;
-}
-
-.rcp-fields-floor {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 10px;
 
   width: 100%;
@@ -114,6 +107,14 @@
   gap: 5px;
 
   width: 100%;
+}
+
+.hex-element {
+  grid-row: 1;
+}
+
+.hex-element:nth-child(3n) {
+  grid-column: 1 / -1;
 }
 
 .rcp-fields-element-input {
