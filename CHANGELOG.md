@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/Wondermarin/react-color-palette/compare/v5.0.0...v6.0.0) (2021-06-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* `hideHSB` -> `hideHSV` (#14)
+
+### Bug Fixes
+
+* `hideHSB` -> `hideHSV` ([#14](https://github.com/Wondermarin/react-color-palette/issues/14)) ([b6d8e8b](https://github.com/Wondermarin/react-color-palette/commit/b6d8e8b95f31bbd8269d5a4e9aa9f8fe0be336e1))
+* Hue bar size ([#12](https://github.com/Wondermarin/react-color-palette/issues/12)) ([95084b1](https://github.com/Wondermarin/react-color-palette/commit/95084b148e37fc28cdaee7abc143161a0b7b9f6e))
+
 ## [5.0.0](https://github.com/Wondermarin/react-color-palette/compare/v4.1.0...v5.0.0) (2021-04-28)
 
 
