@@ -9,7 +9,7 @@ export interface UpperFloorProps {
 export interface LowerFloorProps {
   readonly color: Color;
   readonly hideRGB: boolean;
-  readonly hideHSB: boolean;
+  readonly hideHSV: boolean;
   readonly onChange: React.Dispatch<React.SetStateAction<Color>>;
 }
 
@@ -17,6 +17,6 @@ export interface FieldsProps {
   readonly color: Color;
   readonly hideHEX: boolean;
   readonly hideRGB: boolean;
-  readonly hideHSB: boolean;
+  readonly hideHSV: boolean;
   readonly onChange: React.Dispatch<React.SetStateAction<Color>>;
 }

@@ -26,9 +26,9 @@ export interface ColorPickerProps {
    */
   readonly hideRGB?: boolean;
   /**
-   * Hide HSB field.
+   * Hide HSV field.
    */
-  readonly hideHSB?: boolean;
+  readonly hideHSV?: boolean;
   /**
    * Color theme.
    */

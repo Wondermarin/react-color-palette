@@ -27,24 +27,22 @@ const UpperFloor = ({ color, hideHEX, onChange }: UpperFloorProps): JSX.Element 
   return (
     <>
       {!hideHEX && (
-        <div className="rcp-fields-floor">
-          <div className="rcp-fields-element">
-            <input
-              className="rcp-fields-element-input"
-              value={valueHEX.value}
-              onFocus={(): void => setValueHEX({ ...valueHEX, inputted: true })}
-              onChange={changeHEX}
-              onBlur={(): void => setValueHEX({ ...valueHEX, inputted: false })}
-            />
-            <label className="rcp-fields-element-label">HEX</label>
-          </div>
+        <div className="rcp-fields-element hex-element">
+          <input
+            className="rcp-fields-element-input"
+            value={valueHEX.value}
+            onFocus={(): void => setValueHEX({ ...valueHEX, inputted: true })}
+            onChange={changeHEX}
+            onBlur={(): void => setValueHEX({ ...valueHEX, inputted: false })}
+          />
+          <label className="rcp-fields-element-label">HEX</label>
         </div>
       )}
     </>
   );
 };
 
-const LowerFloor = ({ color, hideRGB, hideHSB, onChange }: LowerFloorProps): JSX.Element => {
+const LowerFloor = ({ color, hideRGB, hideHSV, onChange }: LowerFloorProps): JSX.Element => {
   const getValueRGB = useCallback(
     () => ({ value: `${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}`, inputted: false }),
     [color.rgb]
@@ -98,8 +96,8 @@ const LowerFloor = ({ color, hideRGB, hideHSB, onChange }: LowerFloorProps): JSX
 
   return (
     <>
-      {(!hideRGB || !hideHSB) && (
-        <div className="rcp-fields-floor">
+      {(!hideRGB || !hideHSV) && (
+        <>
           {!hideRGB && (
             <div className="rcp-fields-element">
               <input
@@ -112,7 +110,7 @@ const LowerFloor = ({ color, hideRGB, hideHSB, onChange }: LowerFloorProps): JSX
               <label className="rcp-fields-element-label">RGB</label>
             </div>
           )}
-          {!hideHSB && (
+          {!hideHSV && (
             <div className="rcp-fields-element">
               <input
                 className="rcp-fields-element-input"
@@ -124,19 +122,19 @@ const LowerFloor = ({ color, hideRGB, hideHSB, onChange }: LowerFloorProps): JSX
               <label className="rcp-fields-element-label">HSV</label>
             </div>
           )}
-        </div>
+        </>
       )}
     </>
   );
 };
 
-export const Fields = ({ color, hideHEX, hideRGB, hideHSB, onChange }: FieldsProps): JSX.Element => {
+export const Fields = ({ color, hideHEX, hideRGB, hideHSV, onChange }: FieldsProps): JSX.Element => {
   return (
     <>
-      {(!hideHEX || !hideRGB || !hideHSB) && (
+      {(!hideHEX || !hideRGB || !hideHSV) && (
         <div className="rcp-fields">
+          <LowerFloor color={color} hideRGB={hideRGB} hideHSV={hideHSV} onChange={onChange} />
           <UpperFloor color={color} hideHEX={hideHEX} onChange={onChange} />
-          <LowerFloor color={color} hideRGB={hideRGB} hideHSB={hideHSB} onChange={onChange} />
         </div>
       )}
     </>
