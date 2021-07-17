@@ -42,17 +42,28 @@ const UpperFloor = ({ color, hideHEX, onChange }: UpperFloorProps): JSX.Element 
   );
 };
 
-const LowerFloor = ({ color, hideRGB, hideHSV, onChange }: LowerFloorProps): JSX.Element => {
+const LowerFloor = ({ color, hideRGB, hideHSV, alpha, onChange }: LowerFloorProps): JSX.Element => {
   const getValueRGB = useCallback(
-    () => ({ value: `${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}`, inputted: false }),
-    [color.rgb]
+    () => ({
+      value:
+        alpha && color.rgb.a !== undefined
+          ? `${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, ${color.rgb.a}`
+          : `${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}`,
+      inputted: false,
+    }),
+    [color.rgb, alpha]
   );
   const getValueHSV = useCallback(
     () => ({
-      value: `${Math.round(color.hsv.h)}°, ${Math.round(color.hsv.s)}%, ${Math.round(color.hsv.v)}%`,
+      value:
+        alpha && color.hsv.a !== undefined
+          ? `${Math.round(color.hsv.h)}°, ${Math.round(color.hsv.s)}%, ${Math.round(color.hsv.v)}%, ${Math.round(
+              color.hsv.a
+            )}%`
+          : `${Math.round(color.hsv.h)}°, ${Math.round(color.hsv.s)}%, ${Math.round(color.hsv.v)}%`,
       inputted: false,
     }),
-    [color.hsv]
+    [color.hsv, alpha]
   );
 
   const [valueRGB, setValueRGB] = useState(getValueRGB);
@@ -79,6 +90,12 @@ const LowerFloor = ({ color, hideRGB, hideHSV, onChange }: LowerFloorProps): JSX
       onChange(toColor("rgb", rgb));
     }
 
+    if (alpha && value && value.length === 4) {
+      const rgb = toRgb(value.slice(0, 4));
+
+      onChange(toColor("rgb", rgb));
+    }
+
     setValueRGB({ ...valueRGB, value: e.target.value });
   };
 
@@ -87,6 +104,12 @@ const LowerFloor = ({ color, hideRGB, hideHSV, onChange }: LowerFloorProps): JSX
 
     if (value && value.length === 3) {
       const hsb = toHsv(value.slice(0, 3));
+
+      onChange(toColor("hsv", hsb));
+    }
+
+    if (alpha && value && value.length === 4) {
+      const hsb = toHsv(value.slice(0, 4));
 
       onChange(toColor("hsv", hsb));
     }
@@ -128,12 +151,12 @@ const LowerFloor = ({ color, hideRGB, hideHSV, onChange }: LowerFloorProps): JSX
   );
 };
 
-export const Fields = ({ color, hideHEX, hideRGB, hideHSV, onChange }: FieldsProps): JSX.Element => {
+export const Fields = ({ color, hideHEX, hideRGB, hideHSV, alpha, onChange }: FieldsProps): JSX.Element => {
   return (
     <>
       {(!hideHEX || !hideRGB || !hideHSV) && (
         <div className="rcp-fields">
-          <LowerFloor color={color} hideRGB={hideRGB} hideHSV={hideHSV} onChange={onChange} />
+          <LowerFloor color={color} hideRGB={hideRGB} hideHSV={hideHSV} alpha={alpha} onChange={onChange} />
           <UpperFloor color={color} hideHEX={hideHEX} onChange={onChange} />
         </div>
       )}

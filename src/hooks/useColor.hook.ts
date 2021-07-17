@@ -5,7 +5,7 @@ import { toColor } from "../utils/toColor.util";
 /**
  * Returns a stateful [Color](https://github.com/Wondermarin/react-color-palette#color), and a function to update it.
  * @param model HEX.
- * @param initColor Color in HEX model (3-6 digit) or [HTML Color Names](https://www.w3.org/wiki/CSS/Properties/color/keywords).
+ * @param initColor Color in HEX model (3-6 digit or 4-8 digit with alpha) or [HTML Color Names](https://www.w3.org/wiki/CSS/Properties/color/keywords).
  */
 export function useColor(model: "hex", initColor: Color["hex"]): [Color, React.Dispatch<React.SetStateAction<Color>>];
 /**

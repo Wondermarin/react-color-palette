@@ -14,3 +14,9 @@ export function getHueCoordinates(h: number, width: number): number {
 
   return x;
 }
+
+export function getAlphaCoordinates(a: number, width: number): number {
+  const x = (a / 100) * width;
+
+  return x;
+}

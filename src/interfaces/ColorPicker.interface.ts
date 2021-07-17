@@ -30,6 +30,10 @@ export interface ColorPickerProps {
    */
   readonly hideHSV?: boolean;
   /**
+   * Enable alpha channel.
+   */
+  readonly alpha?: boolean;
+  /**
    * Color theme.
    */
   readonly dark?: boolean;
