@@ -120,6 +120,7 @@ If the default colors don't fit your project, you can always change them.
 | hideHEX  | `bool`       | false   | Hide HEX input.                                                          |
 | hideRGB  | `bool`       | false   | Hide RGB input.                                                          |
 | hideHSV  | `bool`       | false   | Hide HSV input.                                                          |
+| alpha    | `bool`       | false   | Enable alpha channel.                                                    |
 | dark     | `bool`       | false   | Color theme.                                                             |
 
 [1]: #color
@@ -148,19 +149,21 @@ If the default colors don't fit your project, you can always change them.
 
 ### `ColorRGB`
 
-| Field | Type     |
-| ----- | -------- |
-| r     | `number` |
-| g     | `number` |
-| b     | `number` |
+| Field | Type                    |
+| ----- | ----------------------- |
+| r     | `number`                |
+| g     | `number`                |
+| b     | `number`                |
+| a     | `number` \| `undefined` |
 
 ### `ColorHSV`
 
-| Field | Type     |
-| ----- | -------- |
-| h     | `number` |
-| s     | `number` |
-| v     | `number` |
+| Field | Type                    |
+| ----- | ----------------------- |
+| h     | `number`                |
+| s     | `number`                |
+| v     | `number`                |
+| a     | `number` \| `undefined` |
 
 <hr />
 
