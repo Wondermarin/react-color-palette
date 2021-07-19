@@ -98,9 +98,6 @@
   width: 100%;
   height: 12px;
 
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)) top left / auto auto,
-    conic-gradient(#666 0.25turn, #999 0.25turn 0.5turn, #555 0.5turn 0.75turn, #999 0.75turn) top left / 12px 12px
-      repeat;
   border-radius: 10px;
 
   user-select: none;

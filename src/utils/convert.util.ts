@@ -13,13 +13,12 @@ export function toHex(value: string): Color["hex"] {
 
     return ctx.fillStyle;
   } else if (value.length === 4 || value.length === 5) {
-    let newValue = "#";
+    value = value
+      .split("")
+      .map((v, i) => (i === 0 ? "#" : v + v))
+      .join("");
 
-    for (let i = 1; i < value.length; i++) {
-      newValue += value[i] + value[i];
-    }
-
-    return newValue;
+    return value;
   } else if (value.length === 7 || value.length === 9) {
     return value;
   }
@@ -28,13 +27,13 @@ export function toHex(value: string): Color["hex"] {
 }
 
 export function toRgb(value: string[]): Color["rgb"] {
-  const [r, g, b, a] = value.map((v) => clamp(Number(v), 255, 0));
+  const [r, g, b, a] = value.map((v, i) => (i < 3 ? clamp(Number(v), 255, 0) : clamp(Number(v), 1, 0)));
 
   return { r, g, b, a };
 }
 
 export function toHsv(value: string[]): Color["hsv"] {
-  const [h, s, v, a] = value.map((v, i) => clamp(Number(v), i ? 100 : 360, 0));
+  const [h, s, v, a] = value.map((v, i) => clamp(Number(v), i === 0 ? 360 : i < 3 ? 100 : 1, 0));
 
   return { h, s, v, a };
 }
@@ -47,21 +46,13 @@ export function hex2rgb(hex: Color["hex"]): Color["rgb"] {
   const b = parseInt(hex.slice(4, 6), 16);
   const a = parseInt(hex.slice(6, 8), 16);
 
-  if (!Number.isNaN(a)) {
-    return { r, g, b, a };
-  }
-
-  return { r, g, b };
+  return { r, g, b, a: Number.isNaN(a) ? undefined : a / 255 };
 }
 
 export function rgb2hsv({ r, g, b, a }: Color["rgb"]): Color["hsv"] {
   r /= 255;
   g /= 255;
   b /= 255;
-  if (a !== undefined) {
-    a /= 255;
-    a *= 100;
-  }
 
   const max = Math.max(r, g, b);
   const d = max - Math.min(r, g, b);
@@ -76,9 +67,6 @@ export function rgb2hsv({ r, g, b, a }: Color["rgb"]): Color["hsv"] {
 export function hsv2rgb({ h, s, v, a }: Color["hsv"]): Color["rgb"] {
   s /= 100;
   v /= 100;
-  if (a !== undefined) {
-    a = Math.round((a / 100) * 255);
-  }
 
   const i = ~~(h / 60);
   const f = h / 60 - i;
@@ -95,7 +83,9 @@ export function hsv2rgb({ h, s, v, a }: Color["hsv"]): Color["rgb"] {
 }
 
 export function rgb2hex({ r, g, b, a }: Color["rgb"]): Color["hex"] {
-  const hex = [r, g, b, a].map((v) => (v !== undefined ? v.toString(16).padStart(2, "0") : "")).join("");
+  const hex = [r, g, b, a]
+    .map((v, i) => (v !== undefined ? (i < 3 ? v : Math.round(v * 255)).toString(16).padStart(2, "0") : ""))
+    .join("");
 
   return `#${hex}`;
 }

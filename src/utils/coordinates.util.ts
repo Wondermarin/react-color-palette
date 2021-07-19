@@ -16,7 +16,7 @@ export function getHueCoordinates(h: number, width: number): number {
 }
 
 export function getAlphaCoordinates(a: number, width: number): number {
-  const x = (a / 100) * width;
+  const x = a * width;
 
   return x;
 }
