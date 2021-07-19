@@ -13,19 +13,6 @@
     },
     "./lib/css/styles.css": "./lib/css/styles.css"
   },
-  "targets": {
-    "demo": {
-      "scopeHoist": false,
-      "engines": {
-        "browsers": [
-          "> 0.2%",
-          "not dead",
-          "not ie <= 11",
-          "not op_mini all"
-        ]
-      }
-    }
-  },
   "engines": {
     "node": ">=10"
   },

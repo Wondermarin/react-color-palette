@@ -15,22 +15,22 @@
 </div>
 
 <div align="center">
-  <a href="https://wondermarin.github.io/react-color-palette/">
+  <a href="https://rcp.wondermarin.space">
     <img src="https://github.com/Wondermarin/react-color-palette/raw/master/public/demo.apng" />
   </a>
 </div>
 
 <div align="center">
-  <a href="https://wondermarin.github.io/react-color-palette/">Live Demo →</a>
+  <a href="https://rcp.wondermarin.space">Live Demo →</a>
 </div>
 
 <hr />
 
 ## Features
 
-- 🚀 **Lightweight (2.5 KB)**.
+- 🚀 **Lightweight**.
 - 💨 **No dependencies**.
-- 🛡️ **Strict (written in TypeScript)**.
+- 🛡️ **Strict**.
 
 <hr />
 
