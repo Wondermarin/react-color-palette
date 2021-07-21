@@ -44,9 +44,11 @@ export function hex2rgb(hex: Color["hex"]): Color["rgb"] {
   const r = parseInt(hex.slice(0, 2), 16);
   const g = parseInt(hex.slice(2, 4), 16);
   const b = parseInt(hex.slice(4, 6), 16);
-  const a = parseInt(hex.slice(6, 8), 16);
+  let a = parseInt(hex.slice(6, 8), 16) || undefined;
 
-  return { r, g, b, a: Number.isNaN(a) ? undefined : a / 255 };
+  if (a) a /= 255;
+
+  return { r, g, b, a };
 }
 
 export function rgb2hsv({ r, g, b, a }: Color["rgb"]): Color["hsv"] {

@@ -20,7 +20,7 @@ export const ColorPicker = ({
     <Saturation width={width} height={height} color={color} onChange={onChange} />
     <div className="rcp-body">
       <Hue width={width - 40} color={color} onChange={onChange} />
-      {alpha ? <Alpha width={width - 40} color={color} onChange={onChange} /> : null}
+      {alpha && <Alpha width={width - 40} color={color} onChange={onChange} />}
       <Fields color={color} hideHEX={hideHEX} hideRGB={hideRGB} hideHSV={hideHSV} alpha={alpha} onChange={onChange} />
     </div>
   </div>
