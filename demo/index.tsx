@@ -1,4 +1,4 @@
-import React, { StrictMode } from "react";
+import React, { StrictMode, useState } from "react";
 import { render } from "react-dom";
 import { ColorPicker, useColor } from "../src";
 import "../src/css/styles.css";
@@ -6,19 +6,48 @@ import "../src/css/styles.css";
 function App(): JSX.Element {
   const [color, setColor] = useColor("hex", "#121212");
 
+  const [options, setOptions] = useState({
+    hideHEX: false,
+    hideRGB: false,
+    hideHSV: false,
+    dark: true,
+  });
+
+  const changeOption = (option: keyof typeof options, value: any): void =>
+    setOptions({
+      ...options,
+      [option]: value,
+    });
+
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "100%",
-        height: "100vh",
-        backgroundColor: "#121212",
-      }}
-    >
-      <ColorPicker width={456} height={228} color={color} onChange={setColor} dark />
-    </div>
+    <main>
+      <div className="mainFloor">
+        <button className="mainButton" onClick={(): void => changeOption("dark", !options.dark)}>
+          Switch Theme
+        </button>
+      </div>
+      <div className="mainFloor">
+        <button className="mainButton" onClick={(): void => changeOption("hideHEX", !options.hideHEX)}>
+          {options.hideHEX ? "Enable HEX" : "Disable HEX"}
+        </button>
+        <button className="mainButton" onClick={(): void => changeOption("hideRGB", !options.hideRGB)}>
+          {options.hideRGB ? "Enable RGB" : "Disable RGB"}
+        </button>
+        <button className="mainButton" onClick={(): void => changeOption("hideHSV", !options.hideHSV)}>
+          {options.hideHSV ? "Enable HSV" : "Disable HSV"}
+        </button>
+      </div>
+      <ColorPicker
+        width={456}
+        height={228}
+        color={color}
+        onChange={setColor}
+        hideHEX={options.hideHEX}
+        hideRGB={options.hideRGB}
+        hideHSV={options.hideHSV}
+        dark={options.dark}
+      />
+    </main>
   );
 }
 
