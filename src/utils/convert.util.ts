@@ -15,7 +15,7 @@ export function toHex(value: string): Color["hex"] {
   } else if (value.length === 4 || value.length === 5) {
     value = value
       .split("")
-      .map((v, i) => (i === 0 ? "#" : v + v))
+      .map((v, i) => (i ? v + v : "#"))
       .join("");
 
     return value;
@@ -27,13 +27,13 @@ export function toHex(value: string): Color["hex"] {
 }
 
 export function toRgb(value: string[]): Color["rgb"] {
-  const [r, g, b, a] = value.map((v, i) => (i < 3 ? clamp(Number(v), 255, 0) : clamp(Number(v), 1, 0)));
+  const [r, g, b, a] = value.map((v, i) => clamp(Number(v), i < 3 ? 255 : 1, 0));
 
   return { r, g, b, a };
 }
 
 export function toHsv(value: string[]): Color["hsv"] {
-  const [h, s, v, a] = value.map((v, i) => clamp(Number(v), i === 0 ? 360 : i < 3 ? 100 : 1, 0));
+  const [h, s, v, a] = value.map((v, i) => clamp(Number(v), i ? (i < 3 ? 100 : 1) : 360, 0));
 
   return { h, s, v, a };
 }

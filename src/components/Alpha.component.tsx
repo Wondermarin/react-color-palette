@@ -15,12 +15,17 @@ export const Alpha = ({ width, color, onChange }: AlphaProps): JSX.Element => {
     onChange(toColor("hsv", { ...color.hsv, a: x / width }));
   };
 
+  const rgb = useMemo(() => `${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}`, [color.rgb]);
+  const rgba = useMemo(() => `${rgb}, ${color.rgb.a ?? 1}`, [rgb, color.rgb.a]);
+
+  const positionX = useMemo(() => -position - 2, [position]);
+
   return (
     <Interactive
       className="rcp-alpha"
       onChange={updateColor}
       style={{
-        background: `linear-gradient(to right, rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, 0), rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, 1)) top left / auto auto,
+        background: `linear-gradient(to right, rgba(${rgb}, 0), rgba(${rgb}, 1)) top left / auto auto,
                 conic-gradient(#666 0.25turn, #999 0.25turn 0.5turn, #666 0.5turn 0.75turn, #999 0.75turn) top left / 12px 12px
                 repeat`,
       }}
@@ -29,12 +34,8 @@ export const Alpha = ({ width, color, onChange }: AlphaProps): JSX.Element => {
         className="rcp-alpha-cursor"
         style={{
           left: position,
-          background: `linear-gradient(to right, rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, ${
-            color.rgb.a ?? 1
-          }), rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, ${color.rgb.a ?? 1})) top left / auto auto,
-                conic-gradient(#666 0.25turn, #999 0.25turn 0.5turn, #666 0.5turn 0.75turn, #999 0.75turn) ${
-                  -position - 2
-                }px 2px / 12px 12px
+          background: `linear-gradient(to right, rgba(${rgba}), rgba(${rgba})) top left / auto auto,
+                conic-gradient(#666 0.25turn, #999 0.25turn 0.5turn, #666 0.5turn 0.75turn, #999 0.75turn) ${positionX}px 2px / 12px 12px
                 repeat`,
         }}
       />
