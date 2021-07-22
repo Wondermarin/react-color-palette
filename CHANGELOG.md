@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.1.0](https://github.com/Wondermarin/react-color-palette/compare/v6.0.0...v6.1.0) (2021-07-22)
+
+
+### Features
+
+* Add `alpha channel` ([#15](https://github.com/Wondermarin/react-color-palette/issues/15)) ([aa7c289](https://github.com/Wondermarin/react-color-palette/commit/aa7c289b971e02fe0c0740904202f80d39fd9bbd))
+
 ## [6.0.0](https://github.com/Wondermarin/react-color-palette/compare/v5.0.0...v6.0.0) (2021-06-26)
 
 

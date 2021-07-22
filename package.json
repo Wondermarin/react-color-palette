@@ -1,6 +1,6 @@
 {
   "name": "react-color-palette",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "description": "🎨 Lightweight Color Picker component for React.",
   "main": "lib/index.js",
   "module": "lib/index.module.js",
@@ -51,8 +51,6 @@
     "build": "yarn build:js && yarn build:types",
     "demo:build": "vite build",
     "demo:dev": "vite",
-    "predemo:deploy": "yarn demo:build",
-    "demo:deploy": "gh-pages -d demo/build",
     "release:patch": "standard-version --release-as patch",
     "release:minor": "standard-version --release-as minor",
     "release:major": "standard-version --release-as major",
