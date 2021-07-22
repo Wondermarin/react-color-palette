@@ -3,12 +3,12 @@
 ## Setup
 
 1. Fork & Clone the repository.
-2. Run `yarn install --frozen-lockfile`.
+2. Run `yarn install`.
 3. Time to code!
 
 ## Test
 
-1. Run `yarn test`, to make sure that the code style matches the accepted one, and also check the typing.
+1. Run `yarn test`.
 
 ## Submit
 
