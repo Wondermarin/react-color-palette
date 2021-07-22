@@ -1,6 +1,7 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { UpperFloorProps, LowerFloorProps, FieldsProps } from "../interfaces/Fields.interface";
 import { toHsv, toRgb } from "../utils/convert.util";
+import { roundFloat } from "../utils/roundFloat.util";
 import { toColor } from "../utils/toColor.util";
 import { validHex } from "../utils/validate.util";
 
@@ -42,17 +43,24 @@ const UpperFloor = ({ color, hideHEX, onChange }: UpperFloorProps): JSX.Element 
   );
 };
 
-const LowerFloor = ({ color, hideRGB, hideHSV, onChange }: LowerFloorProps): JSX.Element => {
+const LowerFloor = ({ color, hideRGB, hideHSV, alpha, onChange }: LowerFloorProps): JSX.Element => {
   const getValueRGB = useCallback(
-    () => ({ value: `${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}`, inputted: false }),
-    [color.rgb]
+    () => ({
+      value: `${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}${
+        alpha && color.rgb.a !== undefined ? `, ${roundFloat(color.rgb.a, 3)}` : ""
+      }`,
+      inputted: false,
+    }),
+    [color.rgb, alpha]
   );
   const getValueHSV = useCallback(
     () => ({
-      value: `${Math.round(color.hsv.h)}°, ${Math.round(color.hsv.s)}%, ${Math.round(color.hsv.v)}%`,
+      value: `${Math.round(color.hsv.h)}°, ${Math.round(color.hsv.s)}%, ${Math.round(color.hsv.v)}%${
+        alpha && color.hsv.a !== undefined ? `, ${roundFloat(color.hsv.a, 3)}` : ""
+      }`,
       inputted: false,
     }),
-    [color.hsv]
+    [color.hsv, alpha]
   );
 
   const [valueRGB, setValueRGB] = useState(getValueRGB);
@@ -71,10 +79,10 @@ const LowerFloor = ({ color, hideRGB, hideHSV, onChange }: LowerFloorProps): JSX
   }, [valueHSV.inputted, getValueHSV]);
 
   const changeRGB = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const value = e.target.value.match(/\d+/g);
+    const value = e.target.value.match(/\d+(?:\.\d+)?/g);
 
-    if (value && value.length === 3) {
-      const rgb = toRgb(value.slice(0, 3));
+    if (value && (value.length === 3 || (alpha && value.length === 4))) {
+      const rgb = toRgb(value);
 
       onChange(toColor("rgb", rgb));
     }
@@ -83,10 +91,10 @@ const LowerFloor = ({ color, hideRGB, hideHSV, onChange }: LowerFloorProps): JSX
   };
 
   const changeHSB = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const value = e.target.value.match(/\d+/g);
+    const value = e.target.value.match(/\d+(?:\.\d+)?/g);
 
-    if (value && value.length === 3) {
-      const hsb = toHsv(value.slice(0, 3));
+    if (value && (value.length === 3 || (alpha && value.length === 4))) {
+      const hsb = toHsv(value);
 
       onChange(toColor("hsv", hsb));
     }
@@ -128,12 +136,12 @@ const LowerFloor = ({ color, hideRGB, hideHSV, onChange }: LowerFloorProps): JSX
   );
 };
 
-export const Fields = ({ color, hideHEX, hideRGB, hideHSV, onChange }: FieldsProps): JSX.Element => {
+export const Fields = ({ color, hideHEX, hideRGB, hideHSV, alpha, onChange }: FieldsProps): JSX.Element => {
   return (
     <>
       {(!hideHEX || !hideRGB || !hideHSV) && (
         <div className="rcp-fields">
-          <LowerFloor color={color} hideRGB={hideRGB} hideHSV={hideHSV} onChange={onChange} />
+          <LowerFloor color={color} hideRGB={hideRGB} hideHSV={hideHSV} alpha={alpha} onChange={onChange} />
           <UpperFloor color={color} hideHEX={hideHEX} onChange={onChange} />
         </div>
       )}
