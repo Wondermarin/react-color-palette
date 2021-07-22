@@ -10,6 +10,7 @@ function App(): JSX.Element {
     hideHEX: false,
     hideRGB: false,
     hideHSV: false,
+    alpha: false,
     dark: true,
   });
 
@@ -27,6 +28,9 @@ function App(): JSX.Element {
         </button>
       </div>
       <div className="mainFloor">
+        <button className="mainButton" onClick={(): void => changeOption("alpha", !options.alpha)}>
+          {!options.alpha ? "Enable Alpha Channel" : "Disable Alpha Channel"}
+        </button>
         <button className="mainButton" onClick={(): void => changeOption("hideHEX", !options.hideHEX)}>
           {options.hideHEX ? "Enable HEX" : "Disable HEX"}
         </button>
@@ -45,6 +49,7 @@ function App(): JSX.Element {
         hideHEX={options.hideHEX}
         hideRGB={options.hideRGB}
         hideHSV={options.hideHSV}
+        alpha={options.alpha}
         dark={options.dark}
       />
     </main>
