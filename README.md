@@ -11,7 +11,7 @@
     <img alt="size" src="https://badgen.net/bundlephobia/minzip/react-color-palette@latest?color=561ecb" />
   </a>
   <br />
-  <h4>🎨 Lightweight Color Picker component for <a href="https://github.com/facebook/react">React</a>.</h4>
+  <h4>🎨 Lightweight &lt;ColorPicker /&gt; component for <a href="https://github.com/facebook/react">React</a>.</h4>
 </div>
 
 <div align="center">
