@@ -15,19 +15,19 @@ export function Controller({ options, switchOption }: ControllerProps): JSX.Elem
         <S.ControllerMetaDesc>Click to Try</S.ControllerMetaDesc>
       </S.ControllerMeta>
       <S.ControllerBody>
-        <S.ControllerButton active={options.hideHEX} onClick={(): void => switchOption("hideHEX")}>
+        <S.ControllerButton id="switch-hex" active={options.hideHEX} onClick={(): void => switchOption("hideHEX")}>
           Hide HEX Input
         </S.ControllerButton>
-        <S.ControllerButton active={options.hideRGB} onClick={(): void => switchOption("hideRGB")}>
+        <S.ControllerButton id="switch-rgb" active={options.hideRGB} onClick={(): void => switchOption("hideRGB")}>
           Hide RGB Input
         </S.ControllerButton>
-        <S.ControllerButton active={options.hideHSV} onClick={(): void => switchOption("hideHSV")}>
+        <S.ControllerButton id="switch-hsv" active={options.hideHSV} onClick={(): void => switchOption("hideHSV")}>
           Hide HSV Input
         </S.ControllerButton>
-        <S.ControllerButton active={options.alpha} onClick={(): void => switchOption("alpha")}>
+        <S.ControllerButton id="switch-alpha" active={options.alpha} onClick={(): void => switchOption("alpha")}>
           Alpha Channel
         </S.ControllerButton>
-        <S.ControllerButton active={options.dark} onClick={(): void => switchOption("dark")}>
+        <S.ControllerButton id="switch-dark" active={options.dark} onClick={(): void => switchOption("dark")}>
           Dark Mode
         </S.ControllerButton>
       </S.ControllerBody>
