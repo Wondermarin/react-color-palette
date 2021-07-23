@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import reactRefresh from "@vitejs/plugin-react-refresh";
 
 export default defineConfig({
-  root: "demo",
+  root: "demo/src",
   base: "./",
   plugins: [reactRefresh()],
   server: {
@@ -10,7 +10,7 @@ export default defineConfig({
     open: true,
   },
   build: {
-    outDir: "build",
+    outDir: "../build",
     emptyOutDir: true,
     assetsInlineLimit: 0,
   },
