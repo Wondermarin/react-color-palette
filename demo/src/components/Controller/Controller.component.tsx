@@ -27,7 +27,7 @@ export function Controller({ options, switchOption }: ControllerProps): JSX.Elem
         <S.ControllerButton id="switch-alpha" active={options.alpha} onClick={(): void => switchOption("alpha")}>
           Alpha Channel
         </S.ControllerButton>
-        <S.ControllerButton id="switch-dark" active={options.dark} onClick={(): void => switchOption("dark")}>
+        <S.ControllerButton id="switch-mode" active={options.dark} onClick={(): void => switchOption("dark")}>
           Dark Mode
         </S.ControllerButton>
       </S.ControllerBody>
