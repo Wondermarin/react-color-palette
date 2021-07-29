@@ -1,11 +1,11 @@
-### Checklist
-
 <!--
   Before opening the request, make sure that all the listed conditions are met.
 
   - Code is up-to-date with the `master` branch.
   - `yarn test (npm run test)` passes with this change.
   - The new commits follow conventions explained in [CONTRIBUTING.md](https://github.com/Wondermarin/react-color-palette/blob/master/.github/CONTRIBUTING.md)
+
+  If your PR adds new functionality, you should also change the `demo`!
 -->
 
 ### Description of Change
