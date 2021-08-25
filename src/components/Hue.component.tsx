@@ -4,15 +4,18 @@ import { getHueCoordinates } from "../utils/coordinates.util";
 import { toColor } from "../utils/toColor.util";
 import { Interactive } from "./Interactive.component";
 
-export const Hue = ({ width, color, onChange }: HueProps): JSX.Element => {
+export const Hue = ({ width, color, onChange, onUpdated }: HueProps): JSX.Element => {
   const position = useMemo(() => {
     const x = getHueCoordinates(color.hsv.h, width);
 
     return x;
   }, [color.hsv.h, width]);
 
-  const updateColor = (x: number): void => {
-    onChange(toColor("hsv", { ...color.hsv, h: (x / width) * 360 }));
+  const updateColor = (x: number, y: number, completed: boolean | undefined): void => {
+    const result = toColor("hsv", { ...color.hsv, h: (x / width) * 360 });
+
+    onChange(result);
+    if (completed) onUpdated(result);
   };
 
   return (

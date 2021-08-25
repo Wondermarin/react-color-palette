@@ -21,8 +21,10 @@ export function Main({ options }: MainProps): JSX.Element {
         hideHEX={options.hideHEX}
         hideRGB={options.hideRGB}
         hideHSV={options.hideHSV}
+        hideLabels={options.hideLabels}
         alpha={options.alpha}
         dark={options.dark}
+        onUpdated={(color): void => console.log(color)}
       />
       <S.MainBody>
         <S.MainMeta>

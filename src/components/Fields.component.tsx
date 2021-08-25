@@ -5,7 +5,7 @@ import { roundFloat } from "../utils/roundFloat.util";
 import { toColor } from "../utils/toColor.util";
 import { validHex } from "../utils/validate.util";
 
-const UpperFloor = ({ color, hideHEX, onChange }: UpperFloorProps): JSX.Element => {
+const UpperFloor = ({ color, hideHEX, hideLabels, onChange, onUpdated }: UpperFloorProps): JSX.Element => {
   const getValueHEX = useCallback(() => ({ value: color.hex, inputted: false }), [color.hex]);
 
   const [valueHEX, setValueHEX] = useState(getValueHEX);
@@ -20,7 +20,10 @@ const UpperFloor = ({ color, hideHEX, onChange }: UpperFloorProps): JSX.Element 
     const value = e.target.value;
 
     if (validHex(value)) {
-      onChange(toColor("hex", value));
+      const result = toColor("hex", value);
+
+      onChange(result);
+      onUpdated(result);
       setValueHEX({ ...valueHEX, value });
     }
   };
@@ -36,14 +39,22 @@ const UpperFloor = ({ color, hideHEX, onChange }: UpperFloorProps): JSX.Element 
             onChange={changeHEX}
             onBlur={(): void => setValueHEX({ ...valueHEX, inputted: false })}
           />
-          <label className="rcp-fields-element-label">HEX</label>
+          {hideLabels ? null : <label className="rcp-fields-element-label">HEX</label>}
         </div>
       )}
     </>
   );
 };
 
-const LowerFloor = ({ color, hideRGB, hideHSV, alpha, onChange }: LowerFloorProps): JSX.Element => {
+const LowerFloor = ({
+  color,
+  hideRGB,
+  hideHSV,
+  alpha,
+  hideLabels,
+  onChange,
+  onUpdated,
+}: LowerFloorProps): JSX.Element => {
   const getValueRGB = useCallback(
     () => ({
       value: `${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}${
@@ -84,7 +95,10 @@ const LowerFloor = ({ color, hideRGB, hideHSV, alpha, onChange }: LowerFloorProp
     if (value && (value.length === 3 || (alpha && value.length === 4))) {
       const rgb = toRgb(value);
 
-      onChange(toColor("rgb", rgb));
+      const result = toColor("rgb", rgb);
+
+      onChange(result);
+      onUpdated(result);
     }
 
     setValueRGB({ ...valueRGB, value: e.target.value });
@@ -95,8 +109,10 @@ const LowerFloor = ({ color, hideRGB, hideHSV, alpha, onChange }: LowerFloorProp
 
     if (value && (value.length === 3 || (alpha && value.length === 4))) {
       const hsb = toHsv(value);
+      const result = toColor("hsv", hsb);
 
-      onChange(toColor("hsv", hsb));
+      onChange(result);
+      onUpdated(result);
     }
 
     setValueHSV({ ...valueHSV, value: e.target.value });
@@ -115,7 +131,7 @@ const LowerFloor = ({ color, hideRGB, hideHSV, alpha, onChange }: LowerFloorProp
                 onChange={changeRGB}
                 onBlur={(): void => setValueRGB({ ...valueRGB, inputted: false })}
               />
-              <label className="rcp-fields-element-label">RGB</label>
+              {hideLabels ? null : <label className="rcp-fields-element-label">RGB</label>}
             </div>
           )}
           {!hideHSV && (
@@ -127,7 +143,7 @@ const LowerFloor = ({ color, hideRGB, hideHSV, alpha, onChange }: LowerFloorProp
                 onChange={changeHSB}
                 onBlur={(): void => setValueHSV({ ...valueHSV, inputted: false })}
               />
-              <label className="rcp-fields-element-label">HSV</label>
+              {hideLabels ? null : <label className="rcp-fields-element-label">HSV</label>}
             </div>
           )}
         </>
@@ -136,13 +152,36 @@ const LowerFloor = ({ color, hideRGB, hideHSV, alpha, onChange }: LowerFloorProp
   );
 };
 
-export const Fields = ({ color, hideHEX, hideRGB, hideHSV, alpha, onChange }: FieldsProps): JSX.Element => {
+export const Fields = ({
+  color,
+  hideHEX,
+  hideRGB,
+  hideHSV,
+  alpha,
+  hideLabels,
+  onChange,
+  onUpdated,
+}: FieldsProps): JSX.Element => {
   return (
     <>
       {(!hideHEX || !hideRGB || !hideHSV) && (
         <div className="rcp-fields">
-          <LowerFloor color={color} hideRGB={hideRGB} hideHSV={hideHSV} alpha={alpha} onChange={onChange} />
-          <UpperFloor color={color} hideHEX={hideHEX} onChange={onChange} />
+          <LowerFloor
+            color={color}
+            hideRGB={hideRGB}
+            hideHSV={hideHSV}
+            alpha={alpha}
+            hideLabels={hideLabels}
+            onChange={onChange}
+            onUpdated={onUpdated}
+          />
+          <UpperFloor
+            color={color}
+            hideHEX={hideHEX}
+            hideLabels={hideLabels}
+            onChange={onChange}
+            onUpdated={onUpdated}
+          />
         </div>
       )}
     </>

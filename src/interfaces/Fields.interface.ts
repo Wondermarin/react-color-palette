@@ -3,7 +3,9 @@ import { Color } from "./Color.interface";
 export interface UpperFloorProps {
   readonly color: Color;
   readonly hideHEX: boolean;
+  readonly hideLabels: boolean;
   readonly onChange: React.Dispatch<React.SetStateAction<Color>>;
+  readonly onUpdated: (color: Color) => void;
 }
 
 export interface LowerFloorProps {
@@ -11,7 +13,9 @@ export interface LowerFloorProps {
   readonly hideRGB: boolean;
   readonly hideHSV: boolean;
   readonly alpha: boolean;
+  readonly hideLabels: boolean;
   readonly onChange: React.Dispatch<React.SetStateAction<Color>>;
+  readonly onUpdated: (color: Color) => void;
 }
 
 export interface FieldsProps {
@@ -20,5 +24,7 @@ export interface FieldsProps {
   readonly hideRGB: boolean;
   readonly hideHSV: boolean;
   readonly alpha: boolean;
+  readonly hideLabels: boolean;
   readonly onChange: React.Dispatch<React.SetStateAction<Color>>;
+  readonly onUpdated: (color: Color) => void;
 }

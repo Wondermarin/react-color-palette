@@ -5,4 +5,5 @@ export interface SaturationProps {
   readonly height: number;
   readonly color: Color;
   readonly onChange: React.Dispatch<React.SetStateAction<Color>>;
+  readonly onUpdated: (color: Color) => void;
 }

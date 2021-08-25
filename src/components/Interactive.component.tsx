@@ -1,20 +1,37 @@
 import React, { useRef } from "react";
-import { InteractiveProps } from "../interfaces/Interactive.interface";
+import { InteractiveProps, InteractiveCoordinates } from "../interfaces/Interactive.interface";
 import { clamp } from "../utils/clamp.util";
 
 export const Interactive = ({ className, style, onChange, children }: InteractiveProps): JSX.Element => {
   const divRef = useRef<HTMLDivElement>(null);
 
-  const move = (e: React.MouseEvent | MouseEvent): void => {
-    if (divRef.current) {
-      const { current: div } = divRef;
-      const { width, height, left, top } = div.getBoundingClientRect();
+  const calculate = (e: React.MouseEvent | MouseEvent): null | InteractiveCoordinates => {
+    if (!divRef.current) return null;
 
-      const x = clamp(e.clientX - left, width, 0);
-      const y = clamp(e.clientY - top, height, 0);
+    const { current: div } = divRef;
+    const { width, height, left, top } = div.getBoundingClientRect();
 
-      onChange(x, y);
+    const x = clamp(e.clientX - left, width, 0);
+    const y = clamp(e.clientY - top, height, 0);
+
+    return {
+      x,
+      y,
+    };
+  };
+
+  const handleChange = (e: React.MouseEvent | MouseEvent, completed = false): void => {
+    const coordinates = calculate(e);
+
+    if (coordinates) {
+      const { x, y } = coordinates;
+
+      onChange(x, y, completed);
     }
+  };
+
+  const move = (e: React.MouseEvent | MouseEvent): void => {
+    handleChange(e);
   };
 
   const onMouseDown = (e: React.MouseEvent): void => {
@@ -26,9 +43,10 @@ export const Interactive = ({ className, style, onChange, children }: Interactiv
       move(e);
     };
 
-    const onMouseUp = (): void => {
+    const onMouseUp = (e: React.MouseEvent | MouseEvent): void => {
       document.removeEventListener("mousemove", onMouseMove, false);
       document.removeEventListener("mouseup", onMouseUp, false);
+      handleChange(e, true);
     };
 
     document.addEventListener("mousemove", onMouseMove, false);

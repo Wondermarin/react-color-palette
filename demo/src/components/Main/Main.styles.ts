@@ -3,9 +3,9 @@ import { styled } from "../../styles/stitches.config";
 export const MainStyles = {
   Main: styled("section", {
     display: "flex",
-    alignItems: "center",
-    gap: 100,
+    alignItems: "flex-start",
     height: "100%",
+    gap: 100,
     margin: "50px 100px 100px",
   }),
   MainBody: styled("div", {

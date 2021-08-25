@@ -18,6 +18,11 @@ export interface ColorPickerProps {
    */
   readonly onChange: React.Dispatch<React.SetStateAction<Color>>;
   /**
+   * The function called only after updated and not upon each move/change.
+   */
+  readonly onUpdated?: (color: Color) => void;
+
+  /**
    * Hide HEX field.
    */
   readonly hideHEX?: boolean;
@@ -29,6 +34,10 @@ export interface ColorPickerProps {
    * Hide HSV field.
    */
   readonly hideHSV?: boolean;
+  /**
+   * Hide HEX, RGB, HSV labels.
+   */
+  readonly hideLabels?: boolean;
   /**
    * Enable alpha channel.
    */

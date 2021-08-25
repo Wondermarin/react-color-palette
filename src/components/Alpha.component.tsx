@@ -4,15 +4,18 @@ import { getAlphaCoordinates } from "../utils/coordinates.util";
 import { toColor } from "../utils/toColor.util";
 import { Interactive } from "./Interactive.component";
 
-export const Alpha = ({ width, color, onChange }: AlphaProps): JSX.Element => {
+export const Alpha = ({ width, color, onChange, onUpdated }: AlphaProps): JSX.Element => {
   const position = useMemo(() => {
     const x = getAlphaCoordinates(color.hsv.a ?? 1, width);
 
     return x;
   }, [color.hsv.a, width]);
 
-  const updateColor = (x: number): void => {
-    onChange(toColor("hsv", { ...color.hsv, a: x / width }));
+  const updateColor = (x: number, y: number, completed: boolean | undefined): void => {
+    const result = toColor("hsv", { ...color.hsv, a: x / width });
+
+    onChange(result);
+    if (completed) onUpdated(result);
   };
 
   const rgb = useMemo(() => `${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}`, [color.rgb]);

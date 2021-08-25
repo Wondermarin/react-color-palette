@@ -30,6 +30,13 @@ export function Controller({ options, switchOption }: ControllerProps): JSX.Elem
         <S.ControllerButton id="switch-mode" active={options.dark} onClick={(): void => switchOption("dark")}>
           Dark Mode
         </S.ControllerButton>
+        <S.ControllerButton
+          id="switch-mode"
+          active={options.hideLabels}
+          onClick={(): void => switchOption("hideLabels")}
+        >
+          Hide Labels
+        </S.ControllerButton>
       </S.ControllerBody>
     </S.Controller>
   );

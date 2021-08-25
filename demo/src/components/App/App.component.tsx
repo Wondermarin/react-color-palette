@@ -7,6 +7,7 @@ export interface Options {
   readonly hideHEX: boolean;
   readonly hideRGB: boolean;
   readonly hideHSV: boolean;
+  readonly hideLabels: boolean;
   readonly alpha: boolean;
   readonly dark: boolean;
 }
@@ -18,6 +19,7 @@ export function App(): JSX.Element {
     hideHEX: false,
     hideRGB: false,
     hideHSV: false,
+    hideLabels: false,
     alpha: false,
     dark: true,
   });
