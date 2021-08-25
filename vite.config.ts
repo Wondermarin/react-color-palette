@@ -6,7 +6,7 @@ export default defineConfig({
   base: "./",
   plugins: [reactRefresh()],
   server: {
-    port: 4000,
+    port: 3000,
     open: true,
   },
   build: {
