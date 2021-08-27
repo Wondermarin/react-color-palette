@@ -2,7 +2,6 @@
 /node_modules
 
 # Production
-/lib
 /demo/build
 
 # Logs
