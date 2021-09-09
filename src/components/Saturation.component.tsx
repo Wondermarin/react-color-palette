@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useEffect, useMemo, useRef } from "react";
 import { SaturationProps } from "../interfaces/Saturation.interface";
 import { getColorCoordinates } from "../utils/coordinates.util";
 import { toColor } from "../utils/toColor.util";
@@ -11,9 +11,18 @@ export const Saturation = ({ width, height, color, onChange }: SaturationProps):
     return { x, y };
   }, [color, width, height]);
 
-  const updateColor = (x: number, y: number): void => {
-    onChange(toColor("hsv", { ...color.hsv, s: (x / width) * 100, v: 100 - (y / height) * 100 }));
-  };
+  const colorRef = useRef(color);
+
+  const updateColor = useCallback(
+    (x: number, y: number): void => {
+      onChange(toColor("hsv", { ...colorRef.current.hsv, s: (x / width) * 100, v: 100 - (y / height) * 100 }));
+    },
+    [onChange, width, height]
+  );
+
+  useEffect(() => {
+    colorRef.current = color;
+  }, [color]);
 
   return (
     <Interactive
