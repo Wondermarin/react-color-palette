@@ -24,8 +24,6 @@ const getPointerPositionPoint = (
 export const Interactive = ({ className, style, onChange, children }: InteractiveProps): JSX.Element => {
   const divRef = useRef<HTMLDivElement>(null);
 
-  console.log(1);
-
   const move = useCallback(
     (clientX: number, clientY: number): void => {
       if (divRef.current) {
