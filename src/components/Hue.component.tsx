@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useMemo, useRef } from "react";
 import { HueProps } from "../interfaces/Hue.interface";
 import { getHueCoordinates } from "../utils/coordinates.util";
 import { toColor } from "../utils/toColor.util";
@@ -11,9 +11,14 @@ export const Hue = ({ width, color, onChange }: HueProps): JSX.Element => {
     return x;
   }, [color.hsv.h, width]);
 
-  const updateColor = (x: number): void => {
-    onChange(toColor("hsv", { ...color.hsv, h: (x / width) * 360 }));
-  };
+  const colorRef = useRef(color);
+
+  const updateColor = useCallback(
+    (x: number): void => {
+      onChange(toColor("hsv", { ...colorRef.current.hsv, h: (x / width) * 360 }));
+    },
+    [onChange, width]
+  );
 
   return (
     <Interactive className="rcp-hue" onChange={updateColor}>

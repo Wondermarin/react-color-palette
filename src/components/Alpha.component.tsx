@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useMemo, useRef } from "react";
 import { AlphaProps } from "../interfaces/Alpha.interface";
 import { getAlphaCoordinates } from "../utils/coordinates.util";
 import { toColor } from "../utils/toColor.util";
@@ -11,9 +11,14 @@ export const Alpha = ({ width, color, onChange }: AlphaProps): JSX.Element => {
     return x;
   }, [color.hsv.a, width]);
 
-  const updateColor = (x: number): void => {
-    onChange(toColor("hsv", { ...color.hsv, a: x / width }));
-  };
+  const colorRef = useRef(color);
+
+  const updateColor = useCallback(
+    (x: number): void => {
+      onChange(toColor("hsv", { ...colorRef.current.hsv, a: x / width }));
+    },
+    [onChange, width]
+  );
 
   const rgb = useMemo(() => `${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}`, [color.rgb]);
   const rgba = useMemo(() => `${rgb}, ${color.rgb.a ?? 1}`, [rgb, color.rgb.a]);
