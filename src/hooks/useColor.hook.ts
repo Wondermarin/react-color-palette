@@ -24,23 +24,26 @@ export function useColor<M extends keyof Color, C extends Color[M]>(
   model: M,
   initColor: C
 ): [Color, React.Dispatch<React.SetStateAction<Color>>] {
+ // Store initColor in state instead of using it directly as a useEffect dep to avoid infinite re-renders when "initColor" is an object
+  const [initColorValue] = useState(initColor);
+
   const getColor = useCallback(() => {
     if (model === "hex") {
-      const color = initColor as Color["hex"];
+      const color = initColorValue as Color["hex"];
 
       return toColor("hex", color);
     } else if (model === "rgb") {
-      const color = initColor as Color["rgb"];
+      const color = initColorValue as Color["rgb"];
 
       return toColor("rgb", color);
     } else if (model === "hsv") {
-      const color = initColor as Color["hsv"];
+      const color = initColorValue as Color["hsv"];
 
       return toColor("hsv", color);
     }
 
     return toColor("hex", "#000000");
-  }, [model, initColor]);
+  }, [model, initColorValue]);
 
   const [color, setColor] = useState(getColor);
 
