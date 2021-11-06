@@ -16,7 +16,7 @@ export const Hue = ({ width, color, onChange }: HueProps): JSX.Element => {
   };
 
   return (
-    <Interactive className="rcp-hue" style={{ width }} onChange={updateColor}>
+    <Interactive className="rcp-hue" onChange={updateColor}>
       <div className="rcp-hue-cursor" style={{ left: position, backgroundColor: `hsl(${color.hsv.h}, 100%, 50%)` }} />
     </Interactive>
   );

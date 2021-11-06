@@ -18,7 +18,7 @@ export const Saturation = ({ width, height, color, onChange }: SaturationProps):
   return (
     <Interactive
       className="rcp-saturation"
-      style={{ width, height, backgroundColor: `hsl(${color.hsv.h}, 100%, 50%)` }}
+      style={{ height, backgroundColor: `hsl(${color.hsv.h}, 100%, 50%)` }}
       onChange={updateColor}
     >
       <div
