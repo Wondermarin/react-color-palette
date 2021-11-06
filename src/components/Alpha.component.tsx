@@ -26,8 +26,8 @@ export const Alpha = ({ width, color, onChange }: AlphaProps): JSX.Element => {
       onChange={updateColor}
       style={{
         background: `linear-gradient(to right, rgba(${rgb}, 0), rgba(${rgb}, 1)) top left / auto auto,
-                conic-gradient(#666 0.25turn, #999 0.25turn 0.5turn, #666 0.5turn 0.75turn, #999 0.75turn) top left / 12px 12px
-                repeat`,
+              conic-gradient(#666 0.25turn, #999 0.25turn 0.5turn, #666 0.5turn 0.75turn, #999 0.75turn) top left / 12px 12px
+              repeat`,
       }}
     >
       <div
