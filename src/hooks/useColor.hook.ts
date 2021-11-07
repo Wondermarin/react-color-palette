@@ -1,5 +1,5 @@
 import { Color } from "../interfaces/Color.interface";
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import { toColor } from "../utils/toColor.util";
 
 /**
@@ -24,32 +24,18 @@ export function useColor<M extends keyof Color, C extends Color[M]>(
   model: M,
   initColor: C
 ): [Color, React.Dispatch<React.SetStateAction<Color>>] {
- // Store initColor in state instead of using it directly as a useCallback dep to avoid infinite re-renders when "initColor" is an object
-  const [initColorValue] = useState(initColor);
-
-  const getColor = useCallback(() => {
-    if (model === "hex") {
-      const color = initColorValue as Color["hex"];
-
-      return toColor("hex", color);
-    } else if (model === "rgb") {
-      const color = initColorValue as Color["rgb"];
-
-      return toColor("rgb", color);
-    } else if (model === "hsv") {
-      const color = initColorValue as Color["hsv"];
-
-      return toColor("hsv", color);
+  const [color, setColor] = useState(() => {
+    switch (model) {
+      case "hex":
+        return toColor("hex", initColor as Color["hex"]);
+      case "rgb":
+        return toColor("rgb", initColor as Color["rgb"]);
+      case "hsv":
+        return toColor("hsv", initColor as Color["hsv"]);
+      default:
+        return toColor("hex", "#121212");
     }
-
-    return toColor("hex", "#000000");
-  }, [model, initColorValue]);
-
-  const [color, setColor] = useState(getColor);
-
-  useEffect(() => {
-    setColor(getColor);
-  }, [getColor]);
+  });
 
   return [color, setColor];
 }
