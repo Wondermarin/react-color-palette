@@ -1,6 +1,6 @@
-import { createCss } from "@stitches/react";
+import { createStitches } from "@stitches/react";
 
-export const { styled, global } = createCss({
+export const { styled, globalCss } = createStitches({
   prefix: "rcp-",
   theme: {
     fonts: {
@@ -18,7 +18,7 @@ export const { styled, global } = createCss({
   },
 });
 
-export const globalStyles = global({
+export const globalStyles = globalCss({
   "*": {
     boxSizing: "border-box",
     padding: 0,
