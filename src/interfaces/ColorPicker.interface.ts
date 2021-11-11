@@ -1,5 +1,7 @@
 import { Color } from "./Color.interface";
 
+export type OnChangeCallback = (color: Color) => void;
+
 export interface ColorPickerProps {
   /**
    * The width of the color picker.
@@ -16,7 +18,11 @@ export interface ColorPickerProps {
   /**
    * The function that accepts the updated [Color](https://github.com/Wondermarin/react-color-palette#color) as a single argument.
    */
-  readonly onChange: React.Dispatch<React.SetStateAction<Color>>;
+  readonly onChange: OnChangeCallback;
+  /**
+   * .
+   */
+  readonly onChangeComplete?: OnChangeCallback;
   /**
    * Hide HEX field.
    */

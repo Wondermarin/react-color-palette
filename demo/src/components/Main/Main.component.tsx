@@ -18,6 +18,7 @@ export function Main({ options }: MainProps): JSX.Element {
         height={228}
         color={color}
         onChange={setColor}
+        onChangeComplete={(color): void => console.log(`Final color: ${color.hex}!`)}
         hideHEX={options.hideHEX}
         hideRGB={options.hideRGB}
         hideHSV={options.hideHSV}

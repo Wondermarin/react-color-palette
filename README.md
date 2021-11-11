@@ -111,17 +111,18 @@ If the default colors don't fit your project, you can always change them.
 
 ### `ColorPicker` Props
 
-| Name     | Type         | Default | Description                                                              |
-| -------- | ------------ | ------- | ------------------------------------------------------------------------ |
-| width    | `number`     |         | The width of the color picker.                                           |
-| height   | `number`     | width   | The height of the color picker.                                          |
-| color    | [`Color`][1] |         | The current [`Color`][1].                                                |
-| onChange | `Function`   |         | A function to update [`Color`][1].                                       |
-| hideHEX  | `bool`       | false   | Hide HEX input.                                                          |
-| hideRGB  | `bool`       | false   | Hide RGB input.                                                          |
-| hideHSV  | `bool`       | false   | Hide HSV input.                                                          |
-| alpha    | `bool`       | false   | Enable alpha channel.                                                    |
-| dark     | `bool`       | false   | Color theme.                                                             |
+| Name             | Type         | Default   | Description                                                                      |
+| ---------------- | ------------ | --------- | -------------------------------------------------------------------------------- |
+| width            | `number`     |           | The width of the color picker.                                                   |
+| height           | `number`     | width     | The height of the color picker.                                                  |
+| color            | [`Color`][1] |           | The current [`Color`][1].                                                        |
+| onChange         | `Function`   |           | A function to update [`Color`][1].                                               |
+| onChangeComplete | `Function`   | undefined | A callback is called every time the user stops changing a color (mouseup event). |
+| hideHEX          | `bool`       | false     | Hide HEX input.                                                                  |
+| hideRGB          | `bool`       | false     | Hide RGB input.                                                                  |
+| hideHSV          | `bool`       | false     | Hide HSV input.                                                                  |
+| alpha            | `bool`       | false     | Enable alpha channel.                                                            |
+| dark             | `bool`       | false     | Color theme.                                                                     |
 
 [1]: #color
 

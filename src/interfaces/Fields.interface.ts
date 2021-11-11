@@ -1,9 +1,10 @@
 import { Color } from "./Color.interface";
+import { OnChangeCallback } from "./ColorPicker.interface";
 
 export interface UpperFloorProps {
   readonly color: Color;
   readonly hideHEX: boolean;
-  readonly onChange: React.Dispatch<React.SetStateAction<Color>>;
+  readonly onChange: OnChangeCallback;
 }
 
 export interface LowerFloorProps {
@@ -11,7 +12,7 @@ export interface LowerFloorProps {
   readonly hideRGB: boolean;
   readonly hideHSV: boolean;
   readonly alpha: boolean;
-  readonly onChange: React.Dispatch<React.SetStateAction<Color>>;
+  readonly onChange: OnChangeCallback;
 }
 
 export interface FieldsProps {
@@ -20,5 +21,5 @@ export interface FieldsProps {
   readonly hideRGB: boolean;
   readonly hideHSV: boolean;
   readonly alpha: boolean;
-  readonly onChange: React.Dispatch<React.SetStateAction<Color>>;
+  readonly onChange: OnChangeCallback;
 }

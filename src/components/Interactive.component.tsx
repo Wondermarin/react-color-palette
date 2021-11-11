@@ -5,7 +5,7 @@ import { clamp } from "../utils/clamp.util";
 export const Interactive = ({ className, style, onChange, children }: InteractiveProps): JSX.Element => {
   const divRef = useRef<HTMLDivElement>(null);
 
-  const move = (e: React.MouseEvent | MouseEvent): void => {
+  const move = (e: React.MouseEvent | MouseEvent, complete?: boolean): void => {
     if (divRef.current) {
       const { current: div } = divRef;
       const { width, height, left, top } = div.getBoundingClientRect();
@@ -13,7 +13,9 @@ export const Interactive = ({ className, style, onChange, children }: Interactiv
       const x = clamp(e.clientX - left, width, 0);
       const y = clamp(e.clientY - top, height, 0);
 
-      onChange(x, y);
+      onChange({ x, y });
+
+      if (complete) onChange({ x, y, complete: true });
     }
   };
 
@@ -26,9 +28,11 @@ export const Interactive = ({ className, style, onChange, children }: Interactiv
       move(e);
     };
 
-    const onMouseUp = (): void => {
+    const onMouseUp = (e: MouseEvent): void => {
       document.removeEventListener("mousemove", onMouseMove, false);
       document.removeEventListener("mouseup", onMouseUp, false);
+
+      move(e, true);
     };
 
     document.addEventListener("mousemove", onMouseMove, false);

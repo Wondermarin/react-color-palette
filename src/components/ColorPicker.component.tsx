@@ -10,6 +10,7 @@ export const ColorPicker = ({
   height = width,
   color,
   onChange,
+  onChangeComplete,
   hideHEX = false,
   hideRGB = false,
   hideHSV = false,
@@ -17,10 +18,10 @@ export const ColorPicker = ({
   dark = false,
 }: ColorPickerProps): JSX.Element => (
   <div className={`rcp ${dark ? "rcp-dark" : "rcp-light"}`} style={{ width }}>
-    <Saturation width={width} height={height} color={color} onChange={onChange} />
+    <Saturation width={width} height={height} color={color} onChange={onChange} onChangeComplete={onChangeComplete} />
     <div className="rcp-body">
-      <Hue width={width - 40} color={color} onChange={onChange} />
-      {alpha && <Alpha width={width - 40} color={color} onChange={onChange} />}
+      <Hue width={width - 40} color={color} onChange={onChange} onChangeComplete={onChangeComplete} />
+      {alpha && <Alpha width={width - 40} color={color} onChange={onChange} onChangeComplete={onChangeComplete} />}
       <Fields color={color} hideHEX={hideHEX} hideRGB={hideRGB} hideHSV={hideHSV} alpha={alpha} onChange={onChange} />
     </div>
   </div>
