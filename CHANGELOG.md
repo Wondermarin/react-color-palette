@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.2.0](https://github.com/Wondermarin/react-color-palette/compare/v6.1.0...v6.2.0) (2021-11-11)
+
+
+### Features
+
+* `onChangeComplete` callback. ([bd83997](https://github.com/Wondermarin/react-color-palette/commit/bd83997da178d79d9292264cf513f20b696a665e)), closes [#18](https://github.com/Wondermarin/react-color-palette/issues/18)
+
+
+### Bug Fixes
+
+* Infinite `useColor` re-renders ([#26](https://github.com/Wondermarin/react-color-palette/issues/26)) ([3dcc66b](https://github.com/Wondermarin/react-color-palette/commit/3dcc66bbe38615dea273e147bf379aa3f982f493))
+* Sliders width ([#24](https://github.com/Wondermarin/react-color-palette/issues/24)) ([6c8fa99](https://github.com/Wondermarin/react-color-palette/commit/6c8fa999742e474a1d2f67877e8045d399a9f280))
+
 ## [6.1.0](https://github.com/Wondermarin/react-color-palette/compare/v6.0.0...v6.1.0) (2021-07-22)
 
 
