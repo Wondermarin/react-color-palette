@@ -1,5 +1,4 @@
 import { Color } from "../interfaces/Color.interface";
-import { useState } from "react";
 import { toColor } from "../utils/toColor.util";
 import { useStateWithProps } from "./useStateWithProps";
 
