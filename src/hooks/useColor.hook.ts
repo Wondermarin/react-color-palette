@@ -1,6 +1,7 @@
 import { Color } from "../interfaces/Color.interface";
 import { useState } from "react";
 import { toColor } from "../utils/toColor.util";
+import { useStateWithProps } from "./useStateWithProps";
 
 /**
  * Returns a stateful [Color](https://github.com/Wondermarin/react-color-palette#color), and a function to update it.
@@ -24,18 +25,15 @@ export function useColor<M extends keyof Color, C extends Color[M]>(
   model: M,
   initColor: C
 ): [Color, React.Dispatch<React.SetStateAction<Color>>] {
-  const [color, setColor] = useState(() => {
-    switch (model) {
-      case "hex":
-        return toColor("hex", initColor as Color["hex"]);
-      case "rgb":
-        return toColor("rgb", initColor as Color["rgb"]);
-      case "hsv":
-        return toColor("hsv", initColor as Color["hsv"]);
-      default:
-        return toColor("hex", "#121212");
-    }
-  });
+  const [color, setColor] = useStateWithProps(
+    model === "hex"
+      ? toColor("hex", initColor as Color["hex"])
+      : model === "rgb"
+      ? toColor("rgb", initColor as Color["rgb"])
+      : model === "hsv"
+      ? toColor("hsv", initColor as Color["hsv"])
+      : toColor("hex", "#121212")
+  );
 
-  return [color, setColor];
+  return [color as Color, setColor as React.Dispatch<React.SetStateAction<Color>>];
 }
