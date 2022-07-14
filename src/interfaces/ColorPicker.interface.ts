@@ -22,7 +22,7 @@ export interface ColorPickerProps {
   /**
    * .
    */
-  readonly onChangeComplete?: OnChangeCallback;
+  readonly onChangeComplete: OnChangeCallback;
   /**
    * Hide HEX field.
    */

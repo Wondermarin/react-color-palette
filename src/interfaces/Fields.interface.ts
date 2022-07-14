@@ -5,6 +5,7 @@ export interface UpperFloorProps {
   readonly color: Color;
   readonly hideHEX: boolean;
   readonly onChange: OnChangeCallback;
+  readonly onChangeComplete: OnChangeCallback;
 }
 
 export interface LowerFloorProps {
@@ -22,4 +23,5 @@ export interface FieldsProps {
   readonly hideHSV: boolean;
   readonly alpha: boolean;
   readonly onChange: OnChangeCallback;
+  readonly onChangeComplete: OnChangeCallback;
 }

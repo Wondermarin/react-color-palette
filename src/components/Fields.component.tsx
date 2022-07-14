@@ -3,9 +3,9 @@ import { UpperFloorProps, LowerFloorProps, FieldsProps } from "../interfaces/Fie
 import { toHsv, toRgb } from "../utils/convert.util";
 import { roundFloat } from "../utils/roundFloat.util";
 import { toColor } from "../utils/toColor.util";
-import { validHex } from "../utils/validate.util";
+import { validHex, sanitiseHexInput } from "../utils/validate.util";
 
-const UpperFloor = ({ color, hideHEX, onChange }: UpperFloorProps): JSX.Element => {
+const UpperFloor = ({ color, hideHEX, onChange, onChangeComplete }: UpperFloorProps): JSX.Element => {
   const getValueHEX = useCallback(() => ({ value: color.hex, inputted: false }), [color.hex]);
 
   const [valueHEX, setValueHEX] = useState(getValueHEX);
@@ -17,11 +17,17 @@ const UpperFloor = ({ color, hideHEX, onChange }: UpperFloorProps): JSX.Element 
   }, [valueHEX.inputted, getValueHEX]);
 
   const changeHEX = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const value = e.target.value;
+    const value = sanitiseHexInput(e.target.value);
 
     if (validHex(value)) {
       onChange(toColor("hex", value));
       setValueHEX({ ...valueHEX, value });
+
+      const isColorComplete = value.length == 4 || value.length == 7; // Accept "#faf" or "#ffaaff"
+
+      if (isColorComplete) {
+        onChangeComplete(toColor("hex", value));
+      }
     }
   };
 
@@ -136,13 +142,21 @@ const LowerFloor = ({ color, hideRGB, hideHSV, alpha, onChange }: LowerFloorProp
   );
 };
 
-export const Fields = ({ color, hideHEX, hideRGB, hideHSV, alpha, onChange }: FieldsProps): JSX.Element => {
+export const Fields = ({
+  color,
+  hideHEX,
+  hideRGB,
+  hideHSV,
+  alpha,
+  onChange,
+  onChangeComplete,
+}: FieldsProps): JSX.Element => {
   return (
     <>
       {(!hideHEX || !hideRGB || !hideHSV) && (
         <div className="rcp-fields">
           <LowerFloor color={color} hideRGB={hideRGB} hideHSV={hideHSV} alpha={alpha} onChange={onChange} />
-          <UpperFloor color={color} hideHEX={hideHEX} onChange={onChange} />
+          <UpperFloor color={color} hideHEX={hideHEX} onChange={onChange} onChangeComplete={onChangeComplete} />
         </div>
       )}
     </>

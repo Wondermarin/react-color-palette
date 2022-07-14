@@ -22,7 +22,15 @@ export const ColorPicker = ({
     <div className="rcp-body">
       <Hue width={width - 40} color={color} onChange={onChange} onChangeComplete={onChangeComplete} />
       {alpha && <Alpha width={width - 40} color={color} onChange={onChange} onChangeComplete={onChangeComplete} />}
-      <Fields color={color} hideHEX={hideHEX} hideRGB={hideRGB} hideHSV={hideHSV} alpha={alpha} onChange={onChange} />
+      <Fields
+        color={color}
+        hideHEX={hideHEX}
+        hideRGB={hideRGB}
+        hideHSV={hideHSV}
+        alpha={alpha}
+        onChange={onChange}
+        onChangeComplete={onChangeComplete}
+      />
     </div>
   </div>
 );
