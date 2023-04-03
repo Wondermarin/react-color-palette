@@ -9,7 +9,8 @@
     ".": {
       "import": "./lib/index.mjs",
       "require": "./lib/index.js",
-      "browser": "./lib/index.module.js"
+      "browser": "./lib/index.module.js",
+      "types": "./lib/index.d.ts"
     },
     "./lib/css/styles.css": "./lib/css/styles.css"
   },
