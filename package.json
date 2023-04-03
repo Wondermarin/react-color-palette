@@ -1,6 +1,6 @@
 {
   "name": "react-color-palette-bh5wv",
-  "version": "6.2.0",
+  "version": "6.2.1",
   "description": "🎨 Lightweight Color Picker component for React.",
   "main": "lib/index.js",
   "module": "lib/index.module.js",
