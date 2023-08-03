@@ -18,7 +18,7 @@
 /node_modules
 
 # Production
-/.next
+/dist
 
 # Env
 .env
