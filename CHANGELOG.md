@@ -1,6 +1,5 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 ## [7.0.0](https://github.com/Wondermarin/react-color-palette/compare/v6.2.0...v7.0.0) (2023-08-03)
 
@@ -11,7 +10,7 @@ All notable changes to this project will be documented in this file. See [standa
 * Remove `width` prop in `<ColorPicker />` component
 * Remove `onChangeComplete` prop in `<ColorPicker />` component
 * Replace `hideHEX`, `hideRGB` and `hideHSV` to `hideInput` prop in `<ColorPicker />` component
-* Replace `alpha` to `hideAlpha' prop in `<ColorPicker />' component
+* Replace `alpha` to `hideAlpha` prop in `<ColorPicker />` component
 * Remove `dark` prop in `<ColorPicker />` component
 * Replace `toColor()` to `ColorService`
 * Rename `Color`, `ColorRGB` and `ColorHSV` types in `IColor`, `IColorRgb` and `IColorHsv`
@@ -24,15 +23,15 @@ All notable changes to this project will be documented in this file. See [standa
 * Add RSC support (Next.js 13 App Router) ([91d0ca6](https://github.com/Wondermarin/react-color-palette/commit/91d0ca63891272ef4153f8201a0dd81ef524d5d0))
 * Add touch support ([#20](https://github.com/Wondermarin/react-color-palette/issues/20)) ([91d0ca6](https://github.com/Wondermarin/react-color-palette/commit/91d0ca63891272ef4153f8201a0dd81ef524d5d0))
 * Enable alpha-channel by default ([91d0ca6](https://github.com/Wondermarin/react-color-palette/commit/91d0ca63891272ef4153f8201a0dd81ef524d5d0))
-* Export `&lt;Saturation /&gt;`, `<Hue />` and `<Alpha />` components ([91d0ca6](https://github.com/Wondermarin/react-color-palette/commit/91d0ca63891272ef4153f8201a0dd81ef524d5d0))
+* Export `<Saturation />`, `<Hue />` and `<Alpha />` components ([91d0ca6](https://github.com/Wondermarin/react-color-palette/commit/91d0ca63891272ef4153f8201a0dd81ef524d5d0))
 * Implement update state from props in `useColor()` ([#38](https://github.com/Wondermarin/react-color-palette/issues/38)) ([91d0ca6](https://github.com/Wondermarin/react-color-palette/commit/91d0ca63891272ef4153f8201a0dd81ef524d5d0))
-* Remove `dark` prop in `&lt;ColorPicker /&gt;` component ([91d0ca6](https://github.com/Wondermarin/react-color-palette/commit/91d0ca63891272ef4153f8201a0dd81ef524d5d0))
+* Remove `dark` prop in `<ColorPicker />` component ([91d0ca6](https://github.com/Wondermarin/react-color-palette/commit/91d0ca63891272ef4153f8201a0dd81ef524d5d0))
 * Remove `model` arg in `useColor()` ([91d0ca6](https://github.com/Wondermarin/react-color-palette/commit/91d0ca63891272ef4153f8201a0dd81ef524d5d0))
-* Remove `onChangeComplete` prop in `&lt;ColorPicker /&gt;` component ([91d0ca6](https://github.com/Wondermarin/react-color-palette/commit/91d0ca63891272ef4153f8201a0dd81ef524d5d0))
-* Remove `width` prop in `&lt;ColorPicker /&gt;` component ([91d0ca6](https://github.com/Wondermarin/react-color-palette/commit/91d0ca63891272ef4153f8201a0dd81ef524d5d0))
+* Remove `onChangeComplete` prop in `<ColorPicker />` component ([91d0ca6](https://github.com/Wondermarin/react-color-palette/commit/91d0ca63891272ef4153f8201a0dd81ef524d5d0))
+* Remove `width` prop in `<ColorPicker />` component ([91d0ca6](https://github.com/Wondermarin/react-color-palette/commit/91d0ca63891272ef4153f8201a0dd81ef524d5d0))
 * Rename `Color`, `ColorRGB` and `ColorHSV` types in `IColor`, `IColorRgb` and `IColorHsv` ([91d0ca6](https://github.com/Wondermarin/react-color-palette/commit/91d0ca63891272ef4153f8201a0dd81ef524d5d0))
-* Replace `alpha` to `hideAlpha' prop in `&lt;ColorPicker /&gt;' component ([91d0ca6](https://github.com/Wondermarin/react-color-palette/commit/91d0ca63891272ef4153f8201a0dd81ef524d5d0))
-* Replace `hideHEX`, `hideRGB` and `hideHSV` to `hideInput` prop in `&lt;ColorPicker /&gt;` component ([91d0ca6](https://github.com/Wondermarin/react-color-palette/commit/91d0ca63891272ef4153f8201a0dd81ef524d5d0))
+* Replace `alpha` to `hideAlpha` prop in `<ColorPicker />` component ([91d0ca6](https://github.com/Wondermarin/react-color-palette/commit/91d0ca63891272ef4153f8201a0dd81ef524d5d0))
+* Replace `hideHEX`, `hideRGB` and `hideHSV` to `hideInput` prop in `<ColorPicker />` component ([91d0ca6](https://github.com/Wondermarin/react-color-palette/commit/91d0ca63891272ef4153f8201a0dd81ef524d5d0))
 * Replace `react-color-palette/lib/css/styles.css` to `react-color-palette/css` ([91d0ca6](https://github.com/Wondermarin/react-color-palette/commit/91d0ca63891272ef4153f8201a0dd81ef524d5d0))
 * Replace `toColor()` to `ColorService` ([91d0ca6](https://github.com/Wondermarin/react-color-palette/commit/91d0ca63891272ef4153f8201a0dd81ef524d5d0))
 
