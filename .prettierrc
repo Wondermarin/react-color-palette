@@ -1,4 +1,46 @@
 {
   "printWidth": 120,
-  "endOfLine": "auto"
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": false,
+  "quoteProps": "as-needed",
+  "jsxSingleQuote": false,
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "arrowParens": "always",
+  "requirePragma": false,
+  "insertPragma": false,
+  "proseWrap": "preserve",
+  "htmlWhitespaceSensitivity": "css",
+  "endOfLine": "auto",
+  "embeddedLanguageFormatting": "auto",
+  "singleAttributePerLine": false,
+  "plugins": [
+    "@ianvs/prettier-plugin-sort-imports"
+  ],
+  "importOrderParserPlugins": ["typescript", "classProperties", "jsx"],
+  "importOrderTypeScriptVersion": "5.1.6",
+  "importOrder": [
+    "<BUILTIN_MODULES>",
+    "",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^@/components$",
+    "^@/components/(.*)$",
+    "",
+    "^@/hooks$",
+    "^@/hooks/(.*)$",
+    "",
+    "^@/services$",
+    "^@/services/(.*)$",
+    "",
+    "^@/utils$",
+    "^@/utils/(.*)$",
+    "",
+    "^@/css/(.*)$",
+    "",
+    "^[.]"
+  ]
 }

@@ -1,5 +1,8 @@
-export { ColorPicker } from "./components/ColorPicker.component";
-export { useColor } from "./hooks/useColor.hook";
-export { toColor } from "./utils/toColor.util";
+export { ColorPicker } from "./components/color-picker";
+export { Saturation } from "./components/saturation";
+export { Hue } from "./components/hue";
+export { Alpha } from "./components/alpha";
 
-export type { Color } from "./interfaces/Color.interface";
+export { useColor } from "./hooks/use-color";
+
+export { ColorService, type IColor } from "./services/color";

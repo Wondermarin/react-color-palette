@@ -1,173 +1,306 @@
 <div align="center">
-  <img alt="react-color-palette" src="https://github.com/Wondermarin/react-color-palette/raw/master/public/logo.png" width="128px" height="128px" />
-  <br />
-  <a href="https://www.npmjs.com/package/react-color-palette">
-    <img alt="npm" src="https://badgen.net/npm/v/react-color-palette?color=561ecb" />
-  </a>
-  <a href="https://www.npmjs.com/package/react-color-palette">
-    <img alt="downloads" src="https://badgen.net/npm/dw/react-color-palette?color=561ecb" />
-  </a>
-  <a href="https://bundlephobia.com/result?p=react-color-palette">
-    <img alt="size" src="https://badgen.net/bundlephobia/minzip/react-color-palette@latest?color=561ecb" />
-  </a>
-  <br />
-  <h4>🎨 Lightweight &lt;ColorPicker /&gt; component for <a href="https://github.com/facebook/react">React</a>.</h4>
+  <p>
+    <img alt="react-color-palette" src="https://github.com/Wondermarin/react-color-palette/raw/main/public/logo.png" width="128px" height="128px" />
+  </p>
+  <p>🎨 Lightweight &lt;ColorPicker /&gt; component for <a href="https://github.com/facebook/react">React</a>.</p>
+  <p>
+    <a href="https://www.npmjs.com/package/react-color-palette">
+      <img alt="npm" src="https://badgen.net/npm/v/react-color-palette?color=561ecb" />
+    </a>
+    <a href="https://www.npmjs.com/package/react-color-palette">
+      <img alt="downloads" src="https://badgen.net/npm/dw/react-color-palette?color=561ecb" />
+    </a>
+    <a href="https://bundlephobia.com/result?p=react-color-palette">
+      <img alt="size" src="https://badgen.net/bundlephobia/minzip/react-color-palette@latest?color=561ecb" />
+    </a>
+  </p>
+  <p>
+    <img src="https://github.com/Wondermarin/react-color-palette/raw/main/public/demo.apng" />
+  </p>
 </div>
-
-<div align="center">
-  <a href="https://rcp.wondermarin.space">
-    <img src="https://github.com/Wondermarin/react-color-palette/raw/master/public/demo.apng" />
-  </a>
-</div>
-
-<div align="center">
-  <a href="https://rcp.wondermarin.space">Live Demo →</a>
-</div>
-
-<hr />
-
-## Features
-
-- 🚀 **Lightweight**.
-- 💨 **No dependencies**.
-- 🛡️ **Strict**.
-
-<hr />
 
 ## Installation
-
-### npm
-```sh
-npm install react-color-palette
-```
 
 ### yarn
 ```sh
 yarn add react-color-palette
 ```
 
-<hr />
+### npm
+```sh
+npm install react-color-palette
+```
 
 ## Usage
 
 ```tsx
 import { ColorPicker, useColor } from "react-color-palette";
-import "react-color-palette/lib/css/styles.css";
+import "react-color-palette/css";
 
-export const App = () => {
-  const [color, setColor] = useColor("hex", "#121212");
+export function App() {
+  const [color, setColor] = useColor("#561ecb");
 
-  return <ColorPicker width={456} height={228} color={color} onChange={setColor} hideHSV dark />;
-};
+  return <ColorPicker color={color} onChange={setColor} />;
+}
 ```
 
-<hr />
+## Examples
 
-## Benchmarks
+### Usage <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb">`rgb()`</a> in <a href="#usecolor">`useColor()`</a>
+```tsx
+import { ColorPicker, useColor } from "react-color-palette";
+import "react-color-palette/css";
 
-| Library | Minified | Gzipped | Dependencies | Tree Shaking | Type Declarations |
-| :-----: | :------: | :-----: | :----------: | :----------: | :---------------: |
-| **react-color-palette** | ![](https://badgen.net/bundlephobia/min/react-color-palette@latest?color=green&label=) | ![](https://badgen.net/bundlephobia/minzip/react-color-palette@latest?color=green&label=) | ![](https://badgen.net/bundlephobia/dependency-count/react-color-palette@latest?color=green&label=) | ![](https://badgen.net/bundlephobia/tree-shaking/react-color-palette@latest?label=) | ![](https://badgen.net/npm/types/react-color-palette?color=green&label=) |
-| react-colorful | ![](https://badgen.net/bundlephobia/min/react-colorful@latest?color=orange&label=) | ![](https://badgen.net/bundlephobia/minzip/react-colorful@latest?color=green&label=) | ![](https://badgen.net/bundlephobia/dependency-count/react-colorful@latest?color=green&label=) | ![](https://badgen.net/bundlephobia/tree-shaking/react-colorful@latest?label=) | ![](https://badgen.net/npm/types/react-colorful?color=green&label=) |
-| react-input-color | ![](https://badgen.net/bundlephobia/min/react-input-color@latest?color=red&label=) | ![](https://badgen.net/bundlephobia/minzip/react-input-color@latest?color=orange&label=) | ![](https://badgen.net/bundlephobia/dependency-count/react-input-color@latest?color=red&label=) | ![](https://badgen.net/bundlephobia/tree-shaking/react-input-color@latest?label=) | ![](https://badgen.net/npm/types/react-input-color?color=green&label=) |
-| rc-color-picker | ![](https://badgen.net/bundlephobia/min/rc-color-picker@latest?color=red&label=) | ![](https://badgen.net/bundlephobia/minzip/rc-color-picker@latest?color=red&label=) | ![](https://badgen.net/bundlephobia/dependency-count/rc-color-picker@latest?color=red&label=) | ![](https://badgen.net/bundlephobia/tree-shaking/rc-color-picker@latest?label=) | ![](https://badgen.net/npm/types/rc-color-picker?color=red&label=) |
-| react-color | ![](https://badgen.net/bundlephobia/min/react-color@latest?color=red&label=) | ![](https://badgen.net/bundlephobia/minzip/react-color@latest?color=red&label=) | ![](https://badgen.net/bundlephobia/dependency-count/react-color@latest?color=red&label=) | ![](https://badgen.net/bundlephobia/tree-shaking/react-color@latest?label=) | ![](https://badgen.net/npm/types/react-color?color=orange&label=) |
+export function App() {
+  const [color, setColor] = useColor("rgb(86 30 203)");
 
-<hr />
+  return <ColorPicker color={color} onChange={setColor} />;
+}
+```
 
-## Overriding styles
+### Usage <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/named-color">`<named-color>`</a> in <a href="#usecolor">`useColor()`</a>
+```tsx
+import { ColorPicker, useColor } from "react-color-palette";
+import "react-color-palette/css";
 
-If the default colors don't fit your project, you can always change them.
+export function App() {
+  const [color, setColor] = useColor("cyan");
 
-<details>
-  <summary>Example for the Light theme</summary>
+  return <ColorPicker color={color} onChange={setColor} />;
+}
+```
 
-  ```css
-  .rcp-light {
-    --rcp-background: #ffffff;
-    --rcp-input-text: #111111;
-    --rcp-input-border: rgba(0, 0, 0, 0.1);
-    --rcp-input-label: #717171;
-  }
-  ```
-</details>
+### Custom Layout
+```tsx
+import { Saturation, Hue, useColor } from "react-color-palette";
+import "react-color-palette/css";
 
-<details>
-  <summary>Example for the Dark theme</summary>
+export function App() {
+  const [color, setColor] = useColor("hsl(120 100% 50% / .5)");
 
-  ```css
-  .rcp-dark {
-    --rcp-background: #181818;
-    --rcp-input-text: #f3f3f3;
-    --rcp-input-border: rgba(255, 255, 255, 0.1);
-    --rcp-input-label: #999999;
-  }
-  ```
-</details>
-
-<hr />
+  return (
+    <div className="custom-layout">
+      <Saturation height={300} color={color} onChange={setColor} />
+      <Hue color={color} onChange={setColor} />
+    </div>
+  );
+}
+```
 
 ## API
 
-### `ColorPicker` Props
+### `<ColorPicker />`
+<p>The main component, which includes: <a href="#saturation">&lt;Saturation /&gt;</a>, <a href="#hue">&lt;Hue /&gt;</a>, <a href="#alpha">&lt;Alpha /&gt;</a> and &lt;Fields /&gt; components for instant use.<br />If you need a custom layout, then you can use <a href="#saturation">&lt;Saturation /&gt;</a>, <a href="#hue">&lt;Hue /&gt;</a> and <a href="#alpha">&lt;Alpha /&gt;</a> components separately, which are also exported from the library.</p>
 
-| Name             | Type         | Default   | Description                                                                      |
-| ---------------- | ------------ | --------- | -------------------------------------------------------------------------------- |
-| width            | `number`     |           | The width of the color picker.                                                   |
-| height           | `number`     | width     | The height of the color picker.                                                  |
-| color            | [`Color`][1] |           | The current [`Color`][1].                                                        |
-| onChange         | `Function`   |           | A function to update [`Color`][1].                                               |
-| onChangeComplete | `Function`   | undefined | A callback is called every time the user stops changing a color (mouseup event). |
-| hideHEX          | `bool`       | false     | Hide HEX input.                                                                  |
-| hideRGB          | `bool`       | false     | Hide RGB input.                                                                  |
-| hideHSV          | `bool`       | false     | Hide HSV input.                                                                  |
-| alpha            | `bool`       | false     | Enable alpha channel.                                                            |
-| dark             | `bool`       | false     | Color theme.                                                                     |
+<table>
+  <tr>
+    <th>Prop</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>height</td>
+    <td>number</td>
+    <td>200</td>
+    <td>Height of the <a href="#saturation">Saturation</a> component in pixels.</td>
+  </tr>
+  <tr>
+    <td>hideAlpha</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Hides the <a href="#alpha">Alpha</a> component.</td>
+  </tr>
+  <tr>
+    <td>hideInput</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Hides the Fields component.</td>
+  </tr>
+  <tr>
+    <td>color</td>
+    <td><a href="#icolor">IColor</a></td>
+    <td></td>
+    <td>Currently <a href="#icolor">color</a>.</td>
+  </tr>
+  <tr>
+    <td>onChange</td>
+    <td>Function</td>
+    <td></td>
+    <td>Сallback function will be fired when <a href="#icolor">color</a> changes.</td>
+  </tr>
+</table>
 
-[1]: #color
+### `<Saturation />`
 
-### `useColor` Arguments
+<table>
+  <tr>
+    <th>Prop</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>height</td>
+    <td>number</td>
+    <td></td>
+    <td>Height of the saturation element in pixels.</td>
+  </tr>
+  <tr>
+    <td>color</td>
+    <td><a href="#icolor">IColor</a></td>
+    <td></td>
+    <td>Currently <a href="#icolor">color</a>.</td>
+  </tr>
+  <tr>
+    <td>onChange</td>
+    <td>Function</td>
+    <td></td>
+    <td>Сallback function will be fired when <a href="#icolor">color</a> changes.</td>
+  </tr>
+</table>
 
-| Name         | Type                                 | Default | Description                                     |
-| ------------ | ------------------------------------ | ------- | ----------------------------------------------- |
-| model        | `"hex"` \| `"rgb"` \| `"hsv"`        |         | The color model.                                |
-| initColor    | `string` \| `ColorRGB` \| `ColorHSV` |         | The initial color in the selected color model.  |
+### `<Hue />`
 
-### `toColor` Arguments
+<table>
+  <tr>
+    <th>Prop</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>color</td>
+    <td><a href="#icolor">IColor</a></td>
+    <td></td>
+    <td>Currently <a href="#icolor">color</a>.</td>
+  </tr>
+  <tr>
+    <td>onChange</td>
+    <td>Function</td>
+    <td></td>
+    <td>Сallback function will be fired when <a href="#icolor">color</a> changes.</td>
+  </tr>
+</table>
 
-| Name   | Type                                 | Default | Description                             |
-| ------ | ------------------------------------ | ------- | --------------------------------------- |
-| model  | `"hex"` \| `"rgb"` \| `"hsv"`        |         | The color model.                        |
-| color  | `string` \| `ColorRGB` \| `ColorHSV` |         | The color in the selected color model.  |
+### `<Alpha />`
 
-### `Color`
+<table>
+  <tr>
+    <th>Prop</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>color</td>
+    <td><a href="#icolor">IColor</a></td>
+    <td></td>
+    <td>Currently <a href="#icolor">color</a>.</td>
+  </tr>
+  <tr>
+    <td>onChange</td>
+    <td>Function</td>
+    <td></td>
+    <td>Сallback function will be fired when <a href="#icolor">color</a> changes.</td>
+  </tr>
+</table>
 
-| Field | Type       |
-| ----- | ---------- |
-| hex   | `string`   |
-| rgb   | `ColorRGB` |
-| hsv   | `ColorHSV` |
+### `useColor()`
 
-### `ColorRGB`
+<table>
+  <tr>
+    <th>Arg</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>initialColor</td>
+    <td><a href="#tcolor">TColor</a></td>
+    <td></td>
+    <td>Initial <a href="#tcolor">сolor</a>.</td>
+  </tr>
+</table>
 
-| Field | Type                    |
-| ----- | ----------------------- |
-| r     | `number`                |
-| g     | `number`                |
-| b     | `number`                |
-| a     | `number` \| `undefined` |
+### `TColor`
+<p>Value can be specified using one of the methods listed below:</p>
 
-### `ColorHSV`
+- <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/named-color">`<named-color>`</a>
+- <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color">`<hex-color>`</a>
+- <a href="https://en.wikipedia.org/wiki/SRGB">sRGB</a> color space: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl">`hsl()`</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hwb">`hwb()`</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb">`rgb()`</a>
 
-| Field | Type                    |
-| ----- | ----------------------- |
-| h     | `number`                |
-| s     | `number`                |
-| v     | `number`                |
-| a     | `number` \| `undefined` |
+### `IColor`
 
-<hr />
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Type</th>
+  </tr>
+  <tr>
+    <td>hex</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>rgb</td>
+    <td><a href="#icolorrgb">IColorRgb</a></td>
+  </tr>
+  <tr>
+    <td>hsv</td>
+    <td><a href="#icolorhsv">IColorHsv</a></td>
+  </tr>
+</table>
+
+### `IColorRgb`
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Type</th>
+  </tr>
+  <tr>
+    <td>r</td>
+    <td>number</td>
+  </tr>
+  <tr>
+    <td>g</td>
+    <td>number</td>
+  </tr>
+  <tr>
+    <td>b</td>
+    <td>number</td>
+  </tr>
+    <tr>
+    <td>a</td>
+    <td>number</td>
+  </tr>
+</table>
+
+### `IColorHsv`
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Type</th>
+  </tr>
+  <tr>
+    <td>h</td>
+    <td>number</td>
+  </tr>
+  <tr>
+    <td>s</td>
+    <td>number</td>
+  </tr>
+  <tr>
+    <td>v</td>
+    <td>number</td>
+  </tr>
+    <tr>
+    <td>a</td>
+    <td>number</td>
+  </tr>
+</table>
 
 ## License
 
-Code released under the [MIT](https://github.com/Wondermarin/react-color-palette/blob/master/LICENSE) license.
+<p>Code released under the <a href="https://github.com/Wondermarin/react-color-palette/blob/master/LICENSE">MIT</a> license.</p>
