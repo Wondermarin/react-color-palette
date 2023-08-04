@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [7.0.1](https://github.com/Wondermarin/react-color-palette/compare/v7.0.0...v7.0.1) (2023-08-04)
+
+
+### Bug Fixes
+
+* Add direct path to stylesheet ([#53](https://github.com/Wondermarin/react-color-palette/issues/53)) ([762f465](https://github.com/Wondermarin/react-color-palette/commit/762f4651ebc3bef4f4507c8fbc0ca59fe3ddbee2))
+
 ## [7.0.0](https://github.com/Wondermarin/react-color-palette/compare/v6.2.0...v7.0.0) (2023-08-03)
 
 
