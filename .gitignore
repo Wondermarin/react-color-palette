@@ -17,6 +17,9 @@
 # Dependencies
 /node_modules
 
+# Demo
+/demo
+
 # Production
 /dist
 
