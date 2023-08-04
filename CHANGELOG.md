@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [7.0.2](https://github.com/Wondermarin/react-color-palette/compare/v7.0.1...v7.0.2) (2023-08-04)
+
+
+### Bug Fixes
+
+* Add `touch-action: none` to prevent `pointercancel` ([be5bfd0](https://github.com/Wondermarin/react-color-palette/commit/be5bfd039a88a25a302438cd9557969ad4225209))
+
 ## [7.0.1](https://github.com/Wondermarin/react-color-palette/compare/v7.0.0...v7.0.1) (2023-08-04)
 
 
