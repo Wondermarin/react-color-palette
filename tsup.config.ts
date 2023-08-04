@@ -1,13 +1,13 @@
 import { defineConfig } from "tsup";
 
 const config = defineConfig({
-  entry: ["src/index.ts", "src/css/index.css"],
+  entry: ["src/rcp.ts", "src/css/rcp.css"],
   outDir: "dist",
   format: ["esm", "cjs"],
   external: ["react"],
   clean: true,
   minify: true,
-  dts: "src/index.ts",
+  dts: "src/rcp.ts",
   banner: {
     js: `"use client"`,
   },

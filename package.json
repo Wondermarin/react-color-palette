@@ -3,17 +3,18 @@
   "version": "7.0.0",
   "description": "🎨 Lightweight Color Picker component for React.",
   "author": "Wondermarin",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "dist/rcp.js",
+  "module": "dist/rcp.mjs",
+  "types": "dist/rcp.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "types": "./dist/rcp.d.ts",
+      "import": "./dist/rcp.mjs",
+      "require": "./dist/rcp.js"
     },
-    "./css": "./dist/css/index.css"
+    "./css": "./dist/css/rcp.css",
+    "./dist/css/rcp.css": "./dist/css/rcp.css"
   },
   "homepage": "https://github.com/Wondermarin/react-color-palette#readme",
   "repository": {
