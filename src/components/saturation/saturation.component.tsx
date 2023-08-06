@@ -42,7 +42,11 @@ export const Saturation = memo(({ height, color, onChange }: ISaturationProps) =
 
   return (
     <Interactive onCoordinateChange={updateColor}>
-      <div ref={setSaturationRef} style={{ height, backgroundColor: `hsl(${hsl})` }} className="rcp-saturation">
+      <div
+        ref={setSaturationRef}
+        style={{ height: `${height}px`, backgroundColor: `hsl(${hsl})` }}
+        className="rcp-saturation"
+      >
         <div
           style={{ left: position.x, top: position.y, backgroundColor: `rgb(${rgb})` }}
           className="rcp-saturation-cursor"
