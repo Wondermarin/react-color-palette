@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [7.0.3](https://github.com/Wondermarin/react-color-palette/compare/v7.0.2...v7.0.3) (2023-08-09)
+
+
+### Bug Fixes
+
+* Add resize support ([003f052](https://github.com/Wondermarin/react-color-palette/commit/003f05284a7a860d8e2a330c5c450df93b9dc441))
+
 ## [7.0.2](https://github.com/Wondermarin/react-color-palette/compare/v7.0.1...v7.0.2) (2023-08-04)
 
 
