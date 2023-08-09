@@ -1,6 +1,6 @@
 {
   "name": "react-color-palette",
-  "version": "7.0.2",
+  "version": "7.0.3",
   "description": "🎨 Lightweight Color Picker component for React.",
   "author": "Wondermarin",
   "main": "dist/rcp.js",
