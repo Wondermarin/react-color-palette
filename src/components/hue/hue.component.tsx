@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useMemo, useState } from "react";
+import React, { memo, useCallback, useMemo } from "react";
 
 import { useBoundingClientRect } from "@/hooks/use-bounding-client-rect";
 
@@ -12,9 +12,7 @@ interface IHueProps {
 }
 
 export const Hue = memo(({ color, onChange }: IHueProps) => {
-  const [hueRef, setHueRef] = useState<HTMLDivElement | null>(null);
-
-  const { width } = useBoundingClientRect(hueRef);
+  const [hueRef, { width = 1 }] = useBoundingClientRect<HTMLDivElement>();
 
   const position = useMemo(() => {
     const x = (color.hsv.h / 360) * width;
@@ -38,7 +36,7 @@ export const Hue = memo(({ color, onChange }: IHueProps) => {
 
   return (
     <Interactive onCoordinateChange={updateColor}>
-      <div ref={setHueRef} className="rcp-hue">
+      <div ref={hueRef} className="rcp-hue">
         <div style={{ left: position.x, backgroundColor: `hsl(${hsl})` }} className="rcp-hue-cursor" />
       </div>
     </Interactive>

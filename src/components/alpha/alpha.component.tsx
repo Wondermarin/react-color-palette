@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useMemo, useState } from "react";
+import React, { memo, useCallback, useMemo } from "react";
 
 import { useBoundingClientRect } from "@/hooks/use-bounding-client-rect";
 
@@ -12,9 +12,7 @@ interface IAlphaProps {
 }
 
 export const Alpha = memo(({ color, onChange }: IAlphaProps) => {
-  const [alphaRef, setAlphaRef] = useState<HTMLDivElement | null>(null);
-
-  const { width } = useBoundingClientRect(alphaRef);
+  const [alphaRef, { width = 1 }] = useBoundingClientRect<HTMLDivElement>();
 
   const position = useMemo(() => {
     const x = color.hsv.a * width;
@@ -40,7 +38,7 @@ export const Alpha = memo(({ color, onChange }: IAlphaProps) => {
   return (
     <Interactive onCoordinateChange={updateColor}>
       <div
-        ref={setAlphaRef}
+        ref={alphaRef}
         style={{
           background: `linear-gradient(to right, rgb(${rgb} / 0), rgb(${rgb} / 1)) top left / auto auto,
                       conic-gradient(#666 0.25turn, #999 0.25turn 0.5turn, #666 0.5turn 0.75turn, #999 0.75turn) top left / 12px 12px

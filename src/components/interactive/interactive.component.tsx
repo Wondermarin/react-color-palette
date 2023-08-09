@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useState } from "react";
+import React, { memo, useCallback } from "react";
 
 import { useBoundingClientRect } from "@/hooks/use-bounding-client-rect";
 
@@ -10,9 +10,7 @@ interface IInteractiveProps {
 }
 
 export const Interactive = memo(({ onCoordinateChange, children }: IInteractiveProps) => {
-  const [interactiveRef, setInteractiveRef] = useState<HTMLDivElement | null>(null);
-
-  const { width, height, left, top } = useBoundingClientRect(interactiveRef);
+  const [interactiveRef, { width = 1, height = 1, left = 1, top = 1 }] = useBoundingClientRect<HTMLDivElement>();
 
   const move = useCallback(
     (event: React.PointerEvent<HTMLDivElement> | PointerEvent) => {
@@ -48,7 +46,7 @@ export const Interactive = memo(({ onCoordinateChange, children }: IInteractiveP
   );
 
   return (
-    <div ref={setInteractiveRef} className="rcp-interactive" onPointerDown={onPointerDown}>
+    <div ref={interactiveRef} className="rcp-interactive" onPointerDown={onPointerDown}>
       {children}
     </div>
   );

@@ -1,24 +1,29 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
 
-export function useBoundingClientRect<T extends HTMLElement>(node: T | null) {
+export function useBoundingClientRect<T extends HTMLElement>(): [React.RefObject<T>, DOMRect] {
+  const ref = useRef<T>(null);
+
   const [resizeCounter, setResizeCounter] = useState(0);
 
   const onResize = useCallback(() => setResizeCounter((resizeCounter) => resizeCounter + 1), []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.addEventListener("resize", onResize, false);
+
+    const observer = new ResizeObserver(onResize);
+
+    if (ref.current) observer.observe(ref.current);
 
     return () => {
       window.removeEventListener("resize", onResize, false);
+      observer.disconnect();
     };
   }, [onResize]);
 
   return useMemo(() => {
-    if (!node) return { width: 1, height: 1, left: 1, top: 1 };
+    const domRect = ref.current?.getBoundingClientRect() ?? ({} as DOMRect);
 
-    const { width, height, left, top } = node.getBoundingClientRect();
-
-    return { width, height, left, top };
+    return [ref, domRect];
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [node, resizeCounter]);
+  }, [resizeCounter]);
 }
