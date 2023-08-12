@@ -13,7 +13,7 @@ interface ISaturationProps {
 }
 
 export const Saturation = memo(({ height, color, onChange }: ISaturationProps) => {
-  const [saturationRef, { width = 1 }] = useBoundingClientRect<HTMLDivElement>();
+  const [saturationRef, { width }] = useBoundingClientRect<HTMLDivElement>();
 
   const position = useMemo(() => {
     const x = (color.hsv.s / 100) * width;

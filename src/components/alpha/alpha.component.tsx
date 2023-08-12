@@ -12,7 +12,7 @@ interface IAlphaProps {
 }
 
 export const Alpha = memo(({ color, onChange }: IAlphaProps) => {
-  const [alphaRef, { width = 1 }] = useBoundingClientRect<HTMLDivElement>();
+  const [alphaRef, { width }] = useBoundingClientRect<HTMLDivElement>();
 
   const position = useMemo(() => {
     const x = color.hsv.a * width;
@@ -29,7 +29,7 @@ export const Alpha = memo(({ color, onChange }: IAlphaProps) => {
 
       onChange(nextColor);
     },
-    [width, color.hsv, onChange]
+    [color.hsv, width, onChange]
   );
 
   const rgb = useMemo(() => [color.rgb.r, color.rgb.g, color.rgb.b].join(" "), [color.rgb.r, color.rgb.g, color.rgb.b]);

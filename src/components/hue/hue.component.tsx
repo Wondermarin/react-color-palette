@@ -12,7 +12,7 @@ interface IHueProps {
 }
 
 export const Hue = memo(({ color, onChange }: IHueProps) => {
-  const [hueRef, { width = 1 }] = useBoundingClientRect<HTMLDivElement>();
+  const [hueRef, { width }] = useBoundingClientRect<HTMLDivElement>();
 
   const position = useMemo(() => {
     const x = (color.hsv.h / 360) * width;
@@ -29,7 +29,7 @@ export const Hue = memo(({ color, onChange }: IHueProps) => {
 
       onChange(nextColor);
     },
-    [width, color.hsv, onChange]
+    [color.hsv, width, onChange]
   );
 
   const hsl = useMemo(() => [color.hsv.h, "100%", "50%"].join(" "), [color.hsv.h]);
