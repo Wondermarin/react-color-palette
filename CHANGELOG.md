@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [7.0.4](https://github.com/Wondermarin/react-color-palette/compare/v7.0.3...v7.0.4) (2023-08-12)
+
+
+### Bug Fixes
+
+* Add reposition support ([#60](https://github.com/Wondermarin/react-color-palette/issues/60)) ([8342bf3](https://github.com/Wondermarin/react-color-palette/commit/8342bf345215ed621f15936069ecb599a5f43d12))
+
 ## [7.0.3](https://github.com/Wondermarin/react-color-palette/compare/v7.0.2...v7.0.3) (2023-08-09)
 
 
