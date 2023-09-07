@@ -2,6 +2,8 @@ import React, { memo } from "react";
 
 import { type IColor } from "@/services/color";
 
+import { isFieldHide } from "@/utils/is-field-hide";
+
 import { Alpha } from "../alpha";
 import { Fields } from "../fields";
 import { Hue } from "../hue";
@@ -10,7 +12,7 @@ import { Saturation } from "../saturation";
 interface IColorPickerProps {
   readonly height?: number;
   readonly hideAlpha?: boolean;
-  readonly hideInput?: boolean;
+  readonly hideInput?: (keyof IColor)[] | boolean;
   readonly color: IColor;
   readonly onChange: (color: IColor) => void;
 }
@@ -24,9 +26,9 @@ export const ColorPicker = memo(
           <Hue color={color} onChange={onChange} />
           {!hideAlpha && <Alpha color={color} onChange={onChange} />}
         </section>
-        {!hideInput && (
+        {(!isFieldHide(hideInput, "hex") || !isFieldHide(hideInput, "rgb") || !isFieldHide(hideInput, "hsv")) && (
           <section className="rcp-section">
-            <Fields color={color} onChange={onChange} />
+            <Fields hideInput={hideInput} color={color} onChange={onChange} />
           </section>
         )}
       </div>

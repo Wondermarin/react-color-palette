@@ -87,6 +87,18 @@ export function App() {
 }
 ```
 
+### HEX input only
+```tsx
+import { ColorPicker, useColor } from "react-color-palette";
+import "react-color-palette/css";
+
+export function App() {
+  const [color, setColor] = useColor("#123123");
+
+  return <ColorPicker hideInput={["rgb", "hsv"]} color={color} onChange={setColor} />
+}
+```
+
 ## API
 
 ### `<ColorPicker />`
@@ -113,15 +125,15 @@ export function App() {
   </tr>
   <tr>
     <td>hideInput</td>
-    <td>boolean</td>
+    <td>(keyof <a href="#icolor">IColor</a>)[] | boolean</td>
     <td>false</td>
-    <td>Hides the Fields component.</td>
+    <td>If boolean: hides all inputs if true or displays all inputs if false. If array: hides all inputs listed in the array.</td>
   </tr>
   <tr>
     <td>color</td>
     <td><a href="#icolor">IColor</a></td>
     <td></td>
-    <td>Currently <a href="#icolor">color</a>.</td>
+    <td>Current <a href="#icolor">color</a>.</td>
   </tr>
   <tr>
     <td>onChange</td>
@@ -150,7 +162,7 @@ export function App() {
     <td>color</td>
     <td><a href="#icolor">IColor</a></td>
     <td></td>
-    <td>Currently <a href="#icolor">color</a>.</td>
+    <td>Current <a href="#icolor">color</a>.</td>
   </tr>
   <tr>
     <td>onChange</td>
@@ -173,7 +185,7 @@ export function App() {
     <td>color</td>
     <td><a href="#icolor">IColor</a></td>
     <td></td>
-    <td>Currently <a href="#icolor">color</a>.</td>
+    <td>Current <a href="#icolor">color</a>.</td>
   </tr>
   <tr>
     <td>onChange</td>
@@ -196,7 +208,7 @@ export function App() {
     <td>color</td>
     <td><a href="#icolor">IColor</a></td>
     <td></td>
-    <td>Currently <a href="#icolor">color</a>.</td>
+    <td>Current <a href="#icolor">color</a>.</td>
   </tr>
   <tr>
     <td>onChange</td>

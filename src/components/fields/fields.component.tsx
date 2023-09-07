@@ -3,13 +3,15 @@ import React, { memo, useCallback, useEffect, useState } from "react";
 import { ColorService, type IColor } from "@/services/color";
 
 import { formatHsv, formatRgb } from "@/utils/format";
+import { isFieldHide } from "@/utils/is-field-hide";
 
 interface IFieldsProps {
+  readonly hideInput: (keyof IColor)[] | boolean;
   readonly color: IColor;
   readonly onChange: (color: IColor) => void;
 }
 
-export const Fields = memo(({ color, onChange }: IFieldsProps) => {
+export const Fields = memo(({ hideInput, color, onChange }: IFieldsProps) => {
   const [fields, setFields] = useState({
     hex: {
       value: color.hex,
@@ -75,49 +77,57 @@ export const Fields = memo(({ color, onChange }: IFieldsProps) => {
 
   return (
     <div className="rcp-fields">
-      <div className="rcp-fields-floor">
-        <div className="rcp-field">
-          <input
-            id="hex"
-            className="rcp-field-input"
-            value={fields.hex.value}
-            onChange={onInputChange("hex")}
-            onFocus={onInputFocus("hex")}
-            onBlur={onInputBlur("hex")}
-          />
-          <label htmlFor="hex" className="rcp-field-label">
-            HEX
-          </label>
+      {!isFieldHide(hideInput, "hex") && (
+        <div className="rcp-fields-floor">
+          <div className="rcp-field">
+            <input
+              id="hex"
+              className="rcp-field-input"
+              value={fields.hex.value}
+              onChange={onInputChange("hex")}
+              onFocus={onInputFocus("hex")}
+              onBlur={onInputBlur("hex")}
+            />
+            <label htmlFor="hex" className="rcp-field-label">
+              HEX
+            </label>
+          </div>
         </div>
-      </div>
-      <div className="rcp-fields-floor">
-        <div className="rcp-field">
-          <input
-            id="rgb"
-            className="rcp-field-input"
-            value={fields.rgb.value}
-            onChange={onInputChange("rgb")}
-            onFocus={onInputFocus("rgb")}
-            onBlur={onInputBlur("rgb")}
-          />
-          <label htmlFor="rgb" className="rcp-field-label">
-            RGB
-          </label>
+      )}
+      {(!isFieldHide(hideInput, "rgb") || !isFieldHide(hideInput, "hsv")) && (
+        <div className="rcp-fields-floor">
+          {!isFieldHide(hideInput, "rgb") && (
+            <div className="rcp-field">
+              <input
+                id="rgb"
+                className="rcp-field-input"
+                value={fields.rgb.value}
+                onChange={onInputChange("rgb")}
+                onFocus={onInputFocus("rgb")}
+                onBlur={onInputBlur("rgb")}
+              />
+              <label htmlFor="rgb" className="rcp-field-label">
+                RGB
+              </label>
+            </div>
+          )}
+          {!isFieldHide(hideInput, "hsv") && (
+            <div className="rcp-field">
+              <input
+                id="hsv"
+                className="rcp-field-input"
+                value={fields.hsv.value}
+                onChange={onInputChange("hsv")}
+                onFocus={onInputFocus("hsv")}
+                onBlur={onInputBlur("hsv")}
+              />
+              <label htmlFor="hsv" className="rcp-field-label">
+                HSV
+              </label>
+            </div>
+          )}
         </div>
-        <div className="rcp-field">
-          <input
-            id="hsv"
-            className="rcp-field-input"
-            value={fields.hsv.value}
-            onChange={onInputChange("hsv")}
-            onFocus={onInputFocus("hsv")}
-            onBlur={onInputBlur("hsv")}
-          />
-          <label htmlFor="hsv" className="rcp-field-label">
-            HSV
-          </label>
-        </div>
-      </div>
+      )}
     </div>
   );
 });
