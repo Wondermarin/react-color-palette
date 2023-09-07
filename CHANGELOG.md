@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [7.1.0](https://github.com/Wondermarin/react-color-palette/compare/v7.0.4...v7.1.0) (2023-09-07)
+
+
+### Features
+
+* Add "individual visibility control for color inputs" support ([#62](https://github.com/Wondermarin/react-color-palette/issues/62)) ([157dbb1](https://github.com/Wondermarin/react-color-palette/commit/157dbb1b162d53dd0acfafebb7e238f969f1e894))
+
 ## [7.0.4](https://github.com/Wondermarin/react-color-palette/compare/v7.0.3...v7.0.4) (2023-08-12)
 
 
