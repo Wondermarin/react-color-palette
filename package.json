@@ -25,7 +25,7 @@
     "url": "https://github.com/Wondermarin/react-color-palette/issues"
   },
   "license": "MIT",
-  "sideEffects": false,
+  "sideEffects": ["*.css"],
   "private": false,
   "keywords": [
     "react",
