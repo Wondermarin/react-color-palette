@@ -40,3 +40,7 @@ lerna-debug.log*
 # Tests
 /coverage
 /.nyc_output
+
+
+# Lock files
+package-lock.json
