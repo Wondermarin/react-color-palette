@@ -1,6 +1,6 @@
 {
   "name": "react-color-palette",
-  "version": "7.1.0",
+  "version": "7.1.1",
   "description": "🎨 Lightweight Color Picker component for React.",
   "author": "Wondermarin",
   "main": "dist/rcp.js",
@@ -25,7 +25,9 @@
     "url": "https://github.com/Wondermarin/react-color-palette/issues"
   },
   "license": "MIT",
-  "sideEffects": ["*.css"],
+  "sideEffects": [
+    "*.css"
+  ],
   "private": false,
   "keywords": [
     "react",

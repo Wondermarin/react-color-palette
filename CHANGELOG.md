@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [7.1.1](https://github.com/Wondermarin/react-color-palette/compare/v7.1.0...v7.1.1) (2024-04-10)
+
+
+### Bug Fixes
+
+* Mark `.css` files as `sideEffect` ([#68](https://github.com/Wondermarin/react-color-palette/issues/68)) ([1acc892](https://github.com/Wondermarin/react-color-palette/commit/1acc892302f46bc3afe02adf4c34e88df6d3be6f))
+
 ## [7.1.0](https://github.com/Wondermarin/react-color-palette/compare/v7.0.4...v7.1.0) (2023-09-07)
 
 
