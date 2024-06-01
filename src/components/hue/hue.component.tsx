@@ -9,9 +9,10 @@ import { Interactive } from "../interactive";
 interface IHueProps {
   readonly color: IColor;
   readonly onChange: (color: IColor) => void;
+  readonly disabled: boolean;
 }
 
-export const Hue = memo(({ color, onChange }: IHueProps) => {
+export const Hue = memo(({ color, onChange, disabled }: IHueProps) => {
   const [hueRef, { width }] = useBoundingClientRect<HTMLDivElement>();
 
   const position = useMemo(() => {
@@ -35,7 +36,7 @@ export const Hue = memo(({ color, onChange }: IHueProps) => {
   const hsl = useMemo(() => [color.hsv.h, "100%", "50%"].join(" "), [color.hsv.h]);
 
   return (
-    <Interactive onCoordinateChange={updateColor}>
+    <Interactive onCoordinateChange={updateColor} disabled={disabled}>
       <div ref={hueRef} className="rcp-hue">
         <div style={{ left: position.x, backgroundColor: `hsl(${hsl})` }} className="rcp-hue-cursor" />
       </div>

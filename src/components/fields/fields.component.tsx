@@ -9,9 +9,10 @@ interface IFieldsProps {
   readonly hideInput: (keyof IColor)[] | boolean;
   readonly color: IColor;
   readonly onChange: (color: IColor) => void;
+  readonly disabled: boolean;
 }
 
-export const Fields = memo(({ hideInput, color, onChange }: IFieldsProps) => {
+export const Fields = memo(({ hideInput, color, onChange, disabled }: IFieldsProps) => {
   const [fields, setFields] = useState({
     hex: {
       value: color.hex,
@@ -84,6 +85,7 @@ export const Fields = memo(({ hideInput, color, onChange }: IFieldsProps) => {
               id="hex"
               className="rcp-field-input"
               value={fields.hex.value}
+              disabled={disabled}
               onChange={onInputChange("hex")}
               onFocus={onInputFocus("hex")}
               onBlur={onInputBlur("hex")}
@@ -102,6 +104,7 @@ export const Fields = memo(({ hideInput, color, onChange }: IFieldsProps) => {
                 id="rgb"
                 className="rcp-field-input"
                 value={fields.rgb.value}
+                disabled={disabled}
                 onChange={onInputChange("rgb")}
                 onFocus={onInputFocus("rgb")}
                 onBlur={onInputBlur("rgb")}
@@ -117,6 +120,7 @@ export const Fields = memo(({ hideInput, color, onChange }: IFieldsProps) => {
                 id="hsv"
                 className="rcp-field-input"
                 value={fields.hsv.value}
+                disabled={disabled}
                 onChange={onInputChange("hsv")}
                 onFocus={onInputFocus("hsv")}
                 onBlur={onInputBlur("hsv")}
