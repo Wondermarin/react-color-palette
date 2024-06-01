@@ -7,9 +7,10 @@ import { clamp } from "@/utils/clamp";
 interface IInteractiveProps {
   readonly onCoordinateChange: (x: number, y: number) => void;
   readonly children: React.ReactNode;
+  readonly disabled: boolean;
 }
 
-export const Interactive = memo(({ onCoordinateChange, children }: IInteractiveProps) => {
+export const Interactive = memo(({ onCoordinateChange, children, disabled }: IInteractiveProps) => {
   const [interactiveRef, { width, height }, getPosition] = useBoundingClientRect<HTMLDivElement>();
 
   const move = useCallback(
@@ -48,7 +49,12 @@ export const Interactive = memo(({ onCoordinateChange, children }: IInteractiveP
   );
 
   return (
-    <div ref={interactiveRef} className="rcp-interactive" onPointerDown={onPointerDown}>
+    <div
+      ref={interactiveRef}
+      className="rcp-interactive"
+      style={{ cursor: disabled ? "not-allowed" : "move" }}
+      onPointerDown={disabled ? undefined : onPointerDown}
+    >
       {children}
     </div>
   );
