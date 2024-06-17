@@ -99,6 +99,20 @@ export function App() {
 }
 ```
 
+### onChangeComplete optional callback
+```tsx
+import { ColorPicker, useColor } from "react-color-palette";
+import "react-color-palette/css";
+
+export function App() {
+  const [color, setColor] = useColor("#123123");
+
+  const onChangeComplete = (color: IColor) => localStorage.setItem("color", color.hex);
+
+  return <ColorPicker hideInput={["rgb", "hsv"]} color={color} onChange={setColor} onChangeComplete={onChangeComplete} />
+}
+```
+
 ## API
 
 ### `<ColorPicker />`
