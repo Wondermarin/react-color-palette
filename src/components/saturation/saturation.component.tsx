@@ -10,9 +10,10 @@ interface ISaturationProps {
   readonly height: number;
   readonly color: IColor;
   readonly onChange: (color: IColor) => void;
+  readonly onChangeComplete?: (color: IColor) => void;
 }
 
-export const Saturation = memo(({ height, color, onChange }: ISaturationProps) => {
+export const Saturation = memo(({ height, color, onChange, onChangeComplete }: ISaturationProps) => {
   const [saturationRef, { width }] = useBoundingClientRect<HTMLDivElement>();
 
   const position = useMemo(() => {
@@ -23,7 +24,7 @@ export const Saturation = memo(({ height, color, onChange }: ISaturationProps) =
   }, [color.hsv.s, color.hsv.v, width, height]);
 
   const updateColor = useCallback(
-    (x: number, y: number) => {
+    (x: number, y: number, final?: boolean) => {
       const nextColor = ColorService.convert("hsv", {
         ...color.hsv,
         s: (x / width) * 100,
@@ -31,8 +32,9 @@ export const Saturation = memo(({ height, color, onChange }: ISaturationProps) =
       });
 
       onChange(nextColor);
+      if (final) onChangeComplete?.(nextColor);
     },
-    [color.hsv, width, height, onChange]
+    [color.hsv, width, height, onChange, onChangeComplete]
   );
 
   const hsl = useMemo(() => [color.hsv.h, "100%", "50%"].join(" "), [color.hsv.h]);
