@@ -141,6 +141,12 @@ export function App() {
     <td></td>
     <td>Сallback function will be fired when <a href="#icolor">color</a> changes.</td>
   </tr>
+  <tr>
+    <td>onChangeComplete</td>
+    <td>Function</td>
+    <td></td>
+    <td>Callback function will be fired when the interaction is complete with the color picker.</td>
+  </tr>
 </table>
 
 ### `<Saturation />`
@@ -170,6 +176,12 @@ export function App() {
     <td></td>
     <td>Сallback function will be fired when <a href="#icolor">color</a> changes.</td>
   </tr>
+  <tr>
+    <td>onChangeComplete</td>
+    <td>Function</td>
+    <td></td>
+    <td>Callback function will be fired when the interaction is complete with the saturation picker.</td>
+  </tr>
 </table>
 
 ### `<Hue />`
@@ -193,6 +205,12 @@ export function App() {
     <td></td>
     <td>Сallback function will be fired when <a href="#icolor">color</a> changes.</td>
   </tr>
+  <tr>
+    <td>onChangeComplete</td>
+    <td>Function</td>
+    <td></td>
+    <td>Callback function will be fired when the interaction is complete with the hue picker.</td>
+  </tr>
 </table>
 
 ### `<Alpha />`
@@ -215,6 +233,12 @@ export function App() {
     <td>Function</td>
     <td></td>
     <td>Сallback function will be fired when <a href="#icolor">color</a> changes.</td>
+  </tr>
+  <tr>
+    <td>onChangeComplete</td>
+    <td>Function</td>
+    <td></td>
+    <td>Callback function will be fired when the interaction is complete with the alpha picker.</td>
   </tr>
 </table>
 
