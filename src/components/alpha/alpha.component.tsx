@@ -22,7 +22,7 @@ export const Alpha = memo(({ color, onChange, onChangeComplete }: IAlphaProps) =
   }, [color.hsv.a, width]);
 
   const updateColor = useCallback(
-    (x: number, _y: number, final?: boolean) => {
+    (final: boolean, x: number) => {
       const nextColor = ColorService.convert("hsv", {
         ...color.hsv,
         a: x / width,

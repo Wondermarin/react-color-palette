@@ -24,7 +24,7 @@ export const Saturation = memo(({ height, color, onChange, onChangeComplete }: I
   }, [color.hsv.s, color.hsv.v, width, height]);
 
   const updateColor = useCallback(
-    (x: number, y: number, final?: boolean) => {
+    (final: boolean, x: number, y: number) => {
       const nextColor = ColorService.convert("hsv", {
         ...color.hsv,
         s: (x / width) * 100,

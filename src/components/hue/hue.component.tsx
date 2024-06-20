@@ -22,7 +22,7 @@ export const Hue = memo(({ color, onChange, onChangeComplete }: IHueProps) => {
   }, [color.hsv.h, width]);
 
   const updateColor = useCallback(
-    (x: number, _y: number, final?: boolean) => {
+    (final: boolean, x: number) => {
       const nextColor = ColorService.convert("hsv", {
         ...color.hsv,
         h: (x / width) * 360,

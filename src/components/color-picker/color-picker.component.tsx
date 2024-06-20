@@ -24,12 +24,12 @@ export const ColorPicker = memo(
       <Saturation height={height} color={color} onChange={onChange} onChangeComplete={onChangeComplete} />
       <div className="rcp-body">
         <section className="rcp-section">
-          <Hue color={color} onChange={onChange} />
+          <Hue color={color} onChange={onChange} onChangeComplete={onChangeComplete} />
           {!hideAlpha && <Alpha color={color} onChange={onChange} onChangeComplete={onChangeComplete} />}
         </section>
         {(!isFieldHide(hideInput, "hex") || !isFieldHide(hideInput, "rgb") || !isFieldHide(hideInput, "hsv")) && (
           <section className="rcp-section">
-            <Fields hideInput={hideInput} color={color} onChange={onChange} />
+            <Fields hideInput={hideInput} color={color} onChange={onChange} onChangeComplete={onChangeComplete} />
           </section>
         )}
       </div>

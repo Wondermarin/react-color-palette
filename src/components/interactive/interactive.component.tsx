@@ -5,7 +5,7 @@ import { useBoundingClientRect } from "@/hooks/use-bounding-client-rect";
 import { clamp } from "@/utils/clamp";
 
 interface IInteractiveProps {
-  readonly onCoordinateChange: (x: number, y: number, final?: boolean) => void;
+  readonly onCoordinateChange: (final: boolean, x: number, y: number) => void;
   readonly children: React.ReactNode;
 }
 
@@ -19,7 +19,7 @@ export const Interactive = memo(({ onCoordinateChange, children }: IInteractiveP
       const x = clamp(event.clientX - left, 0, width);
       const y = clamp(event.clientY - top, 0, height);
 
-      onCoordinateChange(x, y, final);
+      onCoordinateChange(final, x, y);
     },
     [width, height, getPosition, onCoordinateChange]
   );
