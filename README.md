@@ -101,7 +101,7 @@ export function App() {
 
 ### onChangeComplete optional callback
 ```tsx
-import { ColorPicker, useColor } from "react-color-palette";
+import { ColorPicker, useColor, type IColor } from "react-color-palette";
 import "react-color-palette/css";
 
 export function App() {
