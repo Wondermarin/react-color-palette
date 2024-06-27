@@ -9,9 +9,10 @@ import { Interactive } from "../interactive";
 interface IHueProps {
   readonly color: IColor;
   readonly onChange: (color: IColor) => void;
+  readonly onChangeComplete?: (color: IColor) => void;
 }
 
-export const Hue = memo(({ color, onChange }: IHueProps) => {
+export const Hue = memo(({ color, onChange, onChangeComplete }: IHueProps) => {
   const [hueRef, { width }] = useBoundingClientRect<HTMLDivElement>();
 
   const position = useMemo(() => {
@@ -21,15 +22,16 @@ export const Hue = memo(({ color, onChange }: IHueProps) => {
   }, [color.hsv.h, width]);
 
   const updateColor = useCallback(
-    (x: number) => {
+    (final: boolean, x: number) => {
       const nextColor = ColorService.convert("hsv", {
         ...color.hsv,
         h: (x / width) * 360,
       });
 
       onChange(nextColor);
+      if (final) onChangeComplete?.(nextColor);
     },
-    [color.hsv, width, onChange]
+    [color.hsv, width, onChange, onChangeComplete]
   );
 
   const hsl = useMemo(() => [color.hsv.h, "100%", "50%"].join(" "), [color.hsv.h]);

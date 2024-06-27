@@ -5,7 +5,7 @@ import { useBoundingClientRect } from "@/hooks/use-bounding-client-rect";
 import { clamp } from "@/utils/clamp";
 
 interface IInteractiveProps {
-  readonly onCoordinateChange: (x: number, y: number) => void;
+  readonly onCoordinateChange: (final: boolean, x: number, y: number) => void;
   readonly children: React.ReactNode;
 }
 
@@ -13,13 +13,13 @@ export const Interactive = memo(({ onCoordinateChange, children }: IInteractiveP
   const [interactiveRef, { width, height }, getPosition] = useBoundingClientRect<HTMLDivElement>();
 
   const move = useCallback(
-    (event: React.PointerEvent<HTMLDivElement> | PointerEvent) => {
+    (event: React.PointerEvent<HTMLDivElement> | PointerEvent, final = false) => {
       const { left, top } = getPosition();
 
       const x = clamp(event.clientX - left, 0, width);
       const y = clamp(event.clientY - top, 0, height);
 
-      onCoordinateChange(x, y);
+      onCoordinateChange(final, x, y);
     },
     [width, height, getPosition, onCoordinateChange]
   );
@@ -35,7 +35,7 @@ export const Interactive = memo(({ onCoordinateChange, children }: IInteractiveP
       };
 
       const onPointerUp = (event: PointerEvent) => {
-        move(event);
+        move(event, true);
 
         document.removeEventListener("pointermove", onPointerMove, false);
         document.removeEventListener("pointerup", onPointerUp, false);

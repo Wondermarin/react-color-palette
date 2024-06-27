@@ -9,9 +9,10 @@ interface IFieldsProps {
   readonly hideInput: (keyof IColor)[] | boolean;
   readonly color: IColor;
   readonly onChange: (color: IColor) => void;
+  readonly onChangeComplete?: (color: IColor) => void;
 }
 
-export const Fields = memo(({ hideInput, color, onChange }: IFieldsProps) => {
+export const Fields = memo(({ hideInput, color, onChange, onChangeComplete }: IFieldsProps) => {
   const [fields, setFields] = useState({
     hex: {
       value: color.hex,
@@ -69,10 +70,16 @@ export const Fields = memo(({ hideInput, color, onChange }: IFieldsProps) => {
 
   const onInputBlur = useCallback(
     <T extends keyof typeof fields>(field: T) =>
-      () => {
+      (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target;
+
         setFields((fields) => ({ ...fields, [field]: { ...fields[field], inputted: false } }));
+
+        if (field === "hsv") onChangeComplete?.(ColorService.convert("hsv", ColorService.toHsv(value)));
+        else if (field === "rgb") onChangeComplete?.(ColorService.convert("rgb", ColorService.toRgb(value)));
+        else onChangeComplete?.(ColorService.convert("hex", value));
       },
-    []
+    [onChangeComplete]
   );
 
   return (

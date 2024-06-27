@@ -15,20 +15,21 @@ interface IColorPickerProps {
   readonly hideInput?: (keyof IColor)[] | boolean;
   readonly color: IColor;
   readonly onChange: (color: IColor) => void;
+  readonly onChangeComplete?: (color: IColor) => void;
 }
 
 export const ColorPicker = memo(
-  ({ height = 200, hideAlpha = false, hideInput = false, color, onChange }: IColorPickerProps) => (
+  ({ height = 200, hideAlpha = false, hideInput = false, color, onChange, onChangeComplete }: IColorPickerProps) => (
     <div className="rcp-root rcp">
-      <Saturation height={height} color={color} onChange={onChange} />
+      <Saturation height={height} color={color} onChange={onChange} onChangeComplete={onChangeComplete} />
       <div className="rcp-body">
         <section className="rcp-section">
-          <Hue color={color} onChange={onChange} />
-          {!hideAlpha && <Alpha color={color} onChange={onChange} />}
+          <Hue color={color} onChange={onChange} onChangeComplete={onChangeComplete} />
+          {!hideAlpha && <Alpha color={color} onChange={onChange} onChangeComplete={onChangeComplete} />}
         </section>
         {(!isFieldHide(hideInput, "hex") || !isFieldHide(hideInput, "rgb") || !isFieldHide(hideInput, "hsv")) && (
           <section className="rcp-section">
-            <Fields hideInput={hideInput} color={color} onChange={onChange} />
+            <Fields hideInput={hideInput} color={color} onChange={onChange} onChangeComplete={onChangeComplete} />
           </section>
         )}
       </div>
