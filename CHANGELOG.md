@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [7.2.0](https://github.com/Wondermarin/react-color-palette/compare/v7.1.1...v7.2.0) (2024-06-27)
+
+
+### Features
+
+* Add `onChangeComplete` event ([#73](https://github.com/Wondermarin/react-color-palette/issues/73)) ([2aa616e](https://github.com/Wondermarin/react-color-palette/commit/2aa616e1e82f18b499474a87e91ad287adc666b1))
+
 ## [7.1.1](https://github.com/Wondermarin/react-color-palette/compare/v7.1.0...v7.1.1) (2024-04-10)
 
 
