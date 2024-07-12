@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [7.2.1](https://github.com/Wondermarin/react-color-palette/compare/v7.2.0...v7.2.1) (2024-07-12)
+
+
+### Bug Fixes
+
+* `useBoundingClientRect` wrong dimensions in modal ([#75](https://github.com/Wondermarin/react-color-palette/issues/75)) ([770820b](https://github.com/Wondermarin/react-color-palette/commit/770820b22db6b72bfebf925e0a53914edcd64d46))
+
 ## [7.2.0](https://github.com/Wondermarin/react-color-palette/compare/v7.1.1...v7.2.0) (2024-06-27)
 
 
