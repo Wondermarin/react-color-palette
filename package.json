@@ -48,8 +48,8 @@
   "scripts": {
     "test:lint": "eslint src/**/*.{ts,tsx}",
     "test:types": "tsc",
-    "test": "yarn test:lint && yarn test:types",
-    "prebuild": "yarn test",
+    "test": "pnpm test:lint && pnpm test:types",
+    "prebuild": "pnpm test",
     "build": "tsup"
   },
   "peerDependencies": {

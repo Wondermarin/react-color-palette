@@ -3,12 +3,12 @@
 ## Setup
 
 1. Fork & Clone the repository.
-2. Run `yarn install`.
+2. Run `pnpm install`.
 3. Time to code!
 
 ## Test
 
-1. Run `yarn test`.
+1. Run `pnpm test`.
 
 ## Submit
 
