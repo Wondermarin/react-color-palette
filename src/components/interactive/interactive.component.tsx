@@ -3,17 +3,21 @@ import React, { memo, useCallback } from "react";
 import { useBoundingClientRect } from "@/hooks/use-bounding-client-rect";
 
 import { clamp } from "@/utils/clamp";
+import { isTouch } from "@/utils/is-touch";
 
 interface IInteractiveProps {
   readonly onCoordinateChange: (final: boolean, x: number, y: number) => void;
   readonly children: React.ReactNode;
 }
 
+type TInteractionEvent = React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement> | MouseEvent | TouchEvent;
+type TMoveEvent = React.MouseEvent<HTMLDivElement> | React.Touch | MouseEvent | Touch;
+
 export const Interactive = memo(({ onCoordinateChange, children }: IInteractiveProps) => {
   const [interactiveRef, { width, height }, getPosition] = useBoundingClientRect<HTMLDivElement>();
 
   const move = useCallback(
-    (event: React.PointerEvent<HTMLDivElement> | PointerEvent, final = false) => {
+    (event: TMoveEvent, final = false) => {
       const { left, top } = getPosition();
 
       const x = clamp(event.clientX - left, 0, width);
@@ -24,31 +28,31 @@ export const Interactive = memo(({ onCoordinateChange, children }: IInteractiveP
     [width, height, getPosition, onCoordinateChange]
   );
 
-  const onPointerDown = useCallback(
-    (event: React.PointerEvent<HTMLDivElement>) => {
-      if (event.button !== 0) return;
+  const onStart = useCallback(
+    (event: TInteractionEvent) => {
+      if (!isTouch(event) && event.button !== 0) return;
 
-      move(event);
-
-      const onPointerMove = (event: PointerEvent) => {
-        move(event);
+      const onMove = (event: TInteractionEvent) => {
+        move(isTouch(event) ? event.touches[0] : event);
       };
 
-      const onPointerUp = (event: PointerEvent) => {
-        move(event, true);
+      const onEnd = (event: TInteractionEvent) => {
+        move(isTouch(event) ? event.changedTouches[0] : event, true);
 
-        document.removeEventListener("pointermove", onPointerMove, false);
-        document.removeEventListener("pointerup", onPointerUp, false);
+        document.removeEventListener(isTouch(event) ? "touchmove" : "mousemove", onMove, false);
+        document.removeEventListener(isTouch(event) ? "touchend" : "mouseup", onEnd, false);
       };
 
-      document.addEventListener("pointermove", onPointerMove, false);
-      document.addEventListener("pointerup", onPointerUp, false);
+      onMove(event);
+
+      document.addEventListener(isTouch(event) ? "touchmove" : "mousemove", onMove, false);
+      document.addEventListener(isTouch(event) ? "touchend" : "mouseup", onEnd, false);
     },
     [move]
   );
 
   return (
-    <div ref={interactiveRef} className="rcp-interactive" onPointerDown={onPointerDown}>
+    <div ref={interactiveRef} className="rcp-interactive" onMouseDown={onStart} onTouchStart={onStart}>
       {children}
     </div>
   );
