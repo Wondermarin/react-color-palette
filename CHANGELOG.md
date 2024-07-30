@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [7.2.2](https://github.com/Wondermarin/react-color-palette/compare/v7.2.1...v7.2.2) (2024-07-30)
+
+
+### Bug Fixes
+
+* Replace `pointer` event with `mouse` event and `touch` event for better support across different environments ([671a74e](https://github.com/Wondermarin/react-color-palette/commit/671a74e036228ab4b97231979c666a4af1e03a76))
+
 ## [7.2.1](https://github.com/Wondermarin/react-color-palette/compare/v7.2.0...v7.2.1) (2024-07-12)
 
 
