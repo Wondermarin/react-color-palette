@@ -56,7 +56,8 @@ class ColorServiceStatic {
   }
 
   public toHex(value: string): IColor["hex"] {
-    if (!value.startsWith("#")) {
+    if (value === "") return "";
+    else if (!value.startsWith("#")) {
       const ctx = document.createElement("canvas").getContext("2d");
 
       if (!ctx) throw new Error("2d context not supported or canvas already initialized");
