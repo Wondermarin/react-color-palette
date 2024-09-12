@@ -9,11 +9,12 @@ import { Interactive } from "../interactive";
 interface ISaturationProps {
   readonly height: number;
   readonly color: IColor;
+  readonly disabled?: boolean;
   readonly onChange: (color: IColor) => void;
   readonly onChangeComplete?: (color: IColor) => void;
 }
 
-export const Saturation = memo(({ height, color, onChange, onChangeComplete }: ISaturationProps) => {
+export const Saturation = memo(({ height, color, disabled, onChange, onChangeComplete }: ISaturationProps) => {
   const [saturationRef, { width }] = useBoundingClientRect<HTMLDivElement>();
 
   const position = useMemo(() => {
@@ -41,7 +42,7 @@ export const Saturation = memo(({ height, color, onChange, onChangeComplete }: I
   const rgb = useMemo(() => [color.rgb.r, color.rgb.g, color.rgb.b].join(" "), [color.rgb.r, color.rgb.g, color.rgb.b]);
 
   return (
-    <Interactive onCoordinateChange={updateColor}>
+    <Interactive disabled={disabled} onCoordinateChange={updateColor}>
       <div ref={saturationRef} style={{ height, backgroundColor: `hsl(${hsl})` }} className="rcp-saturation">
         <div
           style={{ left: position.x, top: position.y, backgroundColor: `rgb(${rgb})` }}

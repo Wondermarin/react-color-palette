@@ -8,12 +8,13 @@ import { isTouch } from "@/utils/is-touch";
 interface IInteractiveProps {
   readonly onCoordinateChange: (final: boolean, x: number, y: number) => void;
   readonly children: React.ReactNode;
+  readonly disabled?: boolean;
 }
 
 type TInteractionEvent = React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement> | MouseEvent | TouchEvent;
 type TMoveEvent = React.MouseEvent<HTMLDivElement> | React.Touch | MouseEvent | Touch;
 
-export const Interactive = memo(({ onCoordinateChange, children }: IInteractiveProps) => {
+export const Interactive = memo(({ onCoordinateChange, children, disabled }: IInteractiveProps) => {
   const [interactiveRef, { width, height }, getPosition] = useBoundingClientRect<HTMLDivElement>();
 
   const move = useCallback(
@@ -52,7 +53,13 @@ export const Interactive = memo(({ onCoordinateChange, children }: IInteractiveP
   );
 
   return (
-    <div ref={interactiveRef} className="rcp-interactive" onMouseDown={onStart} onTouchStart={onStart}>
+    <div
+      ref={interactiveRef}
+      className="rcp-interactive"
+      onMouseDown={onStart}
+      onTouchStart={onStart}
+      aria-readonly={disabled}
+    >
       {children}
     </div>
   );

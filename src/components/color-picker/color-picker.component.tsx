@@ -14,22 +14,45 @@ interface IColorPickerProps {
   readonly hideAlpha?: boolean;
   readonly hideInput?: (keyof IColor)[] | boolean;
   readonly color: IColor;
+  readonly disabled?: boolean;
   readonly onChange: (color: IColor) => void;
   readonly onChangeComplete?: (color: IColor) => void;
 }
 
 export const ColorPicker = memo(
-  ({ height = 200, hideAlpha = false, hideInput = false, color, onChange, onChangeComplete }: IColorPickerProps) => (
+  ({
+    height = 200,
+    hideAlpha = false,
+    hideInput = false,
+    color,
+    disabled = false,
+    onChange,
+    onChangeComplete,
+  }: IColorPickerProps) => (
     <div className="rcp-root rcp">
-      <Saturation height={height} color={color} onChange={onChange} onChangeComplete={onChangeComplete} />
+      <Saturation
+        height={height}
+        color={color}
+        disabled={disabled}
+        onChange={onChange}
+        onChangeComplete={onChangeComplete}
+      />
       <div className="rcp-body">
         <section className="rcp-section">
-          <Hue color={color} onChange={onChange} onChangeComplete={onChangeComplete} />
-          {!hideAlpha && <Alpha color={color} onChange={onChange} onChangeComplete={onChangeComplete} />}
+          <Hue color={color} disabled={disabled} onChange={onChange} onChangeComplete={onChangeComplete} />
+          {!hideAlpha && (
+            <Alpha color={color} disabled={disabled} onChange={onChange} onChangeComplete={onChangeComplete} />
+          )}
         </section>
         {(!isFieldHide(hideInput, "hex") || !isFieldHide(hideInput, "rgb") || !isFieldHide(hideInput, "hsv")) && (
           <section className="rcp-section">
-            <Fields hideInput={hideInput} color={color} onChange={onChange} onChangeComplete={onChangeComplete} />
+            <Fields
+              hideInput={hideInput}
+              color={color}
+              disabled={disabled}
+              onChange={onChange}
+              onChangeComplete={onChangeComplete}
+            />
           </section>
         )}
       </div>
