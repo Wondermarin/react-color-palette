@@ -153,7 +153,7 @@ export function App() {
     <td>disabled</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Disables editing.</td>
+    <td>Disables interactivity.</td>
   </tr>
   <tr>
     <td>onChange</td>
@@ -194,7 +194,7 @@ export function App() {
     <td>disabled</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Disables editing.</td>
+    <td>Disables interactivity.</td>
   </tr>
   <tr>
     <td>onChange</td>
@@ -229,7 +229,7 @@ export function App() {
     <td>disabled</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Disables editing.</td>
+    <td>Disables interactivity.</td>
   </tr>
   <tr>
     <td>onChange</td>
@@ -264,7 +264,7 @@ export function App() {
     <td>disabled</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Disables editing.</td>
+    <td>Disables interactivity.</td>
   </tr>
   <tr>
     <td>onChange</td>
