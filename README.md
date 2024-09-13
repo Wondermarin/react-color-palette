@@ -150,6 +150,12 @@ export function App() {
     <td>Current <a href="#icolor">color</a>.</td>
   </tr>
   <tr>
+    <td>disabled</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Disables interactivity.</td>
+  </tr>
+  <tr>
     <td>onChange</td>
     <td>Function</td>
     <td></td>
@@ -185,6 +191,12 @@ export function App() {
     <td>Current <a href="#icolor">color</a>.</td>
   </tr>
   <tr>
+    <td>disabled</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Disables interactivity.</td>
+  </tr>
+  <tr>
     <td>onChange</td>
     <td>Function</td>
     <td></td>
@@ -214,6 +226,12 @@ export function App() {
     <td>Current <a href="#icolor">color</a>.</td>
   </tr>
   <tr>
+    <td>disabled</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Disables interactivity.</td>
+  </tr>
+  <tr>
     <td>onChange</td>
     <td>Function</td>
     <td></td>
@@ -241,6 +259,12 @@ export function App() {
     <td><a href="#icolor">IColor</a></td>
     <td></td>
     <td>Current <a href="#icolor">color</a>.</td>
+  </tr>
+  <tr>
+    <td>disabled</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Disables interactivity.</td>
   </tr>
   <tr>
     <td>onChange</td>

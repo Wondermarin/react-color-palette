@@ -8,11 +8,12 @@ import { Interactive } from "../interactive";
 
 interface IAlphaProps {
   readonly color: IColor;
+  readonly disabled?: boolean;
   readonly onChange: (color: IColor) => void;
   readonly onChangeComplete?: (color: IColor) => void;
 }
 
-export const Alpha = memo(({ color, onChange, onChangeComplete }: IAlphaProps) => {
+export const Alpha = memo(({ color, disabled, onChange, onChangeComplete }: IAlphaProps) => {
   const [alphaRef, { width }] = useBoundingClientRect<HTMLDivElement>();
 
   const position = useMemo(() => {
@@ -38,7 +39,7 @@ export const Alpha = memo(({ color, onChange, onChangeComplete }: IAlphaProps) =
   const rgba = useMemo(() => [rgb, color.rgb.a].join(" / "), [rgb, color.rgb.a]);
 
   return (
-    <Interactive onCoordinateChange={updateColor}>
+    <Interactive disabled={disabled} onCoordinateChange={updateColor}>
       <div
         ref={alphaRef}
         style={{

@@ -32,6 +32,11 @@
   touch-action: none;
 }
 
+.rcp-interactive[aria-disabled="true"] {
+  cursor: unset;
+  pointer-events: none;
+}
+
 .rcp-saturation {
   cursor: all-scroll;
   width: 100%;
@@ -125,6 +130,10 @@
   border-radius: 5px;
   outline: none;
   padding: 5px 0;
+}
+
+.rcp-field-input:read-only {
+  opacity: 0.8;
 }
 
 .rcp-field-label {
