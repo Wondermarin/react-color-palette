@@ -58,7 +58,7 @@ export const Interactive = memo(({ onCoordinateChange, children, disabled }: IIn
       className="rcp-interactive"
       onMouseDown={onStart}
       onTouchStart={onStart}
-      aria-readonly={disabled}
+      aria-disabled={disabled}
     >
       {children}
     </div>

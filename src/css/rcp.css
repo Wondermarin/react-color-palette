@@ -32,7 +32,7 @@
   touch-action: none;
 }
 
-.rcp-interactive[aria-readonly="true"] {
+.rcp-interactive[aria-disabled="true"] {
   cursor: unset;
   pointer-events: none;
 }
