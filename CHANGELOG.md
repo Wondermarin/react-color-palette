@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [7.3.0](https://github.com/Wondermarin/react-color-palette/compare/v7.2.2...v7.3.0) (2024-09-13)
+
+
+### Features
+
+* Add disabled prop ([#82](https://github.com/Wondermarin/react-color-palette/issues/82)) ([6f025db](https://github.com/Wondermarin/react-color-palette/commit/6f025db6ee0172ddad42c31782578b4f52671f2a))
+
 ## [7.2.2](https://github.com/Wondermarin/react-color-palette/compare/v7.2.1...v7.2.2) (2024-07-30)
 
 
