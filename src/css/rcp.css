@@ -132,7 +132,7 @@
   padding: 5px 0;
 }
 
-.rcp-field-input[readonly] {
+.rcp-field-input:read-only {
   opacity: 0.8;
 }
 
