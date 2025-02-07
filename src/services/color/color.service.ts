@@ -55,6 +55,22 @@ class ColorServiceStatic {
     return { hex, rgb, hsv };
   }
 
+  public convertIfNeeded(color: Partial<IColor>): IColor {
+    if (color.hex == null || color.rgb == null || color.hsv == null) {
+      if (color.hex) {
+        return this.convert("hex", color.hex);
+      } else if (color.rgb) {
+        return this.convert("rgb", color.rgb);
+      } else if (color.hsv) {
+        return this.convert("hsv", color.hsv);
+      }
+
+      return this.convert("hex", "#000000");
+    }
+
+    return color as IColor;
+  }
+
   public toHex(value: string): IColor["hex"] {
     if (!value.startsWith("#")) {
       const ctx = document.createElement("canvas").getContext("2d");
