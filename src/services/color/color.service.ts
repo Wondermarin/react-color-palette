@@ -150,7 +150,7 @@ class ColorServiceStatic {
         .padStart(2, "0")
     );
 
-    return ["#", rr, gg, bb, aa === "ff" ? undefined : aa].join("");
+    return ["#", rr, gg, bb, aa === "ff" ? "" : aa].join("");
   }
 }
 
