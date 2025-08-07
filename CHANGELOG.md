@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [7.3.1](https://github.com/Wondermarin/react-color-palette/compare/v7.3.0...v7.3.1) (2025-08-07)
+
+
+### Bug Fixes
+
+* Replace `undefined` to avoid unexpected output ([#88](https://github.com/Wondermarin/react-color-palette/issues/88)) ([269b7a4](https://github.com/Wondermarin/react-color-palette/commit/269b7a412b6aeac4d358c5f3da1c7110eb3153cc))
+
 ## [7.3.0](https://github.com/Wondermarin/react-color-palette/compare/v7.2.2...v7.3.0) (2024-09-13)
 
 
