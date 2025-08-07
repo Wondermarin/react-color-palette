@@ -6,7 +6,7 @@ const config = defineConfig({
   format: ["esm", "cjs"],
   external: ["react"],
   clean: true,
-  minify: true,
+  minify: false,
   dts: "src/rcp.ts",
   banner: {
     js: `"use client"`,
