@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useState } from "react";
+import React, { memo, useCallback, useEffect, useId, useState } from "react";
 
 import { ColorService, type IColor } from "@/services/color";
 
@@ -14,6 +14,7 @@ interface IFieldsProps {
 }
 
 export const Fields = memo(({ hideInput, color, disabled, onChange, onChangeComplete }: IFieldsProps) => {
+  const id = useId();
   const [fields, setFields] = useState({
     hex: {
       value: color.hex,
@@ -89,7 +90,7 @@ export const Fields = memo(({ hideInput, color, disabled, onChange, onChangeComp
         <div className="rcp-fields-floor">
           <div className="rcp-field">
             <input
-              id="hex"
+              id={`${id}-hex`}
               className="rcp-field-input"
               readOnly={disabled}
               value={fields.hex.value}
@@ -97,7 +98,7 @@ export const Fields = memo(({ hideInput, color, disabled, onChange, onChangeComp
               onFocus={onInputFocus("hex")}
               onBlur={onInputBlur("hex")}
             />
-            <label htmlFor="hex" className="rcp-field-label">
+            <label htmlFor={`${id}-hex`} className="rcp-field-label">
               HEX
             </label>
           </div>
@@ -108,7 +109,7 @@ export const Fields = memo(({ hideInput, color, disabled, onChange, onChangeComp
           {!isFieldHide(hideInput, "rgb") && (
             <div className="rcp-field">
               <input
-                id="rgb"
+                id={`${id}-rgb`}
                 className="rcp-field-input"
                 readOnly={disabled}
                 value={fields.rgb.value}
@@ -116,7 +117,7 @@ export const Fields = memo(({ hideInput, color, disabled, onChange, onChangeComp
                 onFocus={onInputFocus("rgb")}
                 onBlur={onInputBlur("rgb")}
               />
-              <label htmlFor="rgb" className="rcp-field-label">
+              <label htmlFor={`${id}-rgb`} className="rcp-field-label">
                 RGB
               </label>
             </div>
@@ -124,7 +125,7 @@ export const Fields = memo(({ hideInput, color, disabled, onChange, onChangeComp
           {!isFieldHide(hideInput, "hsv") && (
             <div className="rcp-field">
               <input
-                id="hsv"
+                id={`${id}-hsv`}
                 className="rcp-field-input"
                 readOnly={disabled}
                 value={fields.hsv.value}
@@ -132,7 +133,7 @@ export const Fields = memo(({ hideInput, color, disabled, onChange, onChangeComp
                 onFocus={onInputFocus("hsv")}
                 onBlur={onInputBlur("hsv")}
               />
-              <label htmlFor="hsv" className="rcp-field-label">
+              <label htmlFor={`${id}-hsv`} className="rcp-field-label">
                 HSV
               </label>
             </div>
