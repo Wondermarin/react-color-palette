@@ -1,13 +1,17 @@
-import assert from "node:assert/strict";
-import { test } from "node:test";
+import assert from "assert";
 
 import { ColorService } from "@/services/color";
 
+function test(name: string, run: () => void) {
+  run();
+  process.stdout.write(`PASS ${name}\n`);
+}
+
 test("accepts complete hex colors without a leading hash", () => {
-  assert.equal(ColorService.toHex("FFFFFF"), "#FFFFFF");
-  assert.equal(ColorService.toHex("abc"), "#aabbcc");
-  assert.equal(ColorService.toHex("0f08"), "#00ff0088");
-  assert.deepEqual(ColorService.convert("hex", "11223380").rgb, {
+  assert.strictEqual(ColorService.toHex("FFFFFF"), "#FFFFFF");
+  assert.strictEqual(ColorService.toHex("abc"), "#aabbcc");
+  assert.strictEqual(ColorService.toHex("0f08"), "#00ff0088");
+  assert.deepStrictEqual(ColorService.convert("hex", "11223380").rgb, {
     r: 17,
     g: 34,
     b: 51,
@@ -16,8 +20,8 @@ test("accepts complete hex colors without a leading hash", () => {
 });
 
 test("preserves hex colors that already have a leading hash", () => {
-  assert.equal(ColorService.toHex("#FFFFFF"), "#FFFFFF");
-  assert.equal(ColorService.toHex("#0f08"), "#00ff0088");
+  assert.strictEqual(ColorService.toHex("#FFFFFF"), "#FFFFFF");
+  assert.strictEqual(ColorService.toHex("#0f08"), "#00ff0088");
 });
 
 test("keeps CSS colors and incomplete hex values on the canvas path", () => {
@@ -41,9 +45,9 @@ test("keeps CSS colors and incomplete hex values on the canvas path", () => {
   });
 
   try {
-    assert.equal(ColorService.toHex("red"), "#ff0000");
-    assert.equal(ColorService.toHex("FFFFF"), "#000000");
-    assert.equal(input, "FFFFF");
+    assert.strictEqual(ColorService.toHex("red"), "#ff0000");
+    assert.strictEqual(ColorService.toHex("FFFFF"), "#000000");
+    assert.strictEqual(input, "FFFFF");
   } finally {
     if (originalDocument) Object.defineProperty(globalThis, "document", originalDocument);
     else Reflect.deleteProperty(globalThis, "document");

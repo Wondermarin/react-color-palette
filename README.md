@@ -88,6 +88,9 @@ export function App() {
 ```
 
 ### HEX input only
+
+The HEX input accepts complete 3-, 4-, 6-, or 8-digit values with or without a leading `#`.
+
 ```tsx
 import { ColorPicker, useColor } from "react-color-palette";
 import "react-color-palette/css";

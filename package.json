@@ -55,7 +55,7 @@
     "test:lint": "eslint src/**/*.{ts,tsx}",
     "test:types": "tsc",
     "test": "pnpm test:lint && pnpm test:types && pnpm test:unit",
-    "test:unit": "tsup tests/color.service.test.ts --no-config --format esm --platform node --out-dir node_modules/.cache/rcp-tests && node node_modules/.cache/rcp-tests/color.service.test.mjs",
+    "test:unit": "tsup tests/color.service.test.ts --no-config --format cjs --platform node --out-dir node_modules/.cache/rcp-tests && node node_modules/.cache/rcp-tests/color.service.test.js",
     "prebuild": "pnpm test",
     "build": "tsup"
   },
