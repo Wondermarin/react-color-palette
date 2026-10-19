@@ -56,6 +56,10 @@ class ColorServiceStatic {
   }
 
   public toHex(value: string): IColor["hex"] {
+    if (/^(?:[0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})$/iu.test(value)) {
+      return this.toHex(`#${value}`);
+    }
+
     if (!value.startsWith("#")) {
       const ctx = document.createElement("canvas").getContext("2d");
 
